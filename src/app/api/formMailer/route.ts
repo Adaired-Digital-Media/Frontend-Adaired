@@ -14,8 +14,8 @@ const config = {
   senderName: process.env.SENDER_NAME || '"Adaired Digital" <info@adaired.com>',
   adminEmails: [
     process.env.SUPER_ADMIN_EMAIL || "",
-    // process.env.SUPPORT_EMAIL || "",
-    // process.env.SALES_ADMIN_EMAIL || "",
+    process.env.SUPPORT_EMAIL || "",
+    process.env.SALES_ADMIN_EMAIL || "",
   ],
   recaptchaSecretKey: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
 };

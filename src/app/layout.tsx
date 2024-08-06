@@ -61,9 +61,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
               "name": "AdAired Digital Media",
-              "image": "https://adaired.com/_next/static/media/Logo.441e7f4f.svg",
+              "image": "https://www.adaired.com/_next/static/media/Logo.441e7f4f.svg",
               "@id": "",
-              "url": "https://adaired.com/",
+              "url": "https://www.adaired.com/",
               "telephone": "8907400008",
               "address": {
                 "@type": "PostalAddress",
@@ -94,7 +94,7 @@ export default function RootLayout({
                 "https://twitter.com/adaireddigital",
                 "https://www.instagram.com/adaired.digital/",
                 "https://in.linkedin.com/company/adaired",
-                "https://adaired.com/"
+                "https://www.adaired.com/"
               ]
             }
           `}

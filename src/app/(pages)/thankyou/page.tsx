@@ -72,7 +72,7 @@ const Thankyou = () => {
       <div className="pb-10">
         <Image
           src={"/thankyou_img.svg"}
-          alt="Half cut wooden icons"
+          alt="Thank you"
           width={200}
           height={200}
           draggable={false}
