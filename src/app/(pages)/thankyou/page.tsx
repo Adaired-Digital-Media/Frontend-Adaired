@@ -3,9 +3,14 @@ import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Thank you",
+  description: "Thank you for reaching out to Adaired!",
+};
 
-const Thankyou= () => {
+const Thankyou = () => {
   const words = [
     {
       text: "Thanks",

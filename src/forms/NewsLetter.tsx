@@ -13,7 +13,6 @@ type Inputs = {
   Email: string;
 };
 const NewsLetter = () => {
-  // Import 'executeRecaptcha' using 'useReCaptcha' hook
   const { executeRecaptcha } = useReCaptcha();
 
   const schema = z.object({
