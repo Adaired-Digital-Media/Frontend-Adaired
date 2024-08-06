@@ -14,9 +14,8 @@ const config = {
   senderName: process.env.SENDER_NAME || '"Adaired Digital" <info@adaired.com>',
   adminEmails: [
     process.env.SUPER_ADMIN_EMAIL || "",
-    process.env.SUPPORT_EMAIL || "",
-    process.env.SALES_ADMIN_EMAIL || "",
-    // process.env.DEV_TL_EMAIL || "",
+    // process.env.SUPPORT_EMAIL || "",
+    // process.env.SALES_ADMIN_EMAIL || "",
   ],
   recaptchaSecretKey: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
 };
@@ -54,6 +53,7 @@ export async function POST(request: NextRequest) {
     const recaptchaResponse = await fetch(
       `https://www.google.com/recaptcha/api/siteverify?secret=${config.recaptchaSecretKey}&response=${payload.gRecaptchaToken}`
     ).then((res) => res.json());
+    console.log(recaptchaResponse.score, recaptchaResponse.success);
 
     if (!recaptchaResponse.success || recaptchaResponse.score < 0.5) {
       return NextResponse.json(

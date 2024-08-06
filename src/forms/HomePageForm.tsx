@@ -75,19 +75,6 @@ const HomePageForm = () => {
     },
   });
 
-  // const onSubmit = async (values: z.infer<typeof schema>) => {
-  //   const token = await executeRecaptcha("homepage_form");
-  //   if (token) {
-  //     values.gRecaptchaToken = token;
-  //     formSubmission(values);
-  //     toast({
-  //       variant: "default",
-  //       description: "Your message has been sent successfully",
-  //     });
-  //     form.reset();
-  //   }
-  // };
-
   const onSubmit = async (values: z.infer<typeof schema>) => {
     const token = await executeRecaptcha("homepage_form");
     if (token) {
