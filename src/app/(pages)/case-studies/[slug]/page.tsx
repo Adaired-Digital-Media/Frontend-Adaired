@@ -1,8 +1,8 @@
 import { Icons } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import PageBanner from "@/components/PageBanner";
-import ShadeLighter from "@/components/ShadeLighter";
-import { cn } from "@/lib/utils";
+
+import { cn, hexToHexWithOpacity } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 import parse from "html-react-parser";
@@ -126,7 +126,7 @@ const Introsection = ({
   caseStudyImage,
   colorScheme,
 }: IntrosectionProps) => {
-  const themeColor = ShadeLighter(colorScheme, 0.5);
+  const themeColor = hexToHexWithOpacity(colorScheme, 0.5);
   return (
     <section className="py-6 lg:py-12">
       <MaxWidthWrapper>
@@ -338,7 +338,7 @@ const Goalssection = ({
   objectives,
   stratergy,
 }: GoalssectionProps) => {
-  const themeColor = ShadeLighter(colorScheme, 0.5);
+  const themeColor = hexToHexWithOpacity(colorScheme, 0.5);
   const rgbaToHex = (rgba: string): string => {
     const hexValues = rgba
       .match(/\d+(?:\.\d+)?/g)
