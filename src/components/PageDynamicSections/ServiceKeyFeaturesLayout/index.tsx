@@ -62,7 +62,7 @@ const MobileSVGComponent: React.FC<KeyFeatures> = ({
   keyFeatures,
 }) => {
   return (
-    <MaxWidthWrapper className="text-center space-y-8">
+    <MaxWidthWrapper className="text-center space-y-8 ">
       <h2 className="text-2xl lg:text-[38px] leading-snug ">{title}</h2>
       <div>
         {keyFeatures.map((item: any, index: number) => (
@@ -197,75 +197,10 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({
   description,
   className,
 }) => {
-  const targetRef = useRef<HTMLDivElement | null>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-  const featureText = feature.split(" ");
-  const descriptionText = description.split(" ");
-
   return (
-    <div ref={targetRef} className={cn("relative z-0 h-fit", className)}>
-      <div
-        className={
-          "sticky top-0 mx-auto  h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[5rem]"
-        }
-      >
-        <h4
-          ref={targetRef}
-          className={
-            "flex flex-wrap p-5 text-2xl font-bold text-black/20 dark:text-white/20 md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-5xl"
-          }
-        >
-          {featureText.map((word, i) => {
-            const start = i / featureText.length;
-            const end = start + 1 / featureText.length;
-            return (
-              <Word key={i} progress={scrollYProgress} range={[start, end]}>
-                {word}
-              </Word>
-            );
-          })}
-        </h4>
-        <p
-          ref={targetRef}
-          className={
-            "flex flex-wrap p-5 text-2xl font-bold text-black/20 dark:text-white/20 md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-5xl"
-          }
-        >
-          {descriptionText.map((word, i) => {
-            const start = i / descriptionText.length;
-            const end = start + 1 / descriptionText.length;
-            return (
-              <Word key={i} progress={scrollYProgress} range={[start, end]}>
-                {word}
-              </Word>
-            );
-          })}
-        </p>
-      </div>
+    <div>
+      <h3>{feature}</h3>
+      <p>{description}</p>
     </div>
-  );
-};
-
-interface WordProps {
-  children: ReactNode;
-  progress: any;
-  range: [number, number];
-}
-
-const Word: FC<WordProps> = ({ children, progress, range }) => {
-  const opacity = useTransform(progress, range, [0, 1]);
-  return (
-    <span className="xl:lg-3 relative mx-1 lg:mx-2.5">
-      <span className={"absolute opacity-30"}>{children}</span>
-      <motion.span
-        style={{ opacity: opacity }}
-        className={"text-black dark:text-white"}
-      >
-        {children}
-      </motion.span>
-    </span>
   );
 };

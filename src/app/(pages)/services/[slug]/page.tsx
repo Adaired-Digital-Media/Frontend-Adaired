@@ -17,6 +17,7 @@ import ImageWithIconbox from "@/components/PageDynamicSections/ImageWithIconboxS
 import KeyFeatureListLayout from "@/components/PageDynamicSections/KeyFeatureListLayout";
 import GridSection from "@/components/PageDynamicSections/GridSection";
 import ServiceKeyFeaturesLayout from "@/components/PageDynamicSections/ServiceKeyFeaturesLayout";
+import { redirect } from "next/navigation";
 
 const fetchservice = async (slug: string) => {
   const result = await fetch(
@@ -65,25 +66,27 @@ interface ServiceProps {
 
 const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
   const fetchedService = await fetchservice(params.slug);
+  if (!fetchedService.serviceName) {
+    redirect("/not-found");
+  }
   const { bodyData } = fetchedService;
-
-  // if (!fetchedService) {
-  //   return <div>Service not found</div>; // Return 404 page if service not found in API
-  // }
 
   return (
     <>
       <PageBanner title={fetchedService.serviceName} />
-      <div className="space-y-14 pb-20">
+      <div className="space-y-24 pb-20">
         <MaxWidthWrapper>
           <div className="flex justify-between gap-10 mt-12">
             <div className="w-full xl:w-[70%]">
               <TwoColumnFeatureSection
                 colorScheme={fetchedService.colorScheme}
-                data={bodyData.find(
-                  (data: any) =>
-                    data.componentName === "TwoColumnFeatureSection"
-                )}
+                data={
+                  bodyData &&
+                  bodyData.find(
+                    (data: any) =>
+                      data.componentName === "TwoColumnFeatureSection"
+                  )
+                }
               />
             </div>
             <aside className="hidden xl:block w-[30%] ">

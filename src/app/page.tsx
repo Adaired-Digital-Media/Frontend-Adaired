@@ -509,90 +509,88 @@ const ContactUs = () => {
   return (
     <>
       <section className="pt-6 sm:pt-12">
-        <div className="bg-[#ECECEC] pt-4 lg:pt-0 lg:bg-white">
-          <MaxWidthWrapper className="flex">
-            <div className="flex-1">
-              <h2 className="text-[1.688rem] md:text-4xl py-2">
-                Ready To Win More Customers?{" "}
-              </h2>
-              <p className="py-2 text-base sm:text-lg">
+        <div className="bg-[#f8f8f8] pt-4 lg:pt-0 lg:bg-white">
+          <MaxWidthWrapper>
+            <h2 className="py-2 text-4xl md:text-5xl lg:text-6xl xl:text-7xl lg:max-w-xl">
+              Ready To Win More Customers?{" "}
+            </h2>
+          </MaxWidthWrapper>
+        </div>
+        <div className="bg-[#f8f8f8] md:pb-4 pb-8">
+          <MaxWidthWrapper className="flex pb-6 lg:py-6 flex-col gap-10 lg:flex-row">
+            <div className="flex-1 space-y-5">
+              <p className="py-2 text-lg sm:text-xl md:text-2xl text-[#515151]">
                 Connect for more website traffic, qualified leads, and an
                 established online brand image.
               </p>
-            </div>
-            <div className="hidden lg:block flex-1" />
-          </MaxWidthWrapper>
-        </div>
-        <div className="md:pb-10 bg-[#ECECEC] pb-16 ">
-          <MaxWidthWrapper className="flex py-6 flex-col gap-10 lg:flex-row">
-            <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-1  gap-2 flex-1 items-center">
-              <div className=" p-3 sm:p-6 bg-white sm:max-w-[500px] rounded-lg ">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 items-center space-y-6">
                 <Link
                   href="mailto:info@adaired.com"
-                  className="flex flex-row sm:flex-col lg:flex-row bg-white gap-4 items-center  "
+                  className="flex flex-row sm:flex-col lg:flex-row gap-4 items-center  "
                 >
-                  <Icons.Mail className="border p-2 rounded h-14 w-14 sm:h-16 sm:w-16 text-[#1B5A96]" />
-                  <div>
-                    <p className="text-base text-left sm:text-center lg:text-left lg:text-lg">
-                      Email Support
-                    </p>
-                    <p className="font-semibold text-lg text-left sm:text-center lg:text-left  lg:text-2xl">
-                      info@adaired.com
-                    </p>
-                  </div>
+                  <Image
+                    src={"/assets/images/gmail.svg"}
+                    height={40}
+                    width={40}
+                    alt="Gmail Logo"
+                  />
+
+                  <p className="font-semibold text-lg text-left sm:text-center lg:text-left  lg:text-2xl">
+                    info@adaired.com
+                  </p>
                 </Link>
-              </div>
-              <div className=" p-3 sm:p-6 bg-white sm:max-w-[500px] rounded-lg ">
+
                 <Link
                   href="skype:live:.cid.46cf67c456a5bb0c?chat"
-                  className="flex flex-row sm:flex-col lg:flex-row bg-white gap-4 items-center  "
+                  className="flex flex-row sm:flex-col lg:flex-row gap-4 items-center  "
                 >
-                  <Icons.Skype className="border p-2 rounded h-14 w-14 sm:h-16 sm:w-16 text-[#1B5A96]" />
-                  <div>
-                    <p className="text-base text-left sm:text-center lg:text-left lg:text-lg">
-                      Ready for a Skype chat?
-                    </p>
-                    <p className="font-semibold text-lg text-left sm:text-center lg:text-left  lg:text-2xl">
-                      Adaired Digital
-                    </p>
-                  </div>
+                  <Image
+                    src={"/assets/images/skype.svg"}
+                    height={40}
+                    width={40}
+                    alt="Skype Logo"
+                  />
+
+                  <p className="font-semibold text-lg text-left sm:text-center lg:text-left  lg:text-2xl">
+                    Adaired Digital
+                  </p>
                 </Link>
-              </div>
-              <div className=" p-3 sm:p-6 bg-white sm:max-w-[500px] rounded-lg ">
+
                 <Link
                   href="https://api.whatsapp.com/send?phone=918907400008"
-                  className="flex flex-row sm:flex-col lg:flex-row bg-white gap-4 items-center  "
+                  className="flex flex-row sm:flex-col lg:flex-row gap-4 items-center  "
                 >
-                  <Icons.Whatsapp className="border p-2 rounded h-14 w-14 sm:h-16 sm:w-16 text-[#1B5A96]" />
-                  <div>
-                    <p className="text-base text-left sm:text-center lg:text-left lg:text-lg">
-                      WhatsApp us your queries
-                    </p>
-                    <p className="font-semibold text-lg text-left sm:text-center lg:text-left  lg:text-2xl">
-                      +91 890-740-0008
-                    </p>
-                  </div>
+                  <Image
+                    src={"/assets/images/whatsapp.svg"}
+                    height={40}
+                    width={40}
+                    alt="Whatsapp Logo"
+                  />
+
+                  <p className="font-semibold text-lg text-left sm:text-center lg:text-left  lg:text-2xl">
+                    +91 890-740-0008
+                  </p>
                 </Link>
-              </div>
-              <div className=" p-3 sm:p-6 bg-white sm:max-w-[500px] rounded-lg ">
+
                 <Link
                   href="https://telegram.me/adaired"
-                  className="flex flex-row sm:flex-col lg:flex-row bg-white gap-4 items-center  "
+                  className="flex flex-row sm:flex-col lg:flex-row gap-4 items-center "
                 >
-                  <Icons.Telegram className="border p-2 rounded h-14 w-14 sm:h-16 sm:w-16 text-[#1B5A96]" />
-                  <div>
-                    <p className="text-base text-left sm:text-center lg:text-left lg:text-lg">
-                      Drop us a Telegram note
-                    </p>
-                    <p className="font-semibold text-lg text-left sm:text-center lg:text-left  lg:text-2xl">
-                      Adaired Digital Media
-                    </p>
-                  </div>
+                  <Image
+                    src={"/assets/images/telegram.svg"}
+                    height={40}
+                    width={40}
+                    alt="Telegram Logo"
+                  />
+
+                  <p className="font-semibold text-lg text-left sm:text-center lg:text-left  lg:text-2xl">
+                    Adaired Digital Media
+                  </p>
                 </Link>
               </div>
             </div>
             <div className="flex-1 lg:relative">
-              <div className=" rounded-lg border-4 border-[#EFEFEF] lg:-mt-32 w-full ">
+              <div className=" rounded-lg border-4 border-[#f8f8f8] lg:-mt-44 w-full ">
                 <HomePageForm />
               </div>
             </div>

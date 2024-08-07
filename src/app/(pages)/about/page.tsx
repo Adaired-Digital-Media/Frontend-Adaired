@@ -151,7 +151,7 @@ export const ProcessSection = () => {
 
       <MaxWidthWrapper className="hidden lg:block xl:max-w-[1440px] lg:max-w-screen-lg">
         <div className="relative min-h-[28rem]">
-          <div className="flex flex-col justify-center absolute lg:min-h-40 bottom-[-5%] xl:bottom-0 left-0 xl:left-[5%] 2xl:left-0 2xl:max-w-sm xl:max-w-72 lg:max-w-72 max-w-56 break-words border text-center p-3">
+          <div className="flex flex-col justify-center absolute lg:min-h-40 bottom-[-5%] xl:bottom-0 left-0 xl:left-[5%] 2xl:left-0 2xl:max-w-sm xl:max-w-72 lg:max-w-72 max-w-56 break-words border text-center p-3 cursor-pointer work-process_1">
             <h3>Discovery and Planning</h3>
             <p className="text-base">
               Research the business&apos;s landscape, target audience, and
@@ -159,7 +159,7 @@ export const ProcessSection = () => {
               for success.
             </p>
           </div>
-          <div className="flex flex-col justify-center absolute lg:min-h-40 left-11 xl:left-[12%] 2xl:left-[6%] bottom-16 xl:bottom-1/4 -translate-y-1/2 2xl:max-w-sm xl:max-w-72 lg:max-w-72 max-w-64 border text-center p-3">
+          <div className="flex flex-col justify-center absolute lg:min-h-40 left-11 xl:left-[12%] 2xl:left-[6%] bottom-16 xl:bottom-1/4 -translate-y-1/2 2xl:max-w-sm xl:max-w-72 lg:max-w-72 max-w-64 border text-center p-3 work-process__icon_1">
             <h3>Strategic Execution</h3>
             <p className="text-base">
               Seamlessly execute tailored strategies to elevate your brand and
@@ -190,7 +190,7 @@ export const ProcessSection = () => {
           </div>
 
           <div className="absolute left-1/2 -translate-x-1/2 bottom-[-3.5rem] w-full max-w-xs lg:max-w-md xl:max-w-xl l">
-            <Icons.WorkProcess className="h-full w-full " />
+            <Icons.WorkProcess className="h-full w-full" />
           </div>
         </div>
       </MaxWidthWrapper>

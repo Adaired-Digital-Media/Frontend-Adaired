@@ -15,7 +15,7 @@ export const NAV_ITEMS = [
     href: "#",
     subItems: [
       {
-        name: "Web Designing & Development",
+        name: "Web Design & Development",
         href: "/services/web-designing-and-development",
         subItems: [
           {
@@ -42,7 +42,7 @@ export const NAV_ITEMS = [
             name: "Laravel Development",
             href: "/services/laravel-development",
           },
-        ], 
+        ],
       },
       {
         name: "Search Engine Optimization (SEO)",
@@ -114,7 +114,7 @@ export const NAV_ITEMS = [
         ],
       },
       {
-        name: "Compelling Content Marketing",
+        name: "Content Marketing",
         href: "/services/compelling-content-marketing",
         subItems: [
           {
@@ -152,7 +152,7 @@ export const NAV_ITEMS = [
         ],
       },
       {
-        name: "Digital Creative & Logo Design",
+        name: "Graphic Design",
         href: "/services/digital-creative-and-logo-design",
         subItems: [
           {
