@@ -1,13 +1,65 @@
+"use client";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
 import Link from "next/link";
 import NavItems from "./NavItems";
 import MobileNav from "./MobileNav";
 import Topbar from "./Topbar";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
+  const [isWindowScrollingUp, setIsWindowScrollingUp] = useState(true);
+  console.log(isWindowScrollingUp);
+  const [isScreenScrolled, setIsScreenScrolled] = useState(false);
+
+  useEffect(() => {
+    console.log("useEffect");
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        setIsScreenScrolled(true);
+      } else {
+        setIsScreenScrolled(false);
+      }
+    });
+  });
+
+  useEffect(() => {
+    let lastScrollTop = 0;
+    let ticking = false;
+
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScreenScrolled(scrollTop > 0);
+          setIsWindowScrollingUp(scrollTop < lastScrollTop);
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <section className="transition-all">
+    <section
+      className={cn(
+        `transition-all duration-300 sticky top-0 z-[100]`,
+        isScreenScrolled
+          ? "bg-white shadow-md scale-y-100 origin-top"
+          : "bg-transparent",
+        isWindowScrollingUp ? "scale-y-100 origin-top" : "scale-y-0 origin-top"
+      )}
+    >
       <Topbar />
       <div className="bg-white sticky z-50 top-0 inset-x-0 h-16 lg:h-20">
         <header className="relative bg-white flex items-center">
