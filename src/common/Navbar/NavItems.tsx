@@ -26,6 +26,7 @@ const NavItems = () => {
           <NavItem
             navitems={item}
             key={item.value}
+            index={activeIndex}
             activeIndex={() => setActive(index)}
           />
         );
