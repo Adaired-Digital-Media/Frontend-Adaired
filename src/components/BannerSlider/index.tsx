@@ -1,8 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import BackgroundImage, { Data } from "./BackgroundImage";
-import Link from "next/link";
+import MaxWidthWrapper from "../MaxWidthWrapper";
+import BoxReveal from "../magicui/BoxReveal";
+import Button from "../Button";
 
 type Props = {};
 
@@ -17,13 +19,43 @@ const BannerSlider = (props: Props) => {
 
     return () => clearInterval(interval);
   }, [data.length]);
+
   return (
-    <AnimatePresence initial={false}>
-      <div className="relative min-h-[400px] md:min-h-[500px] lg:min-h-[90dvh]">
+    <AnimatePresence>
+      <div className="relative min-h-[400px] md:min-h-[500px] lg:min-h-[90dvh] flex items-end p-28 ">
         <BackgroundImage
           currentData={data[currentIndex]}
           nextData={data[(currentIndex + 1) % data.length]}
         />
+        <MaxWidthWrapper className="overflow-hidden text-white ">
+          <BoxReveal
+            boxColor={"#5046e6"}
+            duration={0.5}
+            key={data[currentIndex].subHead} // Key prop to restart effect on title change
+          >
+            <h4 className="z-[200] text-xl max-w-96">
+              {data[currentIndex].subHead}
+            </h4>
+          </BoxReveal>
+          <BoxReveal
+            boxColor={"#5046e6"}
+            duration={0.5}
+            key={data[currentIndex].title} // Key prop to restart effect on title change
+          >
+            <h1 className="z-[200] text-6xl max-w-2xl">
+              {data[currentIndex].title}
+            </h1>
+          </BoxReveal>
+          <BoxReveal boxColor={"#5046e6"} duration={0.5}>
+            <Button
+              title="Request a callback"
+              className="bg-white text-black mt-5"
+              svgClassName="bg-[#F89520] right-2.5 group-hover/btn:right-[11rem] "
+              type="button"
+              navigateTo="/about"
+            />
+          </BoxReveal>
+        </MaxWidthWrapper>
       </div>
     </AnimatePresence>
   );

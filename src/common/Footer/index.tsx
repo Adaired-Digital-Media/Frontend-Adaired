@@ -82,7 +82,7 @@ const Footer = () => {
                 priority
               />
             </Link>
-            <p className="mt-6">
+            <p className="mt-6 ">
               AdAired Digital Media is a digital marketing company located in
               Mohali. We are a team of marketing and design experts who are
               committed to your online growth.{" "}

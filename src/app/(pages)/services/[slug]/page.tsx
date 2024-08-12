@@ -124,15 +124,15 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
                   />
                 </MaxWidthWrapper>
               );
-            case "OurProcessLayout":
-              return (
-                <MaxWidthWrapper key={data.componentName}>
-                  <ProcessSection
-                    colorScheme={fetchedService.colorScheme}
-                    data={data.body}
-                  />
-                </MaxWidthWrapper>
-              );
+            // case "OurProcessLayout":
+            //   return (
+            //     <MaxWidthWrapper key={data.componentName}>
+            //       <ProcessSection
+            //         colorScheme={fetchedService.colorScheme}
+            //         data={data.body}
+            //       />
+            //     </MaxWidthWrapper>
+            //   );
             case "FAQ":
               return (
                 <MaxWidthWrapper key={data.componentName}>

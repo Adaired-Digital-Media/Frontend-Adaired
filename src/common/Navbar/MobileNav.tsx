@@ -138,7 +138,7 @@ const MobileNav = () => {
           //     initial="hide"
           //     animate="show"
           //     exit="hide"
-          //     className="fixed inset-0 bg-white text-black p-6 flex flex-col  space-y-10 lg:hidden"
+          //     className="fixed inset-0 bg-white text-black p-6 flex flex-col  space-y-10 lg:hidden z-[110]"
           //   >
           //     <motion.ul
           //       variants={{
