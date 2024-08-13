@@ -29,7 +29,7 @@ const ImageWithIconbox = ({ colorScheme, data }: ImageWithIconboxProps) => {
           <h2 className={`text-2xl lg:text-[38px] leading-snug font-nunito font-semibold`}>
             {data.title}
           </h2>
-          <div>
+          <div className="space-y-6">
             {data.cards.map((card: any) => (
               <div key={card.title} className="flex items-center gap-5">
                 <div>

@@ -236,14 +236,14 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
           <div className="space-y-10">
             <Box
               ref={mobileDiv1Ref}
-              className="justify-center box1 text-base"
+              className="text-center justify-center box1 text-base"
               colorScheme={colorScheme}
             >
               {body.point_1}
             </Box>
             <Box
               ref={mobileDiv4Ref}
-              className="justify-center box2 text-base"
+              className="text-center justify-center box2 text-base"
               colorScheme={colorScheme}
             >
               {body.point_2}
@@ -266,14 +266,14 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
           <div className="space-y-10">
             <Box
               ref={mobileDiv2Ref}
-              className="justify-center box3 text-base"
+              className="text-center justify-center box3 text-base"
               colorScheme={colorScheme}
             >
               {body.point_3}
             </Box>
             <Box
               ref={mobileDiv5Ref}
-              className="justify-cengter box4 text-base"
+              className="text-center justify-cengter box4 text-base"
               colorScheme={colorScheme}
             >
               {body.point_4}
