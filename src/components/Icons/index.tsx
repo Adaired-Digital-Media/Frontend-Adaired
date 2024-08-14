@@ -53,7 +53,8 @@ export const Icons = {
           <animate
             fill="freeze"
             attributeName="stroke-dashoffset"
-            dur="0.4s"
+            begin="0.5s"
+            dur="0.5s"
             values="24;0"
           ></animate>
         </path>
@@ -62,7 +63,7 @@ export const Icons = {
             fill="freeze"
             attributeName="stroke-dashoffset"
             begin="0.5s"
-            dur="0.2s"
+            dur="0.5s"
             values="12;0"
           ></animate>
         </path>
@@ -92,6 +93,7 @@ export const Icons = {
           <animate
             fill="freeze"
             attributeName="stroke-dashoffset"
+            begin="1.5s"
             dur="0.6s"
             values="66;132"
           ></animate>
@@ -104,7 +106,7 @@ export const Icons = {
           <animate
             fill="freeze"
             attributeName="stroke-dashoffset"
-            begin="0.7s"
+            begin="1.5s"
             dur="0.4s"
             values="26;0"
           ></animate>
@@ -114,7 +116,7 @@ export const Icons = {
         <animate
           fill="freeze"
           attributeName="fill-opacity"
-          begin="1.1s"
+          begin="1.5s"
           dur="0.4s"
           values="0;1"
         ></animate>
@@ -134,6 +136,7 @@ export const Icons = {
           <animate
             fill="freeze"
             attributeName="d"
+            begin="2.2s"
             dur="0.4s"
             values="M1 2h2.5L3.5 2h-2.5z;M1 2h2.5L18.5 22h-2.5z"
           ></animate>
@@ -142,36 +145,37 @@ export const Icons = {
           <animate
             fill="freeze"
             attributeName="d"
+            begin="2.2s"
             dur="0.4s"
             values="M5.5 2h2.5L7.2 2h-2.5z;M5.5 2h2.5L23 22h-2.5z"
           ></animate>
         </path>
         <path d="M3 2h5v0h-5z" opacity={0}>
-          <set attributeName="opacity" begin="0.4s" to={1}></set>
+          <set attributeName="opacity" begin="2.2s" to={1}></set>
           <animate
             fill="freeze"
             attributeName="d"
-            begin="0.4s"
+            begin="2.2s"
             dur="0.4s"
             values="M3 2h5v0h-5z;M3 2h5v2h-5z"
           ></animate>
         </path>
         <path d="M16 22h5v0h-5z" opacity={0}>
-          <set attributeName="opacity" begin="0.4s" to={1}></set>
+          <set attributeName="opacity" begin="2.2s" to={1}></set>
           <animate
             fill="freeze"
             attributeName="d"
-            begin="0.4s"
+            begin="2.2s"
             dur="0.4s"
             values="M16 22h5v0h-5z;M16 22h5v-2h-5z"
           ></animate>
         </path>
         <path d="M18.5 2h3.5L22 2h-3.5z" opacity={0}>
-          <set attributeName="opacity" begin="0.5s" to={1}></set>
+          <set attributeName="opacity" begin="2.2s" to={1}></set>
           <animate
             fill="freeze"
             attributeName="d"
-            begin="0.5s"
+            begin="2.2s"
             dur="0.4s"
             values="M18.5 2h3.5L22 2h-3.5z;M18.5 2h3.5L5 22h-3.5z"
           ></animate>
