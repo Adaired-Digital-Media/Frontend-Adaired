@@ -62,7 +62,7 @@ const BannerSlider = (props: Props) => {
         <div className="absolute inset-0 h-full w-full bg-black opacity-35">
           {/* Overlay */}
         </div>
-        <div className="absolute top-1/2 right-0 2xl:right-unset 2xl:left-4 3xl:left-10 4xl:left-24 transform -translate-y-1/2 text-white hidden 2xl:flex flex-col items-center justify-center space-y-10 transition-all duration-300">
+        {/* <div className="absolute top-1/2 right-0 2xl:right-unset 2xl:left-4 3xl:left-10 4xl:left-24 transform -translate-y-1/2 text-white hidden 2xl:flex flex-col items-center justify-center space-y-10 transition-all duration-300">
           <svg width="2" height="200" xmlns="http://www.w3.org/2000/svg">
             <line
               id="line1"
@@ -104,7 +104,7 @@ const BannerSlider = (props: Props) => {
               strokeWidth="2"
             />
           </svg>
-        </div>
+        </div> */}
         <MaxWidthWrapper className="text-white z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
           <BoxReveal
             boxColor={"#5046e6"}
