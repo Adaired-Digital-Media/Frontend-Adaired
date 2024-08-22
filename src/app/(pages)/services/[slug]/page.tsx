@@ -74,7 +74,7 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
   return (
     <>
       <PageBanner title={fetchedService.serviceName} />
-      <div className="space-y-24 pb-20">
+      <div className="space-y-12 md:space-y-24 pb-20">
         <MaxWidthWrapper>
           <div className="flex justify-between gap-10 mt-12">
             <div className="w-full xl:w-[70%]">
@@ -124,15 +124,15 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
                   />
                 </MaxWidthWrapper>
               );
-            case "OurProcessLayout":
-              return (
-                <MaxWidthWrapper key={data.componentName}>
-                  <ProcessSection
-                    colorScheme={fetchedService.colorScheme}
-                    data={data.body}
-                  />
-                </MaxWidthWrapper>
-              );
+            // case "OurProcessLayout":
+            //   return (
+            //     <MaxWidthWrapper key={data.componentName}>
+            //       <ProcessSection
+            //         colorScheme={fetchedService.colorScheme}
+            //         data={data.body}
+            //       />
+            //     </MaxWidthWrapper>
+            //   );
             case "FAQ":
               return (
                 <MaxWidthWrapper key={data.componentName}>

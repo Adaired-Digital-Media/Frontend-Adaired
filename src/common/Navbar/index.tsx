@@ -11,11 +11,9 @@ import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isWindowScrollingUp, setIsWindowScrollingUp] = useState(true);
-  console.log(isWindowScrollingUp);
   const [isScreenScrolled, setIsScreenScrolled] = useState(false);
 
   useEffect(() => {
-    console.log("useEffect");
     document.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
         setIsScreenScrolled(true);

@@ -70,7 +70,7 @@ const ManageGrid = () => {
             <Icons.NimbusMarketing className="text-white h-14 w-14 bg-[#8EC640] p-2 rounded-full" />
           </div>
 
-          <p className="text-xl md:text-2xl max-w-[900px]">
+          <p className="text-base sm:text-xl md:text-2xl max-w-[900px]">
             We work with businesses that want to engage better, dominate SERPs,
             and achieve more than just website traffic.
           </p>

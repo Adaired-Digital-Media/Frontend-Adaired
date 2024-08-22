@@ -105,3 +105,6 @@ h6 {
   scrollbar-width: none; /* Firefox */
 }
 
+.grecaptcha-badge {
+  z-index: 99999;
+}

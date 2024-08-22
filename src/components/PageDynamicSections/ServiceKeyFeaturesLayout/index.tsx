@@ -2,9 +2,7 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { cn, hexToHexWithOpacity } from "@/lib/utils";
 import React from "react";
-import { FC, ReactNode, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-
+import { FC, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -19,6 +17,7 @@ const ServiceKeyFeaturesLayout = ({
   data,
 }: ServiceKeyFeaturesLayoutProps) => {
   const bgColor = hexToHexWithOpacity(colorScheme, 0.04);
+
   return (
     <section className="py-16 service_features">
       <style jsx>{`
@@ -33,7 +32,7 @@ const ServiceKeyFeaturesLayout = ({
           colorScheme={colorScheme}
         />
       </div>
-      <div className=" lg:hidden">
+      <div className="lg:hidden">
         <MobileSVGComponent
           title={data.title}
           keyFeatures={data.keyFeatures}
@@ -61,17 +60,65 @@ const MobileSVGComponent: React.FC<KeyFeatures> = ({
   title,
   keyFeatures,
 }) => {
+  const featureRefs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    featureRefs.current.forEach((featureRef, index) => {
+      if (featureRef) {
+        gsap.fromTo(
+          featureRef,
+          { opacity: 0, x: -150 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            scrollTrigger: {
+              trigger: featureRef,
+              start: "top 80%", // start animation when the top of the element is 80% from the top of the viewport
+              end: "bottom 20%", // end animation when the bottom of the element is 20% from the top of the viewport
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+    });
+  }, []);
   return (
-    <MaxWidthWrapper className="text-center space-y-8 ">
+    <MaxWidthWrapper className="space-y-8">
       <h2 className="text-2xl lg:text-[38px] leading-snug ">{title}</h2>
-      <div>
+      <div className="space-y-2">
         {keyFeatures.map((item: any, index: number) => (
-          <div key={index}>
-            <div>
-              <TextRevealByWord
-                feature={item.feature}
-                description={item.description}
-              />
+          <div
+            className=" w-full relative"
+            key={index}
+            ref={(el) => {
+              featureRefs.current[index] = el!;
+            }}
+          >
+            <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-100 to-teal-50 transform scale-[0.80] bg-red-100 rounded-full blur-3xl" />
+            <div className="relative shadow-xl px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+              <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="h-2 w-2 text-black"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+                  />
+                </svg>
+              </div>
+              <h3 className="font-bold text-lg mb-4 font-nunito">
+                {item.feature}
+              </h3>
+              <p className="font-normal text-base text-slate-500 mb-4">
+                {item.description}
+              </p>
             </div>
           </div>
         ))}
@@ -183,24 +230,5 @@ const SVGContainer: React.FC<KeyFeatures> = ({
         ))}
       </div>
     </MaxWidthWrapper>
-  );
-};
-
-interface TextRevealByWordProps {
-  feature: string;
-  description: string;
-  className?: string;
-}
-
-export const TextRevealByWord: FC<TextRevealByWordProps> = ({
-  feature,
-  description,
-  className,
-}) => {
-  return (
-    <div>
-      <h3>{feature}</h3>
-      <p>{description}</p>
-    </div>
   );
 };

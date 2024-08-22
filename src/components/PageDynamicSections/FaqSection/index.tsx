@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
+import parse from "html-react-parser";
 
 type FAQ = {
   question: string;
@@ -29,14 +30,14 @@ const FaqSection: React.FC<FaqSectionProps> = ({ faqs }) => {
               key={faq.question}
               value={faq.question}
               className={cn(
-                `data-[state=open]:bg-[#F8F8F8] md:p-6 data-[state=open]:rounded-lg data-[state=open]:border-b-0`
+                `data-[state=open]:bg-[#F8F8F8] data-[state=open]:p-3 data-[state=open]:md:p-6 md:p-6 data-[state=open]:rounded-lg data-[state=open]:border-b-0 transition-all duration-300 ease-in-out`,
               )}
             >
-              <AccordionTrigger className="font-bold text-lg md:text-xl hover:no-underline text-left">
+              <AccordionTrigger className="font-semibold sm:font-bold text-lg md:text-xl hover:no-underline text-left">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent>
-                <div dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
+                <div>{parse(faq.answer)}</div>
               </AccordionContent>
             </AccordionItem>
           );

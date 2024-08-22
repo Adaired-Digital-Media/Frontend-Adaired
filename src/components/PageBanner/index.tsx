@@ -16,7 +16,7 @@ const PageBanner = ({ title }: { title: string }) => {
           }}
           className="relative flex flex-col gap-4 items-start justify-center "
         >
-          <h1 className="text-4xl md:text-6xl ">{title}</h1>
+          <h2 className="text-4xl md:text-6xl ">{title}</h2>
         </motion.div>
       </MaxWidthWrapper>
     </AuroraBackground>

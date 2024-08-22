@@ -18,7 +18,7 @@ const Box = forwardRef<
     <div
       ref={ref}
       className={cn(
-        " z-10 flex items-center justify-center border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] lg:min-w-[38rem] rounded-lg",
+        " z-[1] flex items-center justify-center border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] xl:min-w-[38rem] rounded-lg",
         className
       )}
       style={style}
@@ -140,14 +140,14 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
   return (
     <>
       <div
-        className="hidden lg:flex relative h-[200px] w-full items-center justify-center overflow-hidden "
+        className="hidden lg:flex relative h-auto w-full items-center justify-center overflow-hidden "
         ref={containerRef}
       >
         <div className="flex size-full flex-col  items-stretch justify-between">
           <div className="flex flex-row items-center justify-between">
             <Box
               ref={div1Ref}
-              className="justify-end box1"
+              className="justify-end box1 text-sm xl:text-lg lg:min-w-[30rem]"
               colorScheme={colorScheme}
             >
               {body.point_1}
@@ -155,7 +155,7 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
             </Box>
             <Box
               ref={div4Ref}
-              className="justify-start box2"
+              className="justify-start box2 text-sm xl:text-lg lg:min-w-[30rem]" 
               colorScheme={colorScheme}
             >
               <Icons.PinkArrowMarker className="mr-1 " />
@@ -179,7 +179,7 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
           <div className="flex flex-row items-center justify-between">
             <Box
               ref={div2Ref}
-              className="justify-end box3"
+              className="justify-end box3 text-sm xl:text-lg lg:min-w-[30rem]"
               colorScheme={colorScheme}
             >
               {body.point_3}
@@ -187,7 +187,7 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
             </Box>
             <Box
               ref={div5Ref}
-              className="justify-start box4"
+              className="justify-start box4 text-sm xl:text-lg lg:min-w-[30rem]"
               colorScheme={colorScheme}
             >
               <Icons.PinkArrowMarker className="mr-1 " />
@@ -236,14 +236,14 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
           <div className="space-y-10">
             <Box
               ref={mobileDiv1Ref}
-              className="justify-center box1"
+              className="text-center justify-center box1 text-base"
               colorScheme={colorScheme}
             >
               {body.point_1}
             </Box>
             <Box
               ref={mobileDiv4Ref}
-              className="justify-center box2"
+              className="text-center justify-center box2 text-base"
               colorScheme={colorScheme}
             >
               {body.point_2}
@@ -266,14 +266,14 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
           <div className="space-y-10">
             <Box
               ref={mobileDiv2Ref}
-              className="justify-center box3"
+              className="text-center justify-center box3 text-base"
               colorScheme={colorScheme}
             >
               {body.point_3}
             </Box>
             <Box
               ref={mobileDiv5Ref}
-              className="justify-cengter box4"
+              className="text-center justify-cengter box4 text-base"
               colorScheme={colorScheme}
             >
               {body.point_4}
