@@ -1,3 +1,4 @@
+import "./globals.css";
 import { cn } from "@/lib/utils";
 import {
   Nunito_Sans,
@@ -6,7 +7,6 @@ import {
   Poppins,
 } from "next/font/google";
 import Script from "next/script";
-import "./globals.css";
 import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "@/components/ui/toaster";
 
