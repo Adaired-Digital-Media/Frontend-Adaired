@@ -72,6 +72,11 @@ const Blog: React.FC<BlogProps> = async ({ params }) => {
           additionalClasses += " text-2xl md:text-3xl";
         }
 
+        // If the tag is h3, add specific classes
+        if (domNode.tagName === "h3") {
+          additionalClasses += " text-xl md:text-2xl";
+        }
+
         // If the tag is ol, add specific classes
         if (domNode.tagName === "ol") {
           additionalClasses += " p-4 ml-2 list-decimal";
