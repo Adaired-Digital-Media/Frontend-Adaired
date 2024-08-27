@@ -9,15 +9,14 @@ export const metadata: Metadata = {
   title: "Read Our Blog for Helpful Tips and Ideas | Adaired",
   description:
     "Get easy-to-understand tips and new ideas from Adaired’s blogs. From practical tips to interesting ideas, there is something for everyone. Start exploring today!",
-    alternates: {
-      canonical: "https://www.adaired.com/blog",
-    },
-  
+  alternates: {
+    canonical: "https://www.adaired.com/blog",
+  },
 };
 
 async function getBlogs() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_OLD_API_URI}/api/v1/blog/findBlog`
+    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/blog/readBlog`
   );
   const data = await res.json();
   return data;
@@ -32,7 +31,7 @@ const Blog = async () => {
       <MaxWidthWrapper className="py-6 lg:py-12">
         <div className="flex flex-col xl:flex-row gap-10">
           <div className="xl:w-[70%]">
-            <BlogWPagination data={data.result} />
+            <BlogWPagination data={data} />
           </div>
 
           <aside className="xl:w-[30%] relative mt-10">

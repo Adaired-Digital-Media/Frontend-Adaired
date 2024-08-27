@@ -3,7 +3,7 @@ import Link from "next/link";
 
 async function getBlogs() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_OLD_API_URI}/api/v1/blog/findBlog`
+    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/blog/readBlog`
   );
   const data = await res.json();
   return data;
@@ -11,7 +11,7 @@ async function getBlogs() {
 
 const PopularPosts = async () => {
   const data = await getBlogs();
-  const blogs = data.result.slice(0, 5);
+  const blogs = data.reverse().slice(0, 5);
   return (
     <>
       <div className="border p-5 ">
@@ -30,7 +30,7 @@ const PopularPosts = async () => {
               >
                 <div className="shrink-0">
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_IMAGE_URL}blog/${blog.image}`}
+                    src={blog.featuredImage}
                     alt="Image"
                     height={100}
                     width={100}
@@ -40,7 +40,7 @@ const PopularPosts = async () => {
                 <div>
                   <h3 className="relative py-2 font-nunito text-base">
                     <div className="absolute bottom-1 left-1/2 -translate-x-1/2 md:translate-x-0  md:left-0 bg-[#A7A9AC] h-0.5 w-16 rounded-lg"></div>
-                    {blog.title}
+                    {blog.postTitle}
                   </h3>
                   {/* <p className="text-sm line-clamp-2">{blog.description}</p> */}
                 </div>

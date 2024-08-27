@@ -108,3 +108,10 @@ h6 {
 .grecaptcha-badge {
   z-index: 99999;
 }
+
+.default-list {
+  list-style: initial !important;
+  margin: initial !important;
+  padding: initial !important;
+}
+
