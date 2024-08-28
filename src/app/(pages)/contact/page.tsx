@@ -85,6 +85,9 @@ const ContactDetails = () => {
             <Link href="tel:+1 (205) 273-6006" className="block font-semibold">
               +1 (205) 273-6006
             </Link>
+            <Link href="tel:+91-8907200008" className="block font-semibold">
+              +91-8907200008
+            </Link>
             <Link href="tel:+91-8907400008" className="block font-semibold">
               +91-8907400008
             </Link>

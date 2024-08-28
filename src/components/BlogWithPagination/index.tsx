@@ -1,7 +1,7 @@
 "use client";
 import { FC, useState, useMemo } from "react";
 import Image from "next/image";
-import { ClientRemoveTags, cn, formatDate } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import Button from "@/components/Button";
 import {
   Card,

@@ -16,7 +16,10 @@ export const metadata: Metadata = {
 
 async function getBlogs() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/blog/readBlog`
+    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/blog/readBlog`,
+    {
+      cache: "no-store",
+    }
   );
   const data = await res.json();
   return data;
@@ -28,6 +31,7 @@ const Blog = async () => {
   return (
     <>
       <PageBanner title="Blog" />
+
       <MaxWidthWrapper className="py-6 lg:py-12">
         <div className="flex flex-col xl:flex-row gap-10">
           <div className="xl:w-[70%]">
