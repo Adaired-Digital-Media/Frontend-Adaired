@@ -34,7 +34,7 @@ const Privacy: FC<IProps> = (props) => {
           <h3 className="text-lg sm:text-2xl">
             How and what details we gather?
           </h3>
-          <ul>
+              <ul className="m-4 p-2 list-disc">
             <li>
               <strong> You provide it to us:</strong> We gather your personal
               details including your name, email, and your message. This process
@@ -56,14 +56,21 @@ const Privacy: FC<IProps> = (props) => {
             unless clearly mentioned. Any message or email sent by us will be
             related to the particular service we provide.
           </p>
-          <h3 className="text-lg sm:text-2xl">Who collects your information?</h3>
+          <h3 className="text-lg sm:text-2xl">
+            Who collects your information?
+          </h3>
           <p>
             When you are visiting to our website and are asked to fill your
             personal details, you are providing this information to the SEO
             department.
           </p>
           <h3 className="text-lg sm:text-2xl">Do we share your information?</h3>
-          <p>We do not share your personal information further.</p>
+          <p>
+            We do not share your information with third parties or affiliates
+            for marketing or promotional purposes. This excludes text messaging
+            originator opt-in data and consent, which will also not be shared
+            with any third parties.
+          </p>
           <h3 className="text-lg sm:text-2xl">Do we use cookies?</h3>
           <p>
             We may use cookies, tags, HTML5 local shared objects or flash

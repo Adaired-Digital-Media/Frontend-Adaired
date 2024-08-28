@@ -19,7 +19,7 @@ const Terms: FC<IProps> = (props) => {
 
           <div>
             <h3 className="text-lg sm:text-xl lg:text-3xl">The Contract</h3>
-            <ul>
+            <ul className="m-4 p-2 list-disc">
               <li>
                 There will be an independent contractor relationship between the
                 client and AdAired Digital Media. No partnership or joint
@@ -49,7 +49,7 @@ const Terms: FC<IProps> = (props) => {
 
           <div>
             <h3 className="text-lg sm:text-xl lg:text-3xl">Payment</h3>
-            <ul>
+            <ul className="m-4 p-2 list-disc">
               <li>
                 In case clients avail any monthly service package of any service
                 of AdAired Digital Media then they would have to pay a complete
@@ -70,7 +70,7 @@ const Terms: FC<IProps> = (props) => {
 
           <div>
             <h3 className="text-lg sm:text-xl lg:text-3xl">Liability</h3>
-            <ul>
+            <ul className="m-4 p-2 list-disc">
               <li>
                 The liability for any kind of indirect or subsequential losses
                 due to any delay in the delivery of obligated services will not
@@ -108,7 +108,7 @@ const Terms: FC<IProps> = (props) => {
 
           <div>
             <h3 className="text-lg sm:text-xl lg:text-3xl">Waiver</h3>
-            <ul>
+            <ul className="m-4 p-2 list-disc">
               <li>
                 This needs to be remembered that by chance if a time comes in
                 the due course of the tenure of a service contract that we are
@@ -127,10 +127,28 @@ const Terms: FC<IProps> = (props) => {
               </li>
             </ul>
           </div>
+          <div>
+            <h3 className="text-lg sm:text-xl lg:text-3xl">Disclaimer</h3>
+            <ul className="m-4 p-2 list-disc">
+              <li>
+                By providing your phone number to Adaired Digital Media, you
+                consent to receive text messages at your wireless phone number
+                for any purpose. Standard message and data rates may apply.
+              </li>
+              <li>
+                Message frequency may vary. You can opt out of receiving
+                messages at any time by replying "STOP." For more information on
+                how your data will be handled, please visit our{" "}
+                <Link href="/privacy-policy" className="text-blue-600/100">
+                  <strong>Privacy Policy</strong>
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           <div>
             <h3 className="text-lg sm:text-xl lg:text-3xl">Privacy Rights</h3>
-            <ul>
+            <ul className="m-4 p-2 list-disc">
               <li>
                 All the pieces of information such as name, email, contact
                 number, website URL provided by the clients through the contact
