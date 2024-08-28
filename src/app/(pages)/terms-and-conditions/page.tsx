@@ -137,7 +137,7 @@ const Terms: FC<IProps> = (props) => {
               </li>
               <li>
                 Message frequency may vary. You can opt out of receiving
-                messages at any time by replying "STOP." For more information on
+                messages at any time by replying &quot;STOP.&quot; For more information on
                 how your data will be handled, please visit our{" "}
                 <Link href="/privacy-policy" className="text-blue-600/100">
                   <strong>Privacy Policy</strong>
