@@ -11,58 +11,49 @@ const Privacy: FC<IProps> = (props) => {
       <PageBanner title="Privacy Policy" />
       <MaxWidthWrapper className="py-10 lg:py-16 space-y-2 ">
         <p>
-          At AdAired Digital Media, we respect all our customers and give a
-          thought about every small detail. The privacy of the customers is our
-          main concern. The key motive of this privacy policy is to give you a
-          clear picture of what information we ask for and how the team makes
-          use of it. Mentioned below is gist of our privacy policy. Have a look.
+          At AdAired Digital Media, your privacy is our priority. We take great
+          care in every detail and strive to provide you with a clear
+          understanding of what information we collect and how we use it. Below
+          is a summary of our privacy policy.
         </p>
-        <p>
-          Time and time again, we keep working on our website by keeping in mind
-          the latest technology in order to enhance it and make it easy for the
-          customers to understand the services we provide. We will keep you
-          notified whenever changes are done. In case you have any doubt, get in
-          touch with us at
-          <Link href="mailto:info@adaired.com"> info@adaired.com</Link>
-        </p>
+
         <div className="space-y-4">
-          <h3 className="text-lg sm:text-xl lg:text-3xl">Privacy Gist</h3>
-          <p>
-            This is a complete gist of how me gather and use every detail of
-            yours.
-          </p>
-          <h3 className="text-lg sm:text-2xl">
-            How and what details we gather?
+          <h3 className="text-lg sm:text-xl lg:text-3xl">
+            Our Commitment to You
           </h3>
-              <ul className="m-4 p-2 list-disc">
+          <p>
+            We regularly update our website to improve the user experience and
+            security. Any policy changes will be promptly communicated to you.
+          </p>
+
+          <h3 className="text-lg sm:text-2xl">What Information We Collect:</h3>
+          <ul className="m-4 p-2 list-disc">
             <li>
-              <strong> You provide it to us:</strong> We gather your personal
-              details including your name, email, and your message. This process
-              takes place only when you provide it to us on your own will.
+              <strong> Personal Details:</strong> We only collect your name,
+              email address, and message when you provide them voluntarily.
             </li>
             <li>
-              <strong>Cookies:</strong> We do use cookies on our website.
+              <strong>Cookies:</strong> We use cookies to enhance your browsing
+              experience and customize our services to your preferences.
             </li>
           </ul>
-          <h3 className="text-lg sm:text-2xl">How we use your details?</h3>
+          <h3 className="text-lg sm:text-2xl">How We Use Your Information:</h3>
           <p>
-            We make use of your personal details when you voluntarily provide us
-            with it. In case if something goes wrong, we will make inquiries
-            about it with an aim to prosecute to recover the loss against anyone
-            and everyone at fault.
+            <strong>Communication:</strong>
+            Your information is used to respond to inquiries and improve your
+            interactions with us. Unsolicited emails won’t be sent.
           </p>
           <p>
-            We will not put into use your email address for an uninvited email
-            unless clearly mentioned. Any message or email sent by us will be
-            related to the particular service we provide.
+            <strong>Security Measures: </strong>
+            If there are any issues, we take action to protect your data and
+            address your concerns.
           </p>
           <h3 className="text-lg sm:text-2xl">
-            Who collects your information?
+            Who Collects Your Information?
           </h3>
           <p>
-            When you are visiting to our website and are asked to fill your
-            personal details, you are providing this information to the SEO
-            department.
+            The AdAired Digital Media team collects your information when you
+            interact with our website.
           </p>
           <h3 className="text-lg sm:text-2xl">Do we share your information?</h3>
           <p>
@@ -71,26 +62,22 @@ const Privacy: FC<IProps> = (props) => {
             originator opt-in data and consent, which will also not be shared
             with any third parties.
           </p>
-          <h3 className="text-lg sm:text-2xl">Do we use cookies?</h3>
+          <h3 className="text-lg sm:text-2xl">Cookies and Tracking</h3>
           <p>
-            We may use cookies, tags, HTML5 local shared objects or flash
-            cookies and advertising identifiers from third parties in reference
-            to your use of the Service, third party websites, and mobile
-            applications. The cookies can reside on your personal computer local
-            storage, mobile devices and emails which are exchanged between you
-            and our company. Cookies may transmit information about you and your
-            use of the Service, like your browser type, search preferences, IP
-            address, and therefore the date and time of your use. Cookies could
-            also be persistent or stored only during a private session.
+            We may use cookies and other technologies to learn about your
+            preferences and improve your overall experience. These cookies may
+            contain information such as your browser type, IP address, and usage
+            patterns.
           </p>
           <h3>Contacting Us</h3>
           <p>
-            If there are any questions regarding this privacy policy, you may
-            contact us using the information below.
-            <strong>
-              B-509, 5th Floor, Bestech Business Towers, Sector 66, Sahibzada
-              Ajit Singh Nagar, Punjab 160066
-            </strong>
+            If you have any questions or concerns about our privacy practices,
+            feel free to contact us:
+          </p>
+          <h3>Address:</h3>
+          <p>
+            B-509, 5th Floor, Bestech Business Towers, Sector 66, Sahibzada Ajit
+            Singh Nagar, Punjab 160066
           </p>
           <p>
             <strong> Tel:</strong>
