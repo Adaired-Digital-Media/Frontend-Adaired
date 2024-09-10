@@ -39,7 +39,7 @@ export async function generateMetadata({
     title: data?.metaTitle ? data.metaTitle : data?.serviceName,
     description: data?.metaDescription ? data.metaDescription : "",
     alternates: {
-      canonical: `/${params.slug}`,
+      canonical: `/services/${params.slug}`,
     },
     robots: {
       index: true,

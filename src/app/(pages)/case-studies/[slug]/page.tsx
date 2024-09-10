@@ -35,6 +35,7 @@ export async function generateMetadata({
     slug: params.slug,
   });
   return {
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
     title: data.metaTitle
       ? data.metaTitle
       : `Adaired Case Studies: See How We Help Businesses Thrive`,
@@ -42,7 +43,7 @@ export async function generateMetadata({
       ? data.metaDescription
       : `Discover how Adaired transformed businesses like yours with simple, engaging case studies highlighting real success. Know how we can support your goals now!`,
     alternates: {
-      canonical: `https://www.adaired.com/case-studies/${params.slug}`,
+      canonical: `/case-studies/${params.slug}`,
     },
     robots: {
       index: true,
