@@ -22,6 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const data = await getBlogs({ params });
   return {
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
     title: data.metaTitle
       ? data.metaTitle
       : `Read Our Blog for Helpful Tips and Ideas | Adaired`,
@@ -29,7 +30,7 @@ export async function generateMetadata({
       ? data.metaDescription
       : `Get easy-to-understand tips and new ideas from Adaired’s blogs. From practical tips to interesting ideas, there is something for everyone. Start exploring today!`,
     alternates: {
-      canonical: `https://www.adaired.com/blog/${params.slug}`,
+      canonical: `/blog/${params.slug}`,
     },
     robots: {
       index: true,
