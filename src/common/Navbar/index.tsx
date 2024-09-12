@@ -23,14 +23,39 @@ const Navbar = () => {
     });
   });
 
+  // useEffect(() => {
+  //   let lastScrollTop = 0;
+  //   let ticking = false;
+
+  //   const handleScroll = () => {
+  //     const scrollTop =
+  //       window.pageYOffset || document.documentElement.scrollTop;
+
+  //     if (!ticking) {
+  //       window.requestAnimationFrame(() => {
+  //         setIsScreenScrolled(scrollTop > 0);
+  //         setIsWindowScrollingUp(scrollTop < lastScrollTop);
+  //         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  //         ticking = false;
+  //       });
+  //       ticking = true;
+  //     }
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
   useEffect(() => {
     let lastScrollTop = 0;
     let ticking = false;
-
+  
     const handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  
       if (!ticking) {
         window.requestAnimationFrame(() => {
           setIsScreenScrolled(scrollTop > 0);
@@ -41,13 +66,14 @@ const Navbar = () => {
         ticking = true;
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
   return (
     <section
       className={cn(
