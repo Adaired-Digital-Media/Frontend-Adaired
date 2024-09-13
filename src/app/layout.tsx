@@ -9,6 +9,7 @@ import {
 import Script from "next/script";
 import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "@/components/ui/toaster";
+import type { Metadata } from "next";
 
 const nunito = Nunito_Sans({
   subsets: ["latin"],
@@ -31,12 +32,21 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+export const metadata: Metadata = {
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
+  title: "Digital Marketing Agency for Online Growth | Adaired Digital",
+  description:
+    "Adaired Digital Media is your all-in-one digital marketing agency. Transform your business into a brand with - SEO, PPC, social media, web design services, etc.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <head>

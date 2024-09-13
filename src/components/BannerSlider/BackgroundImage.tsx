@@ -1,5 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
+import CldImage from "../CloudinaryImageComponent";
 
 export type Data = {
   img: string;
@@ -31,7 +32,7 @@ const BackgroundImage = ({ currentData, nextData }: BackgroundImageProps) => {
         }}
         className="absolute left-0 top-0 z-1 h-full w-full current"
       >
-        <Image
+        <CldImage
           src={currentData.img}
           quality={70}
           fill

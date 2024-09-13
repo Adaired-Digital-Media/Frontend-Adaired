@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HomePageForm from "@/forms/HomePageForm";
 import Link from "next/link";
+import CldImage from "@/components/CloudinaryImageComponent";
 
 const BlogCards = dynamic(() => import("@/components/BlogCard/BlogCards"), {
   loading: () => <p>Loading...</p>,
@@ -95,8 +96,8 @@ const AboutSection = () => {
         <MaxWidthWrapper className="flex gap-10 flex-col lg:flex-row">
           <div className="flex-1 mx-auto ">
             <div className="max-w-lg lg:max-w-full ">
-              <Image
-                src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_100/v1/Static%20Website%20Images/about_image"
+              <CldImage
+                src="Static Website Images/about_image"
                 alt="About Image"
                 height={500}
                 width={800}
@@ -125,8 +126,8 @@ const AboutSection = () => {
             </p>
             <div className="flex gap-5 py-6 flex-col sm:flex-row">
               <div className="flex flex-col items-center border p-4 md:p-0 md:border-none md:items-start ">
-                <Image
-                  src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/homepage_about2"
+                <CldImage
+                  src="Static Website Images/homepage_about2"
                   alt="Information Icon"
                   height={60}
                   width={60}
@@ -143,8 +144,8 @@ const AboutSection = () => {
                 </p>
               </div>
               <div className="flex flex-col items-center border p-4 md:p-0 md:border-none md:items-start ">
-                <Image
-                  src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/homepage_about1"
+                <CldImage
+                  src="Static Website Images/homepage_about1"
                   alt="Information Icon"
                   height={60}
                   width={60}
@@ -380,8 +381,8 @@ const Growth = () => {
           <div className="flex-1 relative ml-2 mr-4 lg:mr-0 lg:ml-2 ">
             <div className="max-w-[500px] lg:max-w-full after:absolute after:-top-3 after:-right-3 md:after:-top-6 md:after:-right-6 after:border-2 after:border-[#BC1D8D] after:h-[90%] after:w-[90%] after:-z-10">
               {" "}
-              <Image
-                src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_100/v1/Static%20Website%20Images/TeamsBig"
+              <CldImage
+                src="Static Website Images/TeamsBig"
                 alt="Growth Image"
                 height={800}
                 width={800}
@@ -390,12 +391,13 @@ const Growth = () => {
             </div>
             <div className="transition-all absolute top-3/4 left-1/2 -translate-x-1/2 xl:translate-x-0 xl:top-auto xl:left-auto xl:bottom-[20%] xl:right-[-20%]">
               <Image
-                src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_100/v1/Static%20Website%20Images/TeamsSmall"
+                src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/TeamsSmall"
                 alt="Growth Image"
                 height={100}
                 width={300}
                 sizes="(min-width:640px) 50vw, 100vw"
                 className=""
+                unoptimized
               />
             </div>
           </div>

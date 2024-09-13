@@ -1,8 +1,7 @@
 "use client";
-
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import CldImage from "../CloudinaryImageComponent";
 
 export const InfiniteMovingCards = ({
   items,
@@ -94,7 +93,7 @@ export const InfiniteMovingCards = ({
             )}
             key={item.img}
           >
-            <Image src={item.img} alt="logo" width={150} height={50}/>
+            <CldImage src={item.img} alt="logo" width={150} height={50}/>
           </li>
         ))}
       </ul>
