@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
-import CldImage from "../CloudinaryImageComponent";
+import CldImage from "@/components/CloudinaryImageComponent";
 
 export const InfiniteMovingCards = ({
   items,

@@ -1,6 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import CldImage from "../CloudinaryImageComponent";
+import CldImage from "@/components/CloudinaryImageComponent";
 
 export type Data = {
   img: string;
