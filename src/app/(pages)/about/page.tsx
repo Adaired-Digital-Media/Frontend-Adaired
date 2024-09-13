@@ -39,7 +39,7 @@ const IntroSection = () => {
           <div className="flex-1 mx-auto ">
             <div className="max-w-lg lg:max-w-full ">
               <Image
-                src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/about_img"
+                src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_100/v1/Static%20Website%20Images/about_image"
                 alt="About Image"
                 height={500}
                 width={800}
