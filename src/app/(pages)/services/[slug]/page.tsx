@@ -119,12 +119,12 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
               return (
                 <MaxWidthWrapper key={data.componentName}>
                   <ImageWithDetailedFeatureDescription
-                    colorScheme={data.colorScheme}
+                    colorScheme={fetchedService.colorScheme}
                     data={data.body}
                   />
                 </MaxWidthWrapper>
               );
- 
+
             case "FAQ":
               return (
                 <MaxWidthWrapper key={data.componentName}>

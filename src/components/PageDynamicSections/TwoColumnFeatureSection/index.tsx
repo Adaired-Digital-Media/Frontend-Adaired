@@ -13,12 +13,19 @@ const TwoColumnFeatureSection: React.FC<TwoColumnFeatureSectionProps> = ({
   data,
 }) => {
   const color = hexToHexWithOpacity(colorScheme, 0.04);
+  const underLineColor = hexToHexWithOpacity(colorScheme, 0.15);
   const body = data.body;
 
   return (
     <div className="space-y-3">
-      <h1 className={`text-2xl md:text-[38px] leading-snug font-nunito font-semibold `}>{body.title}</h1>
-      <div className="text-justify hyphens-auto text-base sm:hyphens-none sm:text-left sm:text-lg space-y-3">{parse(body.description_1)}</div>
+      <h1
+        className={`text-2xl md:text-[38px] leading-snug font-nunito font-semibold `}
+      >
+        {body.title}
+      </h1>
+      <div className="text-justify hyphens-auto text-base sm:hyphens-none sm:text-left sm:text-lg space-y-3">
+        {parse(body.description_1)}
+      </div>
       <div
         className={`flex-1 flex flex-col md:flex-row items-stretch gap-5 lg:gap-14 py-3`}
       >
@@ -30,13 +37,16 @@ const TwoColumnFeatureSection: React.FC<TwoColumnFeatureSectionProps> = ({
                 description={section.description}
                 color={color}
                 colorScheme={colorScheme}
+                underLineColor={underLineColor}
               />
             </div>
           );
         })}
       </div>
 
-      <div className="text-justify hyphens-auto text-base sm:hyphens-none sm:text-left sm:text-lg space-y-3">{parse(body.description_2)}</div>
+      <div className="text-justify hyphens-auto text-base sm:hyphens-none sm:text-left sm:text-lg space-y-3">
+        {parse(body.description_2)}
+      </div>
       <Image src={body.imgUrl} alt="alt" width={965} height={477} />
     </div>
   );
@@ -49,6 +59,7 @@ type FeatureCardProps = {
   description: string;
   color: string;
   colorScheme: string;
+  underLineColor: string;
 };
 
 const FeatureCard = ({
@@ -56,6 +67,7 @@ const FeatureCard = ({
   description,
   color,
   colorScheme,
+  underLineColor,
 }: FeatureCardProps) => {
   return (
     <div
@@ -101,7 +113,15 @@ const FeatureCard = ({
         </svg>
       </div>
       <div>
-        <h3 className="text-xl font-bold font-nunito">{title}</h3>
+        <div className="pb-1">
+          <h3 className="text-xl font-bold font-nunito">{title}</h3>
+          <div
+            className="h-0.5 w-16 "
+            style={{
+              background: underLineColor,
+            }}
+          ></div>
+        </div>
         <p className="text-gray-600">{description}</p>
       </div>
     </div>

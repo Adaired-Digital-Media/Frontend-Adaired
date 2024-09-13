@@ -36,19 +36,20 @@ const IntroSection = () => {
   return (
     <>
       <section className="py-6 md:py-12">
-        <MaxWidthWrapper className="flex gap-10 flex-col lg:flex-row">
-          <div className="flex-1 mx-auto ">
-            <div className="max-w-lg lg:max-w-full ">
+        <MaxWidthWrapper className="grid grid-cols-1 lg:grid-cols-2 gap-10 flex-col lg:flex-row">
+          <div className=" mx-auto flex-grow-0">
+            <div className="max-w-lg lg:max-w-full w-full">
               <CldImage
                 src="Static Website Images/about_image"
                 alt="About Image"
                 height={500}
                 width={800}
-                className="rounded-lg"
+                sizes="50vw"
+                className="rounded-lg object-cover"
               />
             </div>
           </div>
-          <div className="flex-1 text-center p-2 md:text-left">
+          <div className=" text-center p-2 md:text-left space-y-2 flex-grow-0">
             <h5 className=" sm:text-xl inline font-nunito text-[#515151] relative md:pl-20 text-lg">
               <div className="absolute top-1/2 -left-1/4 sm:-left-1/3 md:left-0 transform -translate-y-1/2 bg-[#A7A9AC] h-px w-10 sm:w-12 md:w-16"></div>
               <div className="md:hidden absolute top-1/2 -right-1/4 sm:-right-1/3 transform -translate-y-1/2 bg-[#A7A9AC] h-px w-10 sm:w-12 md:w-16"></div>
@@ -57,7 +58,7 @@ const IntroSection = () => {
             <h2 className="text-[1.688rem] md:text-4xl ">
               A Marketing Firm Driven To Accelerate Your Business Growth
             </h2>
-            <p className="py-1 text-base sm:text-lg text-justify md:text-left">
+            <p className=" text-base sm:text-lg text-justify md:text-left">
               Founded in 2015, Adaired is a versatile digital marketing firm
               that empowers businesses to thrive online through its time-tested
               and effective digital marketing services. We are more than just
@@ -66,7 +67,7 @@ const IntroSection = () => {
               consistently delivering innovative solutions, pushing limits, and
               redefining the idea of success.
             </p>
-            <div className="flex gap-5 py-1 flex-col sm:flex-row">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 flex-col sm:flex-row">
               <div className="flex flex-col items-center border p-4 md:p-0 md:border-none md:items-start ">
                 <CldImage
                   src="Static Website Images/homepage_about2"
@@ -104,12 +105,12 @@ const IntroSection = () => {
                 </p>
               </div>
             </div>
-            <p className="font-baby text-lg sm:text-2xl font-semibold py-1">
+            <p className="font-baby text-lg sm:text-2xl font-semibold ">
               &quot;The internet is becoming the town square for the global
               village of tomorrow.&quot; -
               <i className="text-[#92288D]">Bill Gates</i>
             </p>
-            <p className="text-base sm:text-lg">
+            <p className="text-base sm:text-lg hidden xl:block">
               At Adaired, we know very well how to turn visitors into leads,
               leads into customers, and customers into business promoters. Our
               comprehensive services aid businesses to grow online, increase
@@ -117,8 +118,14 @@ const IntroSection = () => {
             </p>
           </div>
         </MaxWidthWrapper>
-        <MaxWidthWrapper>
-          <p className="py-1 text-base sm:text-lg">
+        <MaxWidthWrapper className="py-2 space-y-2">
+          <p className="text-base sm:text-lg xl:hidden">
+            At Adaired, we know very well how to turn visitors into leads, leads
+            into customers, and customers into business promoters. Our
+            comprehensive services aid businesses to grow online, increase
+            exposure, and ultimately become the leader in the industry.
+          </p>
+          <p className="text-base sm:text-lg">
             We believe that a visually appealing website with decent traffic or
             a handful of social media followers is not an indicator of a
             successful digital marketing campaign. True success lies in making a
@@ -142,7 +149,7 @@ export const ProcessSection = () => {
             How We Work
           </h5>
           <h2 className="text-[1.688rem] md:text-4xl py-1">Our Process</h2>
-          <p className="py-1 pb-10 text-base sm:text-lg max-w-[900px]">
+          <p className=" pb-10 text-base sm:text-lg max-w-[900px]">
             No need to settle for okay when we can serve you the best! Our
             strategies are meticulously crafted to spark creativity, boost
             engagement, and achieve the impossible.

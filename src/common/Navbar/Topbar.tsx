@@ -4,9 +4,14 @@ import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import Image from "next/image";
 
-const Topbar = () => {
+
+type Props = {
+  className: string;
+}
+
+const Topbar = ({className}:Props) => {
   return (
-    <div className={cn(`bg-[#EEEEEE] h-10 flex  items-center`)}>
+    <div className={cn(`bg-[#EEEEEE] h-10 flex  items-center ${className}`)}>
       <MaxWidthWrapper
         className={cn(`flex gap-2 justify-center items-center sm:justify-end`)}
       >
