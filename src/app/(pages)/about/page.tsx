@@ -7,6 +7,7 @@ import TestimonialSlider from "@/components/TestimonialSlider";
 import { Icons } from "@/components/Icons";
 import Process from "@/components/Timeline/Process";
 import type { Metadata } from "next";
+import CldImage from "@/components/CloudinaryImageComponent";
 
 export const metadata: Metadata = {
   title: "Unveiling Adaired: Our History, Team, and Vision | Learn About Us",
@@ -38,8 +39,8 @@ const IntroSection = () => {
         <MaxWidthWrapper className="flex gap-10 flex-col lg:flex-row">
           <div className="flex-1 mx-auto ">
             <div className="max-w-lg lg:max-w-full ">
-              <Image
-                src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_100/v1/Static%20Website%20Images/about_image"
+              <CldImage
+                src="Static Website Images/about_image"
                 alt="About Image"
                 height={500}
                 width={800}
@@ -67,8 +68,8 @@ const IntroSection = () => {
             </p>
             <div className="flex gap-5 py-1 flex-col sm:flex-row">
               <div className="flex flex-col items-center border p-4 md:p-0 md:border-none md:items-start ">
-                <Image
-                  src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/homepage_about2"
+                <CldImage
+                  src="Static Website Images/homepage_about2"
                   alt=""
                   height={60}
                   width={60}
@@ -85,8 +86,8 @@ const IntroSection = () => {
                 </p>
               </div>
               <div className="flex flex-col items-center border p-4 md:p-0 md:border-none md:items-start ">
-                <Image
-                  src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/homepage_about1"
+                <CldImage
+                  src="Static Website Images/homepage_about1"
                   alt=""
                   height={60}
                   width={60}
@@ -206,8 +207,8 @@ const WorkStation = () => {
     <MaxWidthWrapper className="grid sm:grid-cols-2 gap-y-10 sm:gap-x-10 lg:gap-x-24 py-12 lg:py-20">
       <div>
         <div>
-          <Image
-            src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/about_page_img1"
+          <CldImage
+            src="Static Website Images/about_page_img1"
             alt="About Image"
             height={600}
             width={800}
@@ -224,12 +225,13 @@ const WorkStation = () => {
       </div>
       <div>
         <div>
-          <Image
-            src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/about_page_img2"
+          <CldImage
+            src="Static Website Images/about_page_img2"
             alt="About Image"
             height={600}
             width={800}
             className="rounded-lg"
+            enhance
           />
         </div>
         <div className="bg-white py-5 px-8 lg:py-8 lg:px-12 border mx-auto -mt-9 lg:-mt-14 text-center w-4/5 relative z-1 ">

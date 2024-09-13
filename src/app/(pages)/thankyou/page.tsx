@@ -1,5 +1,5 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper/";
-import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import { TypewriterEffect, TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -69,10 +69,10 @@ const Thankyou = () => {
   return (
     <MaxWidthWrapper className="h-[85vh] flex items-center justify-center flex-col">
       {/* <main className=""> */}
-      <div className="pb-10">
+      <div className="pb-5">
         <Image
-          src={"/thankyou_img.svg"}
-          alt="Thank you"
+          src="/assets/images/thankyou.svg"
+          alt="Thank you Image"
           width={200}
           height={200}
           draggable={false}
@@ -80,7 +80,7 @@ const Thankyou = () => {
       </div>
       <div className="text-center pb-24">
         <TypewriterEffect words={words} className="pb-4" />
-        {/* <TypewriterEffectSmooth words={text} /> */}
+        {/* <TypewriterEffectSmooth words={words} /> */}
         {/* <h1 className="text-5xl">Thanks for reaching out!</h1> */}
         <p>
           We&apos;ll be in touch shortly and look forward to discussing how
