@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import Button from "@/components/Button";
 import Image from "next/image";
 import { formatDate, ServerRemoveTags } from "@/lib/utils";
+import Link from "next/link";
 
 interface Data {
   image: string;
@@ -23,7 +24,7 @@ interface BlogCardProps {
 }
 const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
   return (
-    <div className="">
+    <Link href={`/blog/${data.slug}`} className="">
       <Card className="rounded-none ">
         <CardHeader className="p-4">
           <div className="mb-4">
@@ -32,11 +33,10 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
               alt="Blog Image"
               height={400}
               width={800}
-               
-
               style={{ objectFit: "cover" }}
             />
           </div>
+
           <CardTitle className="line-clamp-2 font-nunito text-2xl ">
             {data.title}
           </CardTitle>
@@ -61,7 +61,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
           <p>{data.readTime || "2 min read"}</p>
         </CardFooter>
       </Card>
-    </div>
+    </Link>
   );
 };
 export default BlogCard;

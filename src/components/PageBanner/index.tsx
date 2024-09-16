@@ -24,17 +24,16 @@ const PageBanner = ({ title }: { title: string }) => {
 
     <div className="relative flex h-40 md:h-48 lg:h-64 w-full flex-col justify-center overflow-hidden  bg-gray-50 ">
       <MaxWidthWrapper>
-        <h1 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-400/80 bg-clip-text text-3xl md:text-[3.375rem] font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-          {title}
-        </h1>
+        <h1 className="leading-none text-3xl md:text-[3.375rem]">{title}</h1>
       </MaxWidthWrapper>
-      <Particles
+      {/* font-semibold pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-400/80 bg-clip-text  text-transparent dark:from-white dark:to-slate-900/10*/}
+      {/* <Particles
         className="absolute inset-0"
         quantity={100}
         ease={80}
         color={"#000000"}
         refresh
-      />
+      /> */}
     </div>
   );
 };

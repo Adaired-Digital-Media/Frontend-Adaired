@@ -10,7 +10,7 @@ type CTAProps = {
 };
 
 const CTA = ({ colorScheme, title }: CTAProps) => {
-  const bg_ovelay = hexToHexWithOpacity(colorScheme, 0.72);
+  const bg_overlay = hexToHexWithOpacity(colorScheme, 0.72);
 
   return (
     <section
@@ -22,7 +22,7 @@ const CTA = ({ colorScheme, title }: CTAProps) => {
         <style jsx>
           {`
             .cta_overlay {
-              background-color: ${bg_ovelay};
+              background-color: ${bg_overlay};
             }
           `}
         </style>
@@ -37,7 +37,7 @@ const CTA = ({ colorScheme, title }: CTAProps) => {
         </h2>
 
         <Link
-          href={""}
+          href={"tel:+918907200008"}
           className="bg-white flex justify-start items-center gap-3 min-w-[262px] px-4 py-3 rounded-2xl"
         >
           <Icons.CtaPhone />
