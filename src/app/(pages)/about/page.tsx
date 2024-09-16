@@ -159,7 +159,7 @@ export const ProcessSection = () => {
 
       <MaxWidthWrapper className="hidden lg:block xl:max-w-[1440px] lg:max-w-screen-lg">
         <div className="relative min-h-[28rem]">
-          <div className="flex flex-col justify-center absolute lg:min-h-40 bottom-[-5%] xl:bottom-0 left-0 xl:left-[5%] 2xl:left-0 2xl:max-w-sm xl:max-w-72 lg:max-w-72 max-w-56 break-words border text-center p-3 cursor-pointer work-process_1">
+          <div className="work-process__box_1 flex flex-col justify-center absolute lg:min-h-40 bottom-[-5%] xl:bottom-0 left-0 xl:left-[5%] 2xl:left-0 2xl:max-w-sm xl:max-w-72 lg:max-w-72 max-w-56 break-words border text-center p-3 cursor-pointer work-process_1">
             <h3>Discovery and Planning</h3>
             <p className="text-base">
               Research the business&apos;s landscape, target audience, and

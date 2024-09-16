@@ -115,3 +115,11 @@ h6 {
   padding: initial !important;
 }
 
+.work-process__box_1:hover ~ .work-process__icon_1 {
+  fill: #ccc !important;
+  transition: fill 0.3s;
+}
+/* 
+.work-process__icon_1:hover {
+  fill: #ccc;
+} */
