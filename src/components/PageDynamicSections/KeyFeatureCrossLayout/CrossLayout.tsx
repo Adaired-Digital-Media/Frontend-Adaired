@@ -165,7 +165,7 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
           <div className="flex flex-row items-center justify-center">
             <Circle
               ref={div3Ref}
-              className="size-20"
+              className="size-28"
               style={{
                 backgroundColor: colorScheme,
                 borderColor: colorScheme,
@@ -200,31 +200,31 @@ export function CrossLayout({ data, colorScheme }: CrossLayoutProps) {
           containerRef={containerRef}
           fromRef={div1Ref}
           toRef={div3Ref}
-          curvature={25}
-          endYOffset={10}
+          curvature={50}
+          endYOffset={0}
           reverse
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div2Ref}
           toRef={div3Ref}
-          curvature={-25}
-          endYOffset={-10}
+          curvature={-50}
+          endYOffset={0}
           reverse
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div4Ref}
           toRef={div3Ref}
-          curvature={25}
-          endYOffset={10}
+          curvature={50}
+          endYOffset={0}
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div5Ref}
           toRef={div3Ref}
-          curvature={-25}
-          endYOffset={-10}
+          curvature={-50}
+          endYOffset={0}
         />
       </div>
       {/* View for Small and Medium Screens */}

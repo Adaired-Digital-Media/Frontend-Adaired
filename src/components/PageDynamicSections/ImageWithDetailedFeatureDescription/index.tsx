@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { CSSProperties } from "react";
 import Image from "next/image";
 import parse, {
   domToReact,
@@ -26,6 +26,7 @@ const ImageWithDetailedFeatureDescription = ({
   data,
   colorScheme,
 }: ImageWithDetailedFeatureDescriptionProps) => {
+
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (
@@ -48,14 +49,30 @@ const ImageWithDetailedFeatureDescription = ({
         const children = Array.from(domNode.children) as DOMNode[];
         return (
           <li className="flex gap-2 items-center">
-            <Icons.rightIcon fill={colorScheme} className="icon_right" />
-            <style jsx>
-              {`
-                .icon_right {
-                  color: ${colorScheme};
-                }
-              `}
-            </style>
+            {/* <Icons.rightIcon fill={colorScheme} className="icon_right" /> */}
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ "--dynamic-color": colorScheme } as CSSProperties}
+            >
+              <path
+                d="M15.4 11.199C16.2 10.599 16.2 9.39801 15.4 8.79801L9.398 4.30201C8.409 3.56201 6.998 4.26701 6.998 5.50201L6.998 14.497C6.998 15.733 8.41 16.438 9.398 15.697L15.4 11.199Z"
+                // fill="var(--dynamic-color)"
+                fill={colorScheme}
+              />
+
+              <rect
+                x="3"
+                y="4"
+                width="2"
+                height="12"
+                rx="1"
+                fill="currentColor"
+              />
+            </svg>
+
             {domToReact(children, options)}
           </li>
         );
@@ -75,7 +92,9 @@ const ImageWithDetailedFeatureDescription = ({
         </div>
       </div>
       <div className="w-full lg:w-1/2 space-y-3">
-        <h2 className={`text-2xl lg:text-[38px] leading-snug font-nunito font-semibold`}>
+        <h2
+          className={`text-2xl lg:text-[38px] leading-snug font-nunito font-semibold`}
+        >
           {data.title}
         </h2>
         <div className="space-y-4">{parse(data.description, options)}</div>

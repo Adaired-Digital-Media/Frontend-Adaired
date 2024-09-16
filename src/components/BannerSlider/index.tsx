@@ -111,8 +111,8 @@ const BannerSlider = (props: Props) => {
             duration={0.5}
             key={data[currentIndex].subHead} // Key prop to restart effect on title change
           >
-            <h4 className="z-[200] text-lg md:text-xl max-w-96">
-              <div className="hidden md:block  h-0.5 w-12 bg-white"></div>
+            <h4 className="z-[200] text-lg md:text-xl max-w-96 before:content-[''] before:h-0.5 before:w-12 before:bg-whit ">
+              {/* <span className="hidden md:block  h-0.5 w-12 bg-white"></span> */}
               {data[currentIndex].subHead}
             </h4>
           </BoxReveal>
