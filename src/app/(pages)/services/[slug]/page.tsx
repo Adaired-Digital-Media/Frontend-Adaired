@@ -18,10 +18,11 @@ import KeyFeatureListLayout from "@/components/PageDynamicSections/KeyFeatureLis
 import GridSection from "@/components/PageDynamicSections/GridSection";
 import ServiceKeyFeaturesLayout from "@/components/PageDynamicSections/ServiceKeyFeaturesLayout";
 import { redirect } from "next/navigation";
+export const revalidate = 60;
 
 const fetchservice = async (slug: string) => {
   const result = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/service/getServices/${slug}`
+    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/service/getServices/${slug}`  
   );
   const data = await result.json();
   return data;
@@ -124,7 +125,7 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
                   />
                 </MaxWidthWrapper>
               );
-            case "ProcessSection":
+            case "OurProcessLayout":
               return (
                 <MaxWidthWrapper key={data.componentName}>
                   <ProcessSection
@@ -133,7 +134,6 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
                   />
                 </MaxWidthWrapper>
               );
- 
             case "FAQ":
               return (
                 <MaxWidthWrapper key={data.componentName}>

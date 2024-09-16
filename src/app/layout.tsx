@@ -10,6 +10,7 @@ import Script from "next/script";
 import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
+import NextTopLoader from "nextjs-toploader";
 
 const nunito = Nunito_Sans({
   subsets: ["latin"],
@@ -147,6 +148,7 @@ export default function RootLayout({
         )}
       >
         <ReCaptchaProvider reCaptchaKey="6Ldc49cpAAAAAPihLfrXDvYhtRKnwZAiKihVICxf">
+          <NextTopLoader color="#FB9100" showSpinner={false} />
           <main id="main">{children}</main>
           <Toaster />
         </ReCaptchaProvider>
