@@ -15,7 +15,7 @@ const config = {
   adminEmails: [
     process.env.SUPER_ADMIN_EMAIL || "",
     process.env.SUPPORT_EMAIL || "",
-    process.env.SALES_ADMIN_EMAIL || "",
+    process.env.CEO_EMAIL || "",
   ],
   recaptchaSecretKey: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
 };
