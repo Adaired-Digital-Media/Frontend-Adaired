@@ -169,7 +169,7 @@ const AboutSection = () => {
             <Button
               title="View More"
               className="bg-white text-black mt-5"
-              svgClassName="bg-[#F89520] right-2.5 group-hover/btn:right-28"
+              svgClassName="bg-[#F89520]"
               type="button"
               navigateTo="/about"
             />
@@ -183,7 +183,7 @@ const AboutSection = () => {
 const LogoSlider = () => {
   const logoImages = [
     {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_1  ",
+      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_1",
     },
     {
       img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_2",
@@ -448,7 +448,7 @@ const Growth = () => {
             <Button
               title="View More"
               className="bg-white text-black mt-5"
-              svgClassName="bg-[#F89520] right-2.5 group-hover/btn:right-28"
+              svgClassName="bg-[#F89520]"
               type="button"
               navigateTo="/about"
             />

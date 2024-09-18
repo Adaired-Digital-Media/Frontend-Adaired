@@ -12,7 +12,7 @@ export async function getBlogsData() {
 }
 
 const BlogCards: React.FC = async () => {
- const data = await getBlogsData();
+  const data = await getBlogsData();
 
   return (
     <section className="py-3 md:py-12">
@@ -47,7 +47,7 @@ const BlogCards: React.FC = async () => {
         <Button
           title="View More"
           className="bg-white text-black mt-5"
-          svgClassName="bg-[#F89520] right-2.5 group-hover/btn:right-28"
+          svgClassName="bg-[#F89520]"
           type="button"
           navigateTo={`/blog`}
         />

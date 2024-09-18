@@ -8,6 +8,7 @@ import Button from "../Button";
 import { Icons } from "../Icons";
 import { gsap } from "gsap";
 import Link from "next/link";
+import TypingAnimation from "../magicui/TypingAnimation";
 type Props = {};
 
 const BannerSlider = (props: Props) => {
@@ -59,7 +60,7 @@ const BannerSlider = (props: Props) => {
           currentData={data[currentIndex]}
           nextData={data[(currentIndex + 1) % data.length]}
         />
-        <div className="absolute inset-0 h-full w-full bg-black opacity-35">
+        <div className="absolute inset-0 h-full w-full bg-black opacity-25">
           {/* Overlay */}
         </div>
         {/* <div className="absolute top-1/2 right-0 2xl:right-unset 2xl:left-4 3xl:left-10 4xl:left-24 transform -translate-y-1/2 text-white hidden 2xl:flex flex-col items-center justify-center space-y-10 transition-all duration-300">
@@ -112,7 +113,6 @@ const BannerSlider = (props: Props) => {
             key={data[currentIndex].subHead} // Key prop to restart effect on title change
           >
             <h4 className="z-[200] text-lg md:text-xl max-w-96 before:content-[''] before:h-0.5 before:w-12 before:bg-whit ">
-              {/* <span className="hidden md:block  h-0.5 w-12 bg-white"></span> */}
               {data[currentIndex].subHead}
             </h4>
           </BoxReveal>
@@ -121,7 +121,7 @@ const BannerSlider = (props: Props) => {
             duration={0.5}
             key={data[currentIndex].title} // Key prop to restart effect on title change
           >
-            <h1 className="z-[200] text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-w-[34rem] lg:max-w-2xl xl:max-w-[52rem]">
+            <h1 className="z-[200] text-4xl sm:text-5xl md:text-6xl xl:text-7xl max-w-[34rem] lg:max-w-2xl xl:max-w-[52rem]">
               {data[currentIndex].title}
             </h1>
           </BoxReveal>
@@ -130,9 +130,9 @@ const BannerSlider = (props: Props) => {
               title="Request a callback"
               textClassName="text-base md:text-lg"
               className="bg-white text-black mt-5 "
-              svgClassName="bg-[#F89520] text-base md:test-3xl right-2.5 group-hover/btn:right-[10rem] md:group-hover/btn:right-[11rem] "
+              svgClassName="bg-[#F89520] text-base md:test-3xl"
               type="button"
-              navigateTo="/about"
+              navigateTo="/contact"
             />
           </BoxReveal>
         </MaxWidthWrapper>
