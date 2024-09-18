@@ -168,6 +168,61 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
 
 export default NavItem;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // "use client";
 // import { NAV_ITEMS } from "@/config";
 // import { Icons } from "@/components/Icons";

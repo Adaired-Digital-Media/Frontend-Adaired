@@ -288,7 +288,7 @@ const HomePageForm = () => {
           <Button
             title="Send Your Enquiry"
             className="bg-white text-black mt-5"
-            svgClassName="bg-[#F89520] group-hover/btn:right-[11rem]"
+            svgClassName="bg-[#F89520]"
             type="submit"
           />
         </form>

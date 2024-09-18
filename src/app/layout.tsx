@@ -1,37 +1,11 @@
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import {
-  Nunito_Sans,
-  DM_Serif_Display,
-  Oooh_Baby,
-  Poppins,
-} from "next/font/google";
+import { nunito, dm, baby, poppins } from "@/lib/fonts";
 import Script from "next/script";
 import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
-
-const nunito = Nunito_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-nunito",
-});
-const dm = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-dm",
-});
-const baby = Oooh_Baby({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-baby",
-});
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),

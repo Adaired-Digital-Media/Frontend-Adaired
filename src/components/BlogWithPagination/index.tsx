@@ -1,7 +1,7 @@
 "use client";
-import { FC, useState, useMemo } from "react";
+import { FC, useState, useMemo, useEffect } from "react";
 import Image from "next/image";
-import { cn, formatDate } from "@/lib/utils";
+import { calculateReadingTime, cn, formatDate } from "@/lib/utils";
 import Button from "@/components/Button";
 import {
   Card,
@@ -41,15 +41,20 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+    // Scroll to top whenever the currentPage changes
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [currentPage]);
+
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-0 xl:grid-cols-1">
         {currentBlogs.map((blog: any) => {
           return (
             <>
-              <Link href={`/blog/${blog.slug}`} key={blog._id}>
-                <figure className="hidden xl:flex border p-10 rounded-lg first:mt-10 mb-10">
-                  <div className="w-[45%] shrink-0">
+              <figure className="hidden xl:flex border p-10 rounded-lg first:mt-10 mb-10">
+                <div className="w-[45%] shrink-0">
+                  <Link href={`/blog/${blog.slug}`} key={blog._id}>
                     <Image
                       src={blog.featuredImage}
                       height={400}
@@ -57,41 +62,44 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
                       alt={blog.title}
                       className="-ml-14 rounded-lg"
                     />
+                  </Link>
+                </div>
+                <div className="w-[55%] shrink-0">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm lg:text-base text-gray-500 mb-1">
+                      {formatDate(blog.createdAt)}
+                    </p>
+                    <p className="text-sm lg:text-base text-gray-500 mb-1">
+                      {calculateReadingTime(blog.postDescription) +
+                        " min read "}
+                    </p>
                   </div>
-                  <div className="w-[55%] shrink-0">
-                    <div className="flex items-center justify-between">
-                      <p className="text-sm lg:text-base text-gray-500 mb-1">
-                        {formatDate(blog.createdAt)}
-                      </p>
-                      <p className="text-sm lg:text-base text-gray-500 mb-1">
-                        {Math.floor(Math.random() * 5) + 1 + " min read "}
-                      </p>
-                    </div>
-                    <div>
-                      <h1 className="font-nunito lg:text-2xl font-semibold mb-1">
+                  <div>
+                    <h1 className="font-nunito lg:text-2xl font-semibold mb-1">
+                      <Link href={`/blog/${blog.slug}`} key={blog._id}>
                         {blog.postTitle}
-                      </h1>
-                      <div className="line-clamp-2 font-nunito">
-                        {parse(blog.postDescription)}
-                      </div>
-                    </div>
-                    <div>
-                      <Button
-                        title="Read Blog"
-                        className="mt-4 bg-white text-black border-none"
-                        svgClassName="bg-[#F89520] right-2.5 group-hover/btn:right-28"
-                        type="button"
-                        navigateTo={`/blog/${blog.slug}`}
-                      />
-                    </div>
+                      </Link>
+                    </h1>
+                    <span className="line-clamp-2 font-nunito">
+                      {parse(blog.postDescription)}
+                    </span>
                   </div>
-                </figure>
-              </Link>
+                  <div>
+                    <Button
+                      title="Read Blog"
+                      className="mt-4 bg-white text-black border-none"
+                      svgClassName="bg-[#F89520] "
+                      type="button"
+                      navigateTo={`/blog/${blog.slug}`}
+                    />
+                  </div>
+                </div>
+              </figure>
 
-              <Link href={`/blog/${blog.slug}`}>
-                <Card className="xl:hidden">
-                  <CardHeader className="p-4">
-                    <div className="mb-4">
+              <Card className="xl:hidden">
+                <CardHeader className="p-4">
+                  <div className="mb-4">
+                    <Link href={`/blog/${blog.slug}`} key={blog._id}>
                       <Image
                         src={blog.featuredImage}
                         alt="Blog Image"
@@ -99,38 +107,43 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
                         width={800}
                         style={{ objectFit: "cover" }}
                       />
-                    </div>
-                    <CardTitle className="line-clamp-2 font-nunito text-2xl">
-                      {blog.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="font-nunito text-lg text-left p-4 pt-0">
-                    <div className="line-clamp-3">
-                      {parse(blog.postDescription)}
-                    </div>
-                  </CardContent>
-                  <div className="p-4">
-                    <Button
-                      title="Read More"
-                      className="bg-white text-black border-none"
-                      svgClassName="bg-[#F89520] right-2.5 group-hover/btn:right-28"
-                      type="button"
-                      navigateTo={`/blog/${blog.slug}`}
-                    />
+                    </Link>
                   </div>
-                  <Separator className="mx-auto w-[90%]" />
-                  <CardFooter className="justify-between pt-6">
-                    <p>{formatDate(blog.createdAt)}</p>
-                    <p>{Math.floor(Math.random() * 5) + 1 + " min read "}</p>
-                  </CardFooter>
-                </Card>
-              </Link>
+                  <CardTitle className="line-clamp-2 font-nunito text-2xl">
+                    <Link href={`/blog/${blog.slug}`} key={blog._id}>
+                      {blog.postTitle}
+                    </Link>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="font-nunito text-lg text-left p-4 pt-0">
+                  <div className="line-clamp-3">
+                    {parse(blog.postDescription)}
+                  </div>
+                </CardContent>
+                <div className="p-4">
+                  <Button
+                    title="Read More"
+                    className="bg-white text-black border-none"
+                    svgClassName="bg-[#F89520] right-2.5 group-hover/btn:right-28"
+                    type="button"
+                    navigateTo={`/blog/${blog.slug}`}
+                  />
+                </div>
+                <Separator className="mx-auto w-[90%]" />
+                <CardFooter className="justify-between pt-6">
+                  <p>{formatDate(blog.createdAt)}</p>
+                  <p>
+                    {" "}
+                    {calculateReadingTime(blog.postDescription) + " min read "}
+                  </p>
+                </CardFooter>
+              </Card>
             </>
           );
         })}
       </div>
 
-      <ul className="flex gap-2 justify-center items-center">
+      <ul className="flex gap-2 justify-center items-center pt-12 xl:pt-6">
         <li>
           <button
             onClick={() =>

@@ -4,6 +4,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "api.microlink.io",
+        port: "",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
         hostname: "res.cloudinary.com",
         port: "",
         pathname: "**",
@@ -14,13 +20,8 @@ const nextConfig = {
         port: "",
         pathname: "**",
       },
-      
     ],
   },
 };
 
 export default nextConfig;
-
-
-
-

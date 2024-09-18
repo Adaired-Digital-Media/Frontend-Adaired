@@ -119,7 +119,7 @@ export const HoverEffect = ({
                   <Button
                     title="View More"
                     className="bg-white text-black mt-2 sm:mt-2"
-                    svgClassName="bg-[#F89520]  right-2.5 group-hover/btn:right-28"
+                    svgClassName="bg-[#F89520] "
                     type="button"
                     navigateTo={item.link}
                   />
