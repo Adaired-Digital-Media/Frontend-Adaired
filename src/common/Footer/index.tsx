@@ -13,63 +13,6 @@ const Footer = () => {
   return (
     <footer className="bg-[#1B5A96] text-white">
       <MaxWidthWrapper className="px-4">
-        {/* <div className="grid gap-5 sm:grid-cols-12 py-6">
-          <div className="flex col-span-12 gap-2 p-5 flex-col items-center text-center lg:text-left lg:items-start border lg:flex-row lg:border-0 lg:col-span-5 xl:col-span-6">
-            <Link
-              href="https://maps.app.goo.gl/CEMtUbQd1246YQ3c7"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icons.Map className="flex-none h-12 w-12 border p-2  text-[#FB9100] lg:text-white rounded" />
-            </Link>
-            <Link
-              href="https://maps.app.goo.gl/CEMtUbQd1246YQ3c7"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div>
-                <p>Find Us</p>
-                B-509, 5th Floor, Bestech Business Towers, Sector 66, SAS Nagar,{" "}
-                <br className="hidden xl:block" /> Punjab 160066
-              </div>
-            </Link>{" "}
-          </div>
-          <div className="flex col-span-12 gap-2 p-5 flex-col items-center text-center lg:text-left lg:items-start border lg:flex-row lg:border-0 sm:col-span-6 lg:col-span-4 xl:col-span-3">
-            <Link
-              href="tel:+91-8907400008"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icons.Phone className="flex-none h-12 w-12 border p-2  text-[#FB9100] lg:text-white rounded" />
-            </Link>
-
-            <Link
-              href="tel:+91-8907400008"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p>Call Us</p>
-              +91-8907400008
-            </Link>
-          </div>
-          <div className="flex col-span-12 gap-2 p-5 flex-col items-center text-center lg:text-left lg:items-start border lg:flex-row lg:border-0 sm:col-span-6 lg:col-span-3 xl:col-span-3">
-            <Link
-              href="mailto:info@adaired.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icons.Mail className="flex-none h-12 w-12 border p-2  text-[#FB9100] lg:text-white rounded" />
-            </Link>
-            <Link
-              href="mailto:info@adaired.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p>Mail Us</p>
-              info@adaired.com
-            </Link>
-          </div>
-        </div> */}
         <div className="flex items-center justify-between gap-y-2 lg:gap-5 flex-wrap lg:flex-nowrap py-6">
           <div className="flex gap-2 p-5 flex-col items-center text-center lg:text-left lg:items-start border lg:flex-row lg:border-0 basis-full w-full">
             <Link
