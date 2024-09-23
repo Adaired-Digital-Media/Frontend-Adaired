@@ -5,7 +5,7 @@ import parse, { domToReact, Element, DOMNode } from "html-react-parser";
 import PageBanner from "@/components/PageBanner";
 import PopularPosts from "@/components/PopularPosts";
 import type { Metadata } from "next";
-import { formatDate } from "@/lib/utils";
+import { formatDate, parseStyleString } from "@/lib/utils";
 
 async function getBlogs({ params }: { params: { slug: string } }) {
   const res = await fetch(
@@ -68,33 +68,27 @@ const Blog: React.FC<BlogProps> = async ({ params }) => {
 
         let additionalClasses = "font-nunito";
 
-        // If the tag is h2, add specific classes
         if (domNode.tagName === "h2") {
           additionalClasses += " text-2xl md:text-3xl";
-        }
-
-        // If the tag is h3, add specific classes
-        if (domNode.tagName === "h3") {
+        } else if (domNode.tagName === "h3") {
           additionalClasses += " text-xl md:text-2xl";
-        }
-
-        // If the tag is ol, add specific classes
-        if (domNode.tagName === "ol") {
+        } else if (domNode.tagName === "ol") {
           additionalClasses += " p-4 ml-2 list-decimal";
-        }
-
-        // If the tag is ul, add specific classes
-        if (domNode.tagName === "ul") {
+        } else if (domNode.tagName === "ul") {
           additionalClasses += " p-4 ml-2 list-disc";
         }
 
+        const { className, style, ...otherAttribs } = domNode.attribs;
+
+        // Convert string style to object
+        const styleObject = typeof style === 'string' ? parseStyleString(style) : style;
+        
         return React.createElement(
           domNode.tagName,
           {
-            ...domNode.attribs,
-            className: `${
-              domNode.attribs.className || ""
-            } ${additionalClasses}`.trim(),
+            ...otherAttribs,
+            className: `${className || ""} ${additionalClasses}`.trim(),
+            style: styleObject, 
           },
           domToReact(children)
         );
