@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import React from "react";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -61,3 +62,29 @@ export function calculateReadingTime(content: string): number {
   const readingTime = Math.ceil(wordCount / wordsPerMinute); // Round up to nearest minute
   return readingTime;
 }
+
+
+// // Helper function to convert style string to object
+// export const parseStyleString = (styleString: string): React.CSSProperties => {
+//   return styleString.split(';').reduce((styleObj, styleRule) => {
+//     const [property, value] = styleRule.split(':').map(s => s.trim());
+//     if (property && value) {
+//       // Assign the property as a key of the style object
+//       styleObj[property as keyof React.CSSProperties] = value as any; // Use 'any' to bypass type conflict
+//     }
+//     return styleObj;
+//   }, {} as React.CSSProperties);
+// };
+
+
+export const parseStyleString = (styleString: string): React.CSSProperties => {
+  return styleString.split(';').reduce((styleObj: { [key: string]: string }, styleRule) => {
+    const [property, value] = styleRule.split(':').map(s => s.trim());
+    if (property && value) {
+      // Allow any string as a property
+      styleObj[property] = value; 
+    }
+    return styleObj;
+  }, {});
+};
+
