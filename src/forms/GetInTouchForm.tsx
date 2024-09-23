@@ -17,7 +17,7 @@ import { formSubmission } from "@/lib/send-email";
 import { useReCaptcha } from "next-recaptcha-v3";
 import { useRouter } from "next/navigation";
 
-function GetInTouchForm() {
+function GetInTouchForm({ colorScheme }: { colorScheme: string }) {
   const router = useRouter();
   // Import 'executeRecaptcha' using 'useReCaptcha' hook
   const { executeRecaptcha } = useReCaptcha();
@@ -83,7 +83,12 @@ function GetInTouchForm() {
     <div className="border p-5 rounded-lg">
       <h2 className="text-[1.688rem] md:text-4xl mb-4 inline-block">
         Get In Touch
-        <div className="h-0.5 w-3/4 bg-[#BC1D8D]" />
+        <div
+          className={`h-0.5 w-3/4 mt-2 `}
+          style={{
+            backgroundColor: colorScheme,
+          }}
+        />
       </h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -150,7 +155,7 @@ function GetInTouchForm() {
             )}
           />
           <Button
-            title="View More Information"
+            title="Send Your Enquiry"
             className="bg-white text-black w-full border-[#FB9100] pl-0 pr-0 hover:pl-0 hover:pr-0 justify-center"
             textClassName="text-center"
             svgClassName="bg-[#000000] "

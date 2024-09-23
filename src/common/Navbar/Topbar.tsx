@@ -2,14 +2,13 @@ import { cn } from "@/lib/utils";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-import Image from "next/image";
-
+import CldImage from "@/components/CloudinaryImageComponent";
 
 type Props = {
   className: string;
-}
+};
 
-const Topbar = ({className}:Props) => {
+const Topbar = ({ className }: Props) => {
   return (
     <div className={cn(`bg-[#EEEEEE] h-10 flex  items-center ${className}`)}>
       <MaxWidthWrapper
@@ -20,8 +19,8 @@ const Topbar = ({className}:Props) => {
             href="tel:+12052736006"
             className={cn(`flex gap-1 sm:gap-2 items-center`)}
           >
-            <Image
-              src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/Us_Flag_a3eloz"
+            <CldImage
+              src="Static Website Images/Us_Flag_a3eloz"
               alt="alt"
               width={20}
               height={20}
@@ -38,8 +37,8 @@ const Topbar = ({className}:Props) => {
             href="tel:+918907400008"
             className={cn(`flex gap-1 sm:gap-2 items-center`)}
           >
-            <Image
-              src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/Indian_Flag_ncjo16"
+            <CldImage
+              src="Static Website Images/Indian_Flag_ncjo16"
               alt="alt"
               width={20}
               height={20}

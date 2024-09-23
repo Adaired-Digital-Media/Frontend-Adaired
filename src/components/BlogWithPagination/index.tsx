@@ -22,13 +22,22 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [blogsPerPage] = useState(6);
 
-  // Sort the blogs by date
-  const sortedBlogs = useMemo(() => {
-    return data.sort(
-      (a: any, b: any) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
-  }, [data]);
+  // // Sort the blogs by date
+  // const sortedBlogs = useMemo(() => {
+  //   return data.sort(
+  //     (a: any, b: any) =>
+  //       new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  //   );
+  // }, [data]);
+
+    // Filter and sort the blogs by date
+    const sortedBlogs = useMemo(() => {
+      const publishedBlogs = data.filter((blog: any) => blog.status === "publish");
+      return publishedBlogs.sort(
+        (a: any, b: any) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
+    }, [data]);
 
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;

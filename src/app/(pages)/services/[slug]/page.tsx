@@ -22,7 +22,7 @@ export const revalidate = 60;
 
 const fetchservice = async (slug: string) => {
   const result = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/service/getServices/${slug}`  
+    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/service/getServices/${slug}`
   );
   const data = await result.json();
   return data;
@@ -99,7 +99,7 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
                     childServices={fetchedService?.childServices}
                   />
                 )}
-                <GetInTouchForm />
+                <GetInTouchForm colorScheme={fetchedService.colorScheme} />
               </div>
             </aside>
           </div>
@@ -125,15 +125,15 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
                   />
                 </MaxWidthWrapper>
               );
-            case "OurProcessLayout":
-              return (
-                <MaxWidthWrapper key={data.componentName}>
-                  <ProcessSection
-                    colorScheme={fetchedService.colorScheme}
-                    data={data.body}
-                  />
-                </MaxWidthWrapper>
-              );
+            // case "OurProcessLayout":
+            //   return (
+            //     <MaxWidthWrapper key={data.componentName}>
+            //       <ProcessSection
+            //         colorScheme={fetchedService.colorScheme}
+            //         data={data.body}
+            //       />
+            //     </MaxWidthWrapper>
+            //   );
             case "FAQ":
               return (
                 <MaxWidthWrapper key={data.componentName}>
