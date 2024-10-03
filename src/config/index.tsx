@@ -44,6 +44,7 @@ export const NAV_ITEMS = [
           },
         ],
       },
+
       {
         name: "Search Engine Optimization (SEO)",
         href: "/services/search-engine-optimization",
@@ -75,6 +76,56 @@ export const NAV_ITEMS = [
         ],
       },
 
+      {
+        name: "Strategic Social Media Management",
+        href: "/services/strategic-social-media-management",
+        subItems: [
+          {
+            name: "Social Media Optimization",
+            href: "/services/social-media-optimization",
+          },
+          {
+            name: "Social Media Marketing",
+            href: "/services/social-media-marketing",
+          },
+        ],
+      },
+
+      {
+        name: "Graphic Design",
+        href: "/services/digital-creative-and-logo-design",
+        subItems: [
+          {
+            name: "Website Graphics",
+            href: "/services/digital-creative-and-logo-design",
+          },
+          {
+            name: "Website Logo",
+            href: "/services/digital-creative-and-logo-design",
+          },
+          {
+            name: "Digital Broucher",
+            href: "/services/digital-creative-and-logo-design",
+          },
+          {
+            name: "Email Marketing Graphics",
+            href: "/services/digital-creative-and-logo-design",
+          },
+          {
+            name: "Business card, Letterhead etc.",
+            href: "/services/digital-creative-and-logo-design",
+          },
+          {
+            name: "Poster, Banner, Flyer and Signage",
+            href: "/services/digital-creative-and-logo-design",
+          },
+          {
+            name: "Social Media Graphics",
+            href: "/services/digital-creative-and-logo-design",
+          },
+        ],
+      },
+      
       {
         name: "Paid Media & Advertising (PPC)",
         href: "/services/paid-media-and-advertising",
@@ -113,6 +164,7 @@ export const NAV_ITEMS = [
           },
         ],
       },
+
       {
         name: "Content Marketing",
         href: "/services/compelling-content-marketing",
@@ -148,54 +200,6 @@ export const NAV_ITEMS = [
           {
             name: "Google Business Profile Posts",
             href: "/services/compelling-content-marketing",
-          },
-        ],
-      },
-      {
-        name: "Graphic Design",
-        href: "/services/digital-creative-and-logo-design",
-        subItems: [
-          {
-            name: "Website Graphics",
-            href: "/services/digital-creative-and-logo-design",
-          },
-          {
-            name: "Website Logo",
-            href: "/services/digital-creative-and-logo-design",
-          },
-          {
-            name: "Digital Broucher",
-            href: "/services/digital-creative-and-logo-design",
-          },
-          {
-            name: "Email Marketing Graphics",
-            href: "/services/digital-creative-and-logo-design",
-          },
-          {
-            name: "Business card, Letterhead etc.",
-            href: "/services/digital-creative-and-logo-design",
-          },
-          {
-            name: "Poster, Banner, Flyer and Signage",
-            href: "/services/digital-creative-and-logo-design",
-          },
-          {
-            name: "Social Media Graphics",
-            href: "/services/digital-creative-and-logo-design",
-          },
-        ],
-      },
-      {
-        name: "Strategic Social Media Management",
-        href: "/services/strategic-social-media-management",
-        subItems: [
-          {
-            name: "Social Media Optimization",
-            href: "/services/social-media-optimization",
-          },
-          {
-            name: "Social Media Marketing",
-            href: "/services/social-media-marketing",
           },
         ],
       },

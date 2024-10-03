@@ -40,7 +40,7 @@ const IntroSection = () => {
           <div className=" mx-auto flex-grow-0">
             <div className="max-w-lg lg:max-w-full w-full">
               <CldImage
-                src="Static Website Images/about_image"
+                src="Static Website Images/about"
                 alt="About Image"
                 height={500}
                 width={800}
@@ -71,7 +71,7 @@ const IntroSection = () => {
               <div className="flex flex-col items-center border p-4 md:p-0 md:border-none md:items-start ">
                 <CldImage
                   src="Static Website Images/homepage_about2"
-                  alt=""
+                  alt="Workstation"
                   height={60}
                   width={60}
                   className="border rounded-lg p-2 mb-2"
@@ -215,7 +215,7 @@ const WorkStation = () => {
       <div>
         <div>
           <CldImage
-            src="Static Website Images/about_page_img1"
+            src="Static Website Images/workstation"
             alt="About Image"
             height={600}
             width={800}
@@ -233,7 +233,7 @@ const WorkStation = () => {
       <div>
         <div>
           <CldImage
-            src="Static Website Images/about_page_img2"
+            src="Static Website Images/Team"
             alt="About Image"
             height={600}
             width={800}

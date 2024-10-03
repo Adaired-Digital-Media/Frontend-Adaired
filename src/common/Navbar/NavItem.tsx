@@ -67,9 +67,9 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
                 : "group-hover:scale-y-100 group-hover:pointer-events-auto"
             )}
           >
-            <div className="mx-auto px-4 py-4">
+            <div className="mx-auto p-2 4xl:p-3 5xl:p-4">
               <div className="flex rounded-bl-lg rounded-br-lg">
-                <div className="grid grid-cols-3 gap-8 py-4 w-9/12">
+                <div className="grid grid-cols-3 gap-3 5xl:gap-6 xl:w-9/12">
                   {navitems.subItems.map((subItem) => (
                     <div
                       className="relative text-base sm:text-sm"
@@ -77,7 +77,7 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
                     >
                       <Link
                         href={subItem.href}
-                        className="block font-medium text-gray-900 pb-2 "
+                        className="block font-medium text-gray-900 pb-1.5 5xl:pb-2 hover:text-[#FB9100] duration-200 transition-colors" 
                         onClick={handleSubmenuClick}
                       >
                         <span className="font-bold"> {subItem.name}</span>
@@ -92,7 +92,7 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
                                     onClick={handleSubmenuClick}
                                     className="flex items-center cursor-pointer group/subMenu "
                                   >
-                                    <div className="flex items-center gap-2 py-1 group-hover/subMenu:text-[#FB9100] transition-all duration-300 ">
+                                    <div className="flex items-center gap-2 py-0.5 4xl:py-1 group-hover/subMenu:text-[#FB9100] transition-all duration-300 ">
                                       <div className="w-[13px] h-[13px] rounded-sm bg-[#ddd]"></div>
                                       <span className="text-base flex">
                                         {subSubItem.name}
@@ -108,9 +108,9 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
                     </div>
                   ))}
                 </div>
-                <div className="flex-none w-3/12 ">
+                <div className="flex-none w-3/12 hidden xl:flex ">
                   {blogs.map((blog: any) => (
-                    <div key={blog.title}>
+                    <Link href={`/blog/${blog.slug}`} key={blog.title}>
                       <div className="relative overflow-hidden h-full rounded-2xl transition duration-200 group bg-white hover:shadow-xl border border-zinc-100">
                         <div className="w-full aspect-w-16 aspect-h-10 bg-gray-100 rounded-tr-lg rounded-tl-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
                           <Image
@@ -138,7 +138,7 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -167,61 +167,6 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
 };
 
 export default NavItem;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // "use client";
 // import { NAV_ITEMS } from "@/config";

@@ -34,6 +34,7 @@ const config = {
       poppins: ["var(--font-poppins)"],
     },
     screens: {
+      "xs":"500px",
       sm: "640px",
       md: "768px",
       "l-md": "991px",
@@ -83,6 +84,9 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        transitionTimingFunction: {
+          'custom-ui': 'cubic-bezier(0.15, 0.75, 0.5, 1)',
         },
       },
       borderRadius: {

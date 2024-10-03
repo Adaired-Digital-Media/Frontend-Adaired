@@ -22,14 +22,16 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [blogsPerPage] = useState(6);
 
-    // Filter and sort the blogs by date
-    const sortedBlogs = useMemo(() => {
-      const publishedBlogs = data.filter((blog: any) => blog.status === "publish");
-      return publishedBlogs.sort(
-        (a: any, b: any) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      );
-    }, [data]);
+  // Filter and sort the blogs by date
+  const sortedBlogs = useMemo(() => {
+    const publishedBlogs = data.filter(
+      (blog: any) => blog.status === "publish"
+    );
+    return publishedBlogs.sort(
+      (a: any, b: any) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+  }, [data]);
 
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
@@ -42,10 +44,10 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-    // Scroll to top whenever the currentPage changes
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [currentPage]);
+  // Scroll to top whenever the currentPage changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   return (
     <>
