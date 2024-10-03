@@ -74,7 +74,7 @@ const ContactPageForm = () => {
 
   return (
     <div>
-      <Form {...form}>
+      <Form {...form} >
         <form
           className="border p-10 rounded-lg max-w-3xl mx-auto"
           onSubmit={form.handleSubmit(onSubmit)}

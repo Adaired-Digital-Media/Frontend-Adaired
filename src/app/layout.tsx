@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 
+
 export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
   title: "Digital Marketing Agency for Online Growth | Adaired Digital",

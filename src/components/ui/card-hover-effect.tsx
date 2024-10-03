@@ -3,8 +3,9 @@ import { cn, hexToHexWithOpacity } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-
 import Button from "@/components/Button";
+import { useRouter } from 'nextjs-toploader/app';
+import CldImage from "../CloudinaryImageComponent";
 
 export const HoverEffect = ({
   items,
@@ -22,6 +23,7 @@ export const HoverEffect = ({
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const router = useRouter();
 
   return (
     <div
@@ -35,9 +37,10 @@ export const HoverEffect = ({
         return (
           <div
             key={item?.link}
-            className="relative group block px-2 py-2 sm:p-4 h-full w-full "
+            className="relative group block px-2 py-2 sm:p-4 h-full w-full cursor-pointer"
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
+            onClick={() => router.push(item.link)}
           >
             <AnimatePresence>
               {hoveredIndex === idx && (
@@ -66,7 +69,7 @@ export const HoverEffect = ({
               }}
             >
               <div>
-                <Image
+                <CldImage
                   src={item.mainSvg}
                   alt="Service Image"
                   height={120}

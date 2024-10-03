@@ -27,7 +27,7 @@ const NavItems = () => {
             navitems={item}
             key={item.value}
             // index={activeIndex}
-            activeIndex={() => setActive(index)} 
+            activeIndex={() => setActive(index)}
           />
         );
       })}
