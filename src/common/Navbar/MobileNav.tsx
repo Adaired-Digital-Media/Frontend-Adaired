@@ -1,3 +1,255 @@
+"use client";
+import Link from "next/link";
+import { NAV_ITEMS } from "@/config";
+import React, { useEffect, useState, useRef } from "react";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/Icons";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+interface MobileNavProps {
+  isSidebarVisible: boolean;
+  closeSidebar: () => void;
+}
+
+const MobileNav: React.FC<MobileNavProps> = ({
+  isSidebarVisible,
+  closeSidebar,
+}) => {
+  const [submenu, setSubmenu] = useState<Array<any> | null>(null);
+  console.log(submenu);
+  const [submenuActive, setSubmenuActive] = useState<boolean>(false);
+
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setTimeout(() => !submenuActive && setSubmenu(null), 600);
+  }, [submenuActive]);
+
+  return (
+    <div
+      className={cn(
+        `fixed z-[100] transition-all duration-500 ease-custom-ui transform uppercase inset-0 ${
+          isSidebarVisible
+            ? "pointer-events-auto visible bg-[#22222288]"
+            : "pointer-events-none invisible"
+        }`
+      )}
+      onClick={closeSidebar}
+    >
+      <nav
+        className={cn(
+          `fixed right-0 w-full xs:w-[calc(100%-6rem)] max-w-[32rem] h-full bg-white  transition-transform duration-300 ease-custom-ui transform overflow-hidden overflow-y-scroll 
+            ${isSidebarVisible ? "translate-x-0" : "translate-x-full"}
+           
+            `
+        )}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div
+          ref={sidebarRef}
+          className={cn(
+            `w-full pt-[2rem] pb-[3.5rem] px-[1.5rem] text-sm absolute transition-transform duration-500 ease-custom-ui transform top-0   ${
+              submenuActive ? "translate-x-full" : ""
+            }`
+          )}
+        >
+          <div className="pb-3 flex items-center justify-end">
+            <button
+              aria-label="close menu"
+              className={cn(
+                `flex items-center justify-center text-xl text-gray-500 bg-white  w-[2.5rem] h-[2.5rem]`
+              )}
+              onClick={closeSidebar}
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 16 16"
+                className="sidebar__close-icon"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"></path>
+              </svg>
+            </button>
+          </div>
+          <div className="space-y-8">
+            <div className="relative">
+              <input
+                className="pl-3 w-full h-12 shadow-inner border border-black/10 select-none transition-colors duration-300 ease-in-out cursor-text hover:bg-gray-100 focus-visible:bg-gray-100"
+                type="text"
+                placeholder="Search"
+              />
+              <Icons.searchIcon className="mb-0.5 absolute top-1/2 right-3 -translate-y-1/2" />
+            </div>
+
+            <div>
+              <ul className="space-y-4">
+                {NAV_ITEMS.map((item) => (
+                  <li
+                    key={item.label}
+                    onClick={() => {
+                      if (item.subItems || item.childrens) {
+                        setSubmenuActive(!submenuActive);
+                        setSubmenu(
+                          item.subItems ? item.subItems : item.childrens
+                        );
+                      } else {
+                        closeSidebar();
+                      }
+                    }}
+                  >
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        `text-sm font-semibold flex ${
+                          item.childrens || item.subItems
+                            ? "items-center justify-between"
+                            : ""
+                        }`
+                      )}
+                    >
+                      {item.label}
+                      {item.subItems || item.childrens ? (
+                        <svg
+                          stroke="currentColor"
+                          fill="currentColor"
+                          strokeWidth="0"
+                          viewBox="0 0 512 512"
+                          height="1em"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>
+                        </svg>
+                      ) : (
+                        <></>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <ul className="space-y-4">
+                <li>
+                  <Link href={""} className="text-sm flex gap-x-4 font-medium">
+                    <Icons.loginIcon />
+                    Login / Register
+                  </Link>
+                </li>
+                <li>
+                  <Link href={""} className="text-sm flex gap-x-4 font-medium">
+                    <Icons.cartIcon />
+                    Cart
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          ref={sidebarRef}
+          className={cn(
+            `w-full h-full pt-[2rem] pb-[3.5rem] px-[1.5rem] text-sm absolute transition-transform duration-500 ease-custom-ui transform top-0 bg-white left-0 space-y-8 ${
+              submenuActive ? "translate-x-0" : "translate-x-full"
+            }`
+          )}
+        >
+          <button
+            onClick={() => {
+              setSubmenuActive(false);
+            }}
+            className="flex gap-2"
+          >
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 512 512"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              className="rotate-180"
+            >
+              <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>
+            </svg>
+            Back
+          </button>
+
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full uppercase font-normal border-none space-y-4"
+          >
+            {submenu &&
+              submenu
+                .filter((item) => item.subItems)
+                .map((item) => (
+                  <AccordionItem
+                    key={item.name}
+                    value={item.name}
+                    className="border-none data-[state=open]:border-b-0  "
+                  >
+                    <AccordionTrigger className="p-0 hover:no-underline hover:text-[#FB9100]">
+                      <Link
+                        href={item.href}
+                        className="text-sm uppercase font-normal "
+                      >
+                        {item.name}
+                      </Link>
+                    </AccordionTrigger>
+
+                    {item.subItems && (
+                      <AccordionContent className="pt-2 pb-2">
+                        <ul className="space-y-2 pl-4">
+                          {item.subItems.map((subItem: any) => (
+                            <li key={subItem.name}>
+                              <Link
+                                href={subItem.href}
+                                className="text-sm font-medium hover:text-[#FB9100]"
+                              >
+                                {subItem.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </AccordionContent>
+                    )}
+                  </AccordionItem>
+                ))}
+          </Accordion>
+
+          <ul className="space-y-4">
+            {submenu &&
+              submenu
+                .filter((item) => !item.subItems)
+                .map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.href} className="text-sm font-medium">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+          </ul>
+        </div>
+      </nav>
+    </div>
+  );
+};
+
+export default MobileNav;
+
 // "use client";
 // import { NAV_ITEMS } from "@/config";
 // import React, { useState } from "react";
@@ -378,170 +630,3 @@
 // };
 
 // export default MobileNav;
-
-"use client";
-import Link from "next/link";
-import { NAV_ITEMS } from "@/config";
-import React, { useEffect, useState, useRef } from "react";
-import { cn } from "@/lib/utils";
-import { Icons } from "@/components/Icons";
-
-interface MobileNavProps {
-  isSidebarVisible: boolean;
-  closeSidebar: () => void;
-}
-
-const MobileNav: React.FC<MobileNavProps> = ({
-  isSidebarVisible,
-  closeSidebar,
-}) => {
-  const [submenu, setSubmenu] = useState<Array<any> | null>(null);
-  const [submenuActive, setSubmenuActive] = useState<boolean>(false);
-
-  const sidebarRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setTimeout(() => !submenuActive && setSubmenu(null), 600);
-  }, [submenuActive]);
-
-  return (
-    <div>
-      <div
-        className={cn(
-          `fixed z-[100] top-0 left-0 w-full h-full transition-all duration-300 uppercase ${
-            isSidebarVisible
-              ? "pointer-events-auto visible bg-[#22222288]"
-              : "pointer-events-none invisible"
-          }`
-        )}
-        onClick={closeSidebar}
-      >
-        <button
-          aria-label="close sidebar"
-          className={cn(
-            `flex items-center justify-center text-xl text-gray-300 bg-white absolute w-[3.5rem] h-[3.5rem] top-1 right-[min(calc(100%-7rem),33rem)] rounded-full ${
-              isSidebarVisible ? "visible" : "invisible"
-            }`
-          )}
-        >
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            stroke-width="0"
-            viewBox="0 0 16 16"
-            className="sidebar__close-icon"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"></path>
-          </svg>
-        </button>
-        <nav
-          className={cn(
-            `fixed right-0 w-[calc(100%-8rem)] max-w-[32rem] h-full bg-white  transition-transform duration-500 ease-custom-ui transform overflow-hidden overflow-y-scroll 
-            ${isSidebarVisible ? "translate-x-0" : "translate-x-full"}
-            `
-          )}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div
-            ref={sidebarRef}
-            className="absolute pt-[2rem] pb-[3.5rem] px-[1.5rem] text-sm space-y-10 "
-          >
-            <div className="relative">
-              <input
-                className="pl-3 w-full h-12 shadow-inner border border-black/10 select-none transition-colors duration-300 ease-in-out cursor-text hover:bg-gray-100 focus-visible:bg-gray-100"
-                type="text"
-                placeholder="Search"
-              />
-              <Icons.searchIcon className="mb-0.5 absolute top-1/2 right-3 -translate-y-1/2" />
-            </div>
-            <div>
-              <ul className="space-y-4">
-                {NAV_ITEMS.map((item) => (
-                  <li
-                    key={item.label}
-                    onClick={() => {
-                      if (item.subItems || item.childrens) {
-                        setSubmenuActive(!submenuActive);
-                        setSubmenu(item.subItems ? item.subItems : null);
-                      } else {
-                        closeSidebar();
-                      }
-                    }}
-                  >
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        `text-sm font-semibold flex ${
-                          item.childrens || item.subItems
-                            ? "items-center justify-between"
-                            : ""
-                        }`
-                      )}
-                    >
-                      {item.label}
-                      {item.subItems || item.childrens ? (
-                        <svg
-                          stroke="currentColor"
-                          fill="currentColor"
-                          stroke-width="0"
-                          viewBox="0 0 512 512"
-                          height="1em"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>
-                        </svg>
-                      ) : (
-                        <></>
-                      )}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <ul className="space-y-4">
-                <li>
-                  <Link href={""} className="text-sm flex gap-x-4 font-medium">
-                    <Icons.loginIcon />
-                    Login / Register
-                  </Link>
-                </li>
-                <li>
-                  <Link href={""} className="text-sm flex gap-x-4 font-medium">
-                    <Icons.cartIcon />
-                    Cart
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            ref={sidebarRef}
-            className={cn(
-              `w-full h-full pt-[2rem] pb-[3.5rem] px-[1.5rem] text-sm absolute transition-transform duration-500 ease-custom-ui transform top-0 bg-white left-0 ${
-                submenuActive ? "translate-x-0" : "translate-x-full"
-              }`
-            )}
-          >
-            <ul className="space-y-4">
-              <li>
-                <button onClick={() => setSubmenuActive(false)}> 
-                  <Icons.closeIcon className="w-4 h-4" />
-                  Close
-                </button>
-                
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-  );
-};
-
-export default MobileNav;

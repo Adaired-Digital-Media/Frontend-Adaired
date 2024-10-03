@@ -34,6 +34,7 @@ const config = {
       poppins: ["var(--font-poppins)"],
     },
     screens: {
+      "xs":"500px",
       sm: "640px",
       md: "768px",
       "l-md": "991px",
