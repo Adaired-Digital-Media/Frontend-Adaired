@@ -14,6 +14,16 @@ import { Separator } from "@/components/ui/separator";
 import parse from "html-react-parser";
 import Link from "next/link";
 
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
 interface IProps {
   data: any;
 }
@@ -57,7 +67,7 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
             <>
               <figure className="hidden xl:flex border p-10 rounded-lg first:mt-10 mb-10">
                 <div className="w-[45%] shrink-0">
-                  <Link href={`/blog/${blog.slug}`} key={blog._id}>
+                  <Link href={`/blog/${blog.slug}`}>
                     <Image
                       src={blog.featuredImage}
                       height={400}
@@ -78,11 +88,9 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
                     </p>
                   </div>
                   <div>
-                    <h1 className="font-nunito lg:text-2xl font-semibold mb-1">
-                      <Link href={`/blog/${blog.slug}`} key={blog._id}>
-                        {blog.postTitle}
-                      </Link>
-                    </h1>
+                    <h2 className="font-nunito lg:text-2xl font-semibold mb-1">
+                      <Link href={`/blog/${blog.slug}`}>{blog.postTitle}</Link>
+                    </h2>
                     <span className="line-clamp-2 font-nunito">
                       {parse(blog.postDescription)}
                     </span>
@@ -102,7 +110,7 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
               <Card className="xl:hidden">
                 <CardHeader className="p-4">
                   <div className="mb-4">
-                    <Link href={`/blog/${blog.slug}`} key={blog._id}>
+                    <Link href={`/blog/${blog.slug}`}>
                       <Image
                         src={blog.featuredImage}
                         alt="Blog Image"
@@ -113,9 +121,7 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
                     </Link>
                   </div>
                   <CardTitle className="line-clamp-2 font-nunito text-2xl">
-                    <Link href={`/blog/${blog.slug}`} key={blog._id}>
-                      {blog.postTitle}
-                    </Link>
+                    <Link href={`/blog/${blog.slug}`}>{blog.postTitle}</Link>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="font-nunito text-lg text-left p-4 pt-0">
@@ -146,40 +152,35 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
         })}
       </div>
 
-      <ul className="flex gap-2 justify-center items-center pt-12 xl:pt-6">
-        <li>
-          <button
-            onClick={() =>
-              currentPage > 1 && setCurrentPage((prev) => prev - 1)
-            }
-            className="px-4 py-2 bg-gray-300 cursor-pointer"
-          >
-            Prev
-          </button>
-        </li>
-        {pageNumbers.map((number) => (
-          <li
-            key={number}
-            onClick={() => paginate(number)}
-            className={cn("px-4 py-2 bg-gray-300 cursor-pointer", {
-              "bg-gray-500": currentPage === number,
-            })}
-          >
-            {number}
-          </li>
-        ))}
-        <li>
-          <button
-            onClick={() =>
-              currentPage < pageNumbers.length &&
-              setCurrentPage((prev) => prev + 1)
-            }
-            className="px-4 py-2 bg-gray-300 cursor-pointer"
-          >
-            Next
-          </button>
-        </li>
-      </ul>
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem className="cursor-pointer">
+            <PaginationPrevious
+              onClick={() =>
+                currentPage > 1 && setCurrentPage((prev) => prev - 1)
+              }
+            />
+          </PaginationItem>
+          {pageNumbers.map((number) => (
+            <PaginationItem key={number} className="cursor-pointer">
+              <PaginationLink
+                onClick={() => paginate(number)}
+                isActive={currentPage === number}
+              >
+                {number}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
+          <PaginationItem className="cursor-pointer">
+            <PaginationNext
+              onClick={() =>
+                currentPage < pageNumbers.length &&
+                setCurrentPage((prev) => prev + 1)
+              }
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </>
   );
 };
