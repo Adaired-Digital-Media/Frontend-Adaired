@@ -1,14 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import BackgroundImage, { Data } from "./BackgroundImage";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import BoxReveal from "../magicui/BoxReveal";
 import Button from "../Button";
 import { Icons } from "../Icons";
 import { gsap } from "gsap";
-import Link from "next/link";
-import TypingAnimation from "../magicui/TypingAnimation";
 type Props = {};
 
 const BannerSlider = (props: Props) => {
@@ -110,16 +108,16 @@ const BannerSlider = (props: Props) => {
           <BoxReveal
             boxColor={"#5046e6"}
             duration={0.5}
-            key={data[currentIndex].subHead} // Key prop to restart effect on title change
+            key={data[currentIndex].subHead} 
           >
-            <h4 className="z-[200] text-lg md:text-xl max-w-96 before:content-[''] before:h-0.5 before:w-12 before:bg-whit ">
+            <p className="z-[200] text-lg md:text-xl max-w-96 before:content-[''] before:h-0.5 before:w-12 before:bg-white font-dm ">
               {data[currentIndex].subHead}
-            </h4>
+            </p>
           </BoxReveal>
           <BoxReveal
             boxColor={"#5046e6"}
             duration={0.5}
-            key={data[currentIndex].title} // Key prop to restart effect on title change
+            key={data[currentIndex].title} 
           >
             <h1 className="z-[200] text-4xl sm:text-5xl md:text-6xl xl:text-7xl max-w-[34rem] lg:max-w-2xl xl:max-w-[52rem]">
               {data[currentIndex].title}
@@ -145,17 +143,17 @@ export default BannerSlider;
 
 const sliderData: Data[] = [
   {
-    img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/BannerImage_1",
+    img: "Static Website Images/BannerImage_1",
     title: "Digital Marketing Agency That Turns Businesses Into Brands",
     subHead: "Adaired Digital Media",
   },
   {
-    img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/BannerImage_2",
+    img: "Static Website Images/BannerImage_2",
     title: "Digital Marketing Agency That Turns Businesses Into Brands",
     subHead: "Adaired Digital Media",
   },
   {
-    img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/BannerImage_3",
+    img: "Static Website Images/BannerImage_3",
     title: "Digital Marketing Agency That Turns Businesses Into Brands",
     subHead: "Adaired Digital Media",
   },
