@@ -97,19 +97,14 @@ const AboutSection = () => {
         <MaxWidthWrapper className="flex gap-10 flex-col lg:flex-row">
           <div className="flex-1 mx-auto ">
             <div className="max-w-lg h-full lg:max-w-full ">
-              {/* <CldVidPlayer
-                autoPlay
-                controls
-                loop
-                muted
-                width="1620"
-                height="1080"
-                transformation={{
-                  crop: "fill",
-                  gravity: "auto",
-                }}
-                src="Static Website Images/About_video"
-              /> */}
+            <CldImage
+                src="Static Website Images/about_main_anwqk5"
+                alt="About Image"
+                height={500}
+                width={800}
+                sizes="50vw"
+                className="rounded-lg object-cover"
+              />
             </div>
           </div>
           <div className="flex-1 p-2 text-center md:text-left">
@@ -397,14 +392,11 @@ const Growth = () => {
               />
             </div>
             <div className="transition-all absolute top-3/4 left-1/2 -translate-x-1/2 xl:translate-x-0 xl:top-auto xl:left-auto xl:bottom-[20%] xl:right-[-20%]">
-              <Image
-                src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/TeamsSmall"
+              <CldImage
+                src="Static Website Images/TeamsSmall"
                 alt="Growth Image"
                 height={100}
                 width={300}
-                sizes="(min-width:640px) 50vw, 100vw"
-                className=""
-                unoptimized
               />
             </div>
           </div>
