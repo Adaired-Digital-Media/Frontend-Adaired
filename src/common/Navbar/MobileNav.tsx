@@ -22,7 +22,6 @@ const MobileNav: React.FC<MobileNavProps> = ({
   closeSidebar,
 }) => {
   const [submenu, setSubmenu] = useState<Array<any> | null>(null);
-  console.log(submenu);
   const [submenuActive, setSubmenuActive] = useState<boolean>(false);
 
   const sidebarRef = useRef<HTMLDivElement>(null);

@@ -56,15 +56,15 @@ const BackgroundImage = ({ currentData, nextData }: BackgroundImageProps) => {
         }}
         className="absolute left-0 top-0 z-1 h-full w-full"
       >
-        <Image
-          src={nextData.img}
+        <CldImage
+          src={currentData.img}
           quality={70}
           fill
           style={{
             objectFit: "cover",
           }}
-          alt="Next Banner Image"
           priority
+          alt="Current Banner Image"
         />
         <div className="sm:hidden absolute inset-0 bg-black opacity-50" />
       </motion.div>
