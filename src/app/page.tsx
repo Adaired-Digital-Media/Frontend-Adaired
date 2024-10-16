@@ -100,9 +100,8 @@ const AboutSection = () => {
             <CldImage
                 src="Static Website Images/about_main_anwqk5"
                 alt="About Image"
-                height={500}
-                width={800}
-                sizes="50vw"
+                height={400}
+                width={650}
                 className="rounded-lg object-cover"
               />
             </div>
