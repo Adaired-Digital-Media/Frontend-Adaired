@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import HomePageForm from "@/forms/HomePageForm";
 import Link from "next/link";
 import CldImage from "@/components/CloudinaryImageComponent";
+import CldVidPlayer from "@/components/CloudinaryVideoComponent";
 
 const BlogCards = dynamic(() => import("@/components/BlogCard/BlogCards"), {
   loading: () => <p>Loading...</p>,
@@ -95,14 +96,20 @@ const AboutSection = () => {
       <section className="py-6 md:py-12">
         <MaxWidthWrapper className="flex gap-10 flex-col lg:flex-row">
           <div className="flex-1 mx-auto ">
-            <div className="max-w-lg lg:max-w-full ">
-              <CldImage
-                src="Static Website Images/about_image"
-                alt="About Image"
-                height={500}
-                width={800}
-                className="rounded-lg"
-              />
+            <div className="max-w-lg h-full lg:max-w-full ">
+              {/* <CldVidPlayer
+                autoPlay
+                controls
+                loop
+                muted
+                width="1620"
+                height="1080"
+                transformation={{
+                  crop: "fill",
+                  gravity: "auto",
+                }}
+                src="Static Website Images/About_video"
+              /> */}
             </div>
           </div>
           <div className="flex-1 p-2 text-center md:text-left">

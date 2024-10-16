@@ -6,6 +6,8 @@ import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/react"
 
 
 export const metadata: Metadata = {
@@ -127,6 +129,8 @@ export default function RootLayout({
           <main id="main">{children}</main>
           <Toaster />
         </ReCaptchaProvider>
+        <SpeedInsights />
+        <Analytics/>
       </body>
     </html>
   );
