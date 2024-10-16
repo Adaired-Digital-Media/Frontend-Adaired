@@ -1,8 +1,10 @@
 {
-  "rewrites": [
-    {
-      "source": "/dashboard",
-      "destination": "https://dashboard-adaired.vercel.app/"
-    }
-  ]
-}
+    "redirects": [
+      {
+        "source": "/dashboard",
+        "destination": "https://dashboard-adaired.vercel.app/auth/login",
+        "permanent": false
+      }
+    ]
+  }
+  
