@@ -203,7 +203,7 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
         type="application/ld+json"
         data-nscript="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(fetchedService.bodyScript),
+          __html: fetchedService.bodyScript,
         }}
       />
     </>
