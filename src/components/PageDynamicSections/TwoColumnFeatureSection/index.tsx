@@ -18,11 +18,11 @@ const TwoColumnFeatureSection: React.FC<TwoColumnFeatureSectionProps> = ({
 
   return (
     <div className="space-y-3">
-      <h1
+      <h2
         className={`text-2xl md:text-[38px] leading-snug font-nunito font-semibold `}
       >
         {body.title}
-      </h1>
+      </h2>
       <div className="text-justify hyphens-auto text-base sm:hyphens-none sm:text-left sm:text-lg space-y-3">
         {parse(body.description_1)}
       </div>
