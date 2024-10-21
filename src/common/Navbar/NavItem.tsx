@@ -31,11 +31,15 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_OLD_API_URI}/api/v1/blog/findBlog?limit=1&skip=10`
-      );
-      const data = await res.json();
-      setBlogs(data.result);
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_OLD_API_URI}/api/v1/blog/findBlog?limit=1&skip=10`
+        );
+        const data = await res.json();
+        setBlogs(data.result);
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchBlogs();
   }, []);
@@ -113,37 +117,50 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
                 <div className="flex-none w-3/12 hidden xl:flex ">
                   {blogs && blogs.length > 0 ? (
                     blogs.map((blog: any) => (
-                      <Link href={`/blog/${blog.slug}`} key={blog.title}>
-                        <div className="relative overflow-hidden h-full rounded-2xl transition duration-200 group bg-white hover:shadow-xl border border-zinc-100">
-                          <div className="w-full aspect-w-16 aspect-h-10 bg-gray-100 rounded-tr-lg rounded-tl-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
-                            <Image
-                              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}blog/${blog.image}`}
-                              alt="thumbnail"
-                              width={800}
-                              height={400}
-                              className={`group-hover:scale-95 group-hover:rounded-2xl transform object-cover transition duration-200 `}
-                            />
-                          </div>
-                          <div className=" p-4">
-                            <h2 className="font-bold my-4 text-lg text-zinc-700">
-                              {blog.title}
-                            </h2>
-                            <h2 className="font-normal my-4 text-sm text-zinc-500 line-clamp-4">
-                              {ClientRemoveTags(blog.description)}
-                            </h2>
-                            <div className="flex flex-row justify-between items-center mt-10">
-                              <span className="text-sm text-gray-500">
-                                {formatDate(blog.createdAt)}
-                              </span>
-                              <div className="relative z-10 px-6 py-2 bg-black text-white font-bold rounded-xl block text-xs">
-                                <Link href={`/blog/${blog.slug}`}>
-                                  Read Blog
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
+                      // <Link href={`/blog/${blog.slug}`} key={blog.title}>
+                      //   <div className="relative overflow-hidden h-full rounded-2xl transition duration-200 group bg-white hover:shadow-xl border border-zinc-100">
+                      //     <div className="w-full aspect-w-16 aspect-h-10 bg-gray-100 rounded-tr-lg rounded-tl-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
+                      //       <Image
+                      //         src={`${process.env.NEXT_PUBLIC_IMAGE_URL}blog/${blog.image}`}
+                      //         alt="thumbnail"
+                      //         width={800}
+                      //         height={400}
+                      //         className={`group-hover:scale-95 group-hover:rounded-2xl transform object-cover transition duration-200 `}
+                      //       />
+                      //     </div>
+                      //     <div className=" p-4">
+                      //       <h2 className="font-bold my-4 text-lg text-zinc-700">
+                      //         {blog.title}
+                      //       </h2>
+                      //       <h2 className="font-normal my-4 text-sm text-zinc-500 line-clamp-4">
+                      //         {ClientRemoveTags(blog.description)}
+                      //       </h2>
+                      //       <div className="flex flex-row justify-between items-center mt-10">
+                      //         <span className="text-sm text-gray-500">
+                      //           {formatDate(blog.createdAt)}
+                      //         </span>
+                      //         <div className="relative z-10 px-6 py-2 bg-black text-white font-bold rounded-xl block text-xs">
+                      //           <Link href={`/blog/${blog.slug}`}>
+                      //             Read Blog
+                      //           </Link>
+                      //         </div>
+                      //       </div>
+                      //     </div>
+                      //   </div>
+                      // </Link>
+                      <div
+                        className="flex flex-col space-y-3 relative"
+                        key={blog.title}
+                      >
+                        <Skeleton className="h-[200px] w-[330px] rounded-xl" />
+                        <div className="space-y-2">
+                          <Skeleton className="h-4 w-[330px]" />
+                          <Skeleton className="h-4 w-[330px]" />
+                          <Skeleton className="h-4 w-[330px]" />
+                          <Skeleton className="h-4 w-[330px]" />
+                          <Skeleton className="h-4 w-[330px]" />
                         </div>
-                      </Link>
+                      </div>
                     ))
                   ) : (
                     <div className="flex flex-col space-y-3 relative">
