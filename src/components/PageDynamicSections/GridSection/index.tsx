@@ -15,14 +15,12 @@ const GridSection = ({ colorScheme, data }: GridSectionProps) => {
   const bgColor = hexToHexWithOpacity(colorScheme, 0.08);
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
-    <section className="grid_layout py-16">
-      <style jsx>
-        {`
-          .grid_layout {
-            background-color: ${bgColor};
-          }
-        `}
-      </style>
+    <section
+      className="grid_layout py-16"
+      style={{
+        backgroundColor: bgColor,
+      }}
+    >
       <MaxWidthWrapper>
         <h2 className="text-2xl leading-snug lg:text-[38px]">{data.title}</h2>
         <p className="lg:w-5/6">{data.description}</p>
@@ -78,7 +76,7 @@ export default GridSection;
 export const Card = ({
   className,
   children,
-  colorScheme 
+  colorScheme,
 }: {
   className?: string;
   children: React.ReactNode;
@@ -90,14 +88,10 @@ export const Card = ({
         "rounded-2xl h-full w-full p-5 overflow-hidden bg-white  group-hover:border-slate-700 relative z-20 shadow-xl card",
         className
       )}
+      style={{
+        border: `1px solid ${colorScheme}`
+      }}
     >
-      <style jsx>
-        {`
-          .card {
-            border: 1px solid ${colorScheme};
-          }
-        `}
-      </style>
       <div className="relative z-50">
         <div className="p-4">{children}</div>
       </div>

@@ -31,7 +31,6 @@ const ProcessSection = ({
 
   const bgColor = hexToHexWithOpacity(colorScheme, 0.08);
 
-
   const renderSteps = (steps: { step: string; description: string }[]) => {
     return steps.map((stepData, index) => (
       <div key={index} className="flex">
@@ -92,27 +91,23 @@ const ProcessSection = ({
     >
       <div className="flex flex-col items-center justify-center">
         <div className="capitalize inline-flex items-center gap-2">
-          <div className="h-2 w-2 rounded-full dot">
-            <style jsx>
-              {`
-                .dot {
-                  background-color: ${colorScheme};
-                }
-              `}
-            </style>
-          </div>
+          <div
+            className="h-2 w-2 rounded-full dot"
+            style={{
+              background: colorScheme,
+            }}
+          ></div>
           <p>How we work</p> 
-          <div className="h-2 w-2 rounded-full dot">
-            <style jsx>
-              {`
-                .dot {
-                  background-color: ${colorScheme};
-                }
-              `}
-            </style>
-          </div>
+          <div
+            className="h-2 w-2 rounded-full dot"
+            style={{
+              background: colorScheme,
+            }}
+          ></div>
         </div>
-        <h2 className="text-2xl lg:text-[38px] font-nunito leading-snug">{data.title}</h2>
+        <h2 className="text-2xl lg:text-[38px] font-nunito leading-snug">
+          {data.title}
+        </h2>
         <div
           className="max-w-4xl "
           dangerouslySetInnerHTML={{ __html: data.description }}
