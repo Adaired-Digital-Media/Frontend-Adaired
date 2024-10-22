@@ -10,7 +10,12 @@ import dynamic from "next/dynamic";
 import HomePageForm from "@/forms/HomePageForm";
 import Link from "next/link";
 import CldImage from "@/components/CloudinaryImageComponent";
-import CldVidPlayer from "@/components/CloudinaryVideoComponent";
+import {
+  serviceDetails,
+  logoImages,
+  features,
+  imageConfig,
+} from "@/constants/Homepage";
 
 const BlogCards = dynamic(() => import("@/components/BlogCard/BlogCards"), {
   loading: () => <p>Loading...</p>,
@@ -97,7 +102,7 @@ const AboutSection = () => {
         <MaxWidthWrapper className="flex gap-10 flex-col lg:flex-row">
           <div className="flex-1 mx-auto ">
             <div className="max-w-lg h-full lg:max-w-full ">
-            <CldImage
+              <CldImage
                 src="Static Website Images/about_main_anwqk5"
                 alt="About Image"
                 height={400}
@@ -182,44 +187,6 @@ const AboutSection = () => {
 };
 
 const LogoSlider = () => {
-  const logoImages = [
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_1",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_2",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_3",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_4",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_5",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_6",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_7",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_8",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_9",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_10",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_11",
-    },
-    {
-      img: "https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/trustedBy_12",
-    },
-  ];
   return (
     <>
       <section className="bg-[#f8f8f8] py-6 sm:py-12">
@@ -245,110 +212,6 @@ const LogoSlider = () => {
 };
 
 const Services = () => {
-  const projects = [
-    {
-      title: "Website Designing & Development",
-      description:
-        "Website Design and development services that deliver exquisite design, a user-friendly interface, and robust functionality for lasting impressions on the audience.",
-      link: "/services/web-designing-and-development",
-      list: [
-        "PHP Development",
-        "Website management",
-        "Website CMS migrations",
-        "WordPress design & development",
-        "Landing page design & development",
-        "E-commerce website design & development",
-      ],
-      mainSvg: "Web Dev_JjQ6b",
-      hoverSvg: "/assets/images/web-hover.svg",
-      accentColor: "#038eb0",
-    },
-    {
-      title: "Search Engine Optimization (SEO)",
-      description:
-        "Launch and maintain the websites on top of search results to enhance your online visibility with tried and tested Search Engine Optimization (SEO) services.",
-      link: "/services/search-engine-optimization",
-      list: [
-        "Meta Tags Optimization",
-        "Google tags Setup",
-        "Schema Optimization",
-        "Website Layout Optimization",
-        "Website Broken Link Analysis",
-        "Penalty Review & recovery",
-      ],
-      mainSvg: "Search Engine Optimization_eyQDn",
-      hoverSvg: "/assets/images/seo-hover.svg",
-      accentColor: "#f89520",
-    },
-    {
-      title: "Strategic Social Media Management",
-      description:
-        "Enhance the social media presence of brands on diverse social platforms with engaging content to foster meaningful interactions and amplify reach.",
-      link: "/services/strategic-social-media-management",
-      list: [
-        "Profile Optimization",
-        "Targeted Page Likes",
-        "Hashtag Trend Research",
-        "Content Calendar",
-        "Monthly Report",
-      ],
-      mainSvg: "Social Media_tzOgg",
-      hoverSvg: "/assets/images/smm-hover.svg",
-      accentColor: "#7fbe26",
-    },
-    {
-      title: "Digital Creative & Logo Design",
-      description:
-        "The creative team illustrates the brand's image and ideas in captivating visuals to communicate with the target audience.",
-      link: "/services/digital-creative-and-logo-design",
-      list: [
-        "Digital Broucher",
-        "Email Marketing Graphics",
-        "Logos and Branded Elements",
-        "Poster, Banner and Signage",
-        "Business Card, Letterhead and Envelope",
-        "Social media graphics & digital marketing ads",
-      ],
-      mainSvg: "Logo Design_PpqcI",
-      hoverSvg: "/assets/images/logo-hover.svg",
-      accentColor: "#5c34b1",
-    },
-    {
-      title: "Paid Media  & Advertising",
-      description:
-        "Building strategic ad campaigns and carrying data-driven optimizations to drive targeted traffic with our Pay-Per-Click (PPC) solutions.",
-      link: "/services/paid-media-and-advertising",
-      list: [
-        "Social Ads",
-        "Google Ads",
-        "Conversion Tracking",
-        "Google Analytics set up",
-        "Overall Performance Analysis",
-        "Campaign Management and Optimization",
-      ],
-      mainSvg: "Pay Per Click_pdGDn",
-      hoverSvg: "/assets/images/ppc-hover.svg",
-      accentColor: "#d71a1a",
-    },
-    {
-      title: "Compelling Content Marketing",
-      description:
-        "Engaging and captivating content development that not only resonates with the audience but ranks well across all search engines.  ",
-      link: "/services/compelling-content-marketing",
-      list: [
-        "Infographics",
-        "Website Blogs",
-        "Press Releases",
-        "Website Copy",
-        "Guest Posting",
-        "Social Media Posting",
-      ],
-      mainSvg: "Content Marketing_iPYl2",
-      hoverSvg: "/assets/images/content-marketing-hover.svg",
-      accentColor: "#24a486",
-    },
-  ];
-
   return (
     <>
       <section className="py-6 lg:py-12">
@@ -367,7 +230,7 @@ const Services = () => {
             </p>
           </div>
 
-          <HoverEffect items={projects} />
+          <HoverEffect items={serviceDetails} />
         </MaxWidthWrapper>
       </section>
     </>
@@ -376,84 +239,66 @@ const Services = () => {
 
 const Growth = () => {
   return (
-    <>
-      <section className="py-7 sm:py-14 ">
-        <MaxWidthWrapper className="flex flex-col lg:flex-row items-center lg:items-start gap-16 xl:gap-36  ">
-          <div className="flex-1 relative ml-2 mr-4 lg:mr-0 lg:ml-2 ">
-            <div className="max-w-[500px] lg:max-w-full after:absolute after:-top-3 after:-right-3 md:after:-top-6 md:after:-right-6 after:border-2 after:border-[#BC1D8D] after:h-[90%] after:w-[90%] after:-z-10">
-              {" "}
+    <section className="py-7 sm:py-14">
+      <MaxWidthWrapper className="flex flex-col lg:flex-row items-center lg:items-start gap-16 xl:gap-36">
+        <div className="flex-1 relative ml-2 mr-4 lg:mr-0 lg:ml-2">
+          {imageConfig.map((img, index) => (
+            <div key={index} className={img.className || ""}>
               <CldImage
-                src="Static Website Images/TeamsBig"
-                alt="Growth Image"
-                height={800}
-                width={800}
-                className=""
+                src={img.src}
+                alt={img.alt}
+                height={img.height}
+                width={img.width}
+                className={img.className ? img.className : ""}
               />
             </div>
-            <div className="transition-all absolute top-3/4 left-1/2 -translate-x-1/2 xl:translate-x-0 xl:top-auto xl:left-auto xl:bottom-[20%] xl:right-[-20%]">
-              <CldImage
-                src="Static Website Images/TeamsSmall"
-                alt="Growth Image"
-                height={100}
-                width={300}
-              />
-            </div>
-          </div>
-          <div className="flex-1 ">
-            <h3 className="inline font-nunito text-[#515151] relative pl-16 text-lg md:pl-20 ">
-              <div className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-[#A7A9AC] h-px w-12 md:w-16"></div>
-              {/* <div className="lg:hidden absolute top-1/2 -right-2/4 transform -translate-y-1/2 bg-[#A7A9AC] h-px w-16"></div> */}
-              Holistic Expertise
-            </h3>
-            <h2 className="text-[1.688rem] md:text-4xl py-2">
-              Digital Marketing Experts Dedicated To Your Growth
-            </h2>
-            <p className="py-2 text-base sm:text-lg">
-              Adaired has helped numerous companies develop their brands with
-              its digital marketing services worldwide. We understand the
-              importance of leads, sales, and return on investment when it comes
-              to digital marketing. Our clients come from all industries of
-              every size.
-            </p>
-            <ul className="text-left grid gap-3 sm:gap-0 sm:grid-cols-2 py-2">
-              <li className="flex items-center gap-1 border p-2 sm:border-none">
-                <Icons.PinkArrowMarker className="text-[#BC1D8D]" />{" "}
-                Comprehensive Services
-              </li>
-              <li className="flex items-center gap-1 border p-2 sm:border-none">
+          ))}
+        </div>
+        <div className="flex-1">
+          <h3 className="inline font-nunito text-[#515151] relative pl-16 text-lg md:pl-20">
+            <div className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-[#A7A9AC] h-px w-12 md:w-16" />
+            Holistic Expertise
+          </h3>
+          <h2 className="text-[1.688rem] md:text-4xl py-2">
+            Digital Marketing Experts Dedicated To Your Growth
+          </h2>
+          <p className="py-2 text-base sm:text-lg">
+            Adaired has helped numerous companies develop their brands with its
+            digital marketing services worldwide. We understand the importance
+            of leads, sales, and return on investment when it comes to digital
+            marketing. Our clients come from all industries of every size.
+          </p>
+          <ul className="text-left grid gap-3 sm:gap-0 sm:grid-cols-2 py-2">
+            {features.map((feature, index) => (
+              <li
+                key={index}
+                className="flex items-center gap-1 border p-2 sm:border-none"
+              >
                 <Icons.PinkArrowMarker className="text-[#BC1D8D]" />
-                Industry Expertise
+                {feature}
               </li>
-              <li className="flex items-center gap-1 border p-2 sm:border-none">
-                <Icons.PinkArrowMarker className="text-[#BC1D8D]" />
-                Client-Centric Approach
-              </li>
-              <li className="flex items-center gap-1 border p-2 sm:border-none">
-                <Icons.PinkArrowMarker className="text-[#BC1D8D]" />
-                Tailored Solutions
-              </li>
-            </ul>
-            <p className="py-2 text-base sm:text-lg">
-              Our digital marketing agency provides a wide range of services,
-              from initial brand development to a globally syndicated
-              advertising campaign, all of which are customized to meet the
-              unique needs of our clients.
-            </p>
-            <p className="py-2 px-2 bg-[#FFF9FD] border-l-8 border-[#BC1D8D] text-base sm:text-lg">
-              We strive to surpass your expectations, providing unparalleled
-              quality in our online marketing services.
-            </p>
-            <Button
-              title="View More"
-              className="bg-white text-black mt-5"
-              svgClassName="bg-[#F89520]"
-              type="button"
-              navigateTo="/about"
-            />
-          </div>
-        </MaxWidthWrapper>
-      </section>
-    </>
+            ))}
+          </ul>
+          <p className="py-2 text-base sm:text-lg">
+            Our digital marketing agency provides a wide range of services, from
+            initial brand development to a globally syndicated advertising
+            campaign, all of which are customized to meet the unique needs of
+            our clients.
+          </p>
+          <p className="py-2 px-2 bg-[#FFF9FD] border-l-8 border-[#BC1D8D] text-base sm:text-lg">
+            We strive to surpass your expectations, providing unparalleled
+            quality in our online marketing services.
+          </p>
+          <Button
+            title="View More"
+            className="bg-white text-black mt-5"
+            svgClassName="bg-[#F89520]"
+            type="button"
+            navigateTo="/about"
+          />
+        </div>
+      </MaxWidthWrapper>
+    </section>
   );
 };
 

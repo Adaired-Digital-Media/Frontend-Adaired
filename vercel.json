@@ -3,7 +3,7 @@
     {
       "source": "/dashboard",
       "destination": "https://dashboard-adaired.vercel.app/auth/login",
-      "permanent": false
+      "permanent": true
     }
   ]
 }

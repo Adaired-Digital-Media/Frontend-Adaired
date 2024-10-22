@@ -9,15 +9,14 @@ type ImageWithIconboxProps = {
 };
 
 const ImageWithIconbox = ({ colorScheme, data }: ImageWithIconboxProps) => {
+  const bgColor = data.bgColor;
   return (
-    <section className={`ImageWithIconbox py-20`}>
-      <style jsx>
-        {`
-          .ImageWithIconbox {
-            background-color: ${data.bgColor};
-          }
-        `}
-      </style>
+    <section
+      className={`ImageWithIconbox py-20`}
+      style={{
+        backgroundColor: bgColor,
+      }}
+    >
       <MaxWidthWrapper
         className={cn(
           `flex gap-10 flex-col lg:flex-row  ${
@@ -26,7 +25,9 @@ const ImageWithIconbox = ({ colorScheme, data }: ImageWithIconboxProps) => {
         )}
       >
         <div className="w-full lg:w-1/2 space-y-3">
-          <h2 className={`text-2xl lg:text-[38px] leading-snug font-nunito font-semibold`}>
+          <h2
+            className={`text-2xl lg:text-[38px] leading-snug font-nunito font-semibold`}
+          >
             {data.title}
           </h2>
           <div className="space-y-6">

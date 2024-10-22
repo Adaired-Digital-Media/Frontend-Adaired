@@ -81,7 +81,7 @@ const ImageWithDetailedFeatureDescription = ({
   };
 
   return (
-    <section
+    <div
       className={`flex gap-10 flex-col lg:flex-row ${
         data.layout === "rightImage" && "flex-row-reverse"
       }`}
@@ -108,7 +108,7 @@ const ImageWithDetailedFeatureDescription = ({
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

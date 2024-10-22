@@ -4,7 +4,6 @@ import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn, hexToHexWithOpacity } from "@/lib/utils";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import Image from "next/image";
 import parse from "html-react-parser";
 import { Icons } from "@/components/Icons";
 
@@ -66,7 +65,9 @@ const StickyScroll = ({ colorScheme, data }: StickyScrollProps) => {
           )}
         >
           <h2
-            className={cn(`text-2xl lg:text-[38px] leading-snug font-semibold font-nunito `)}
+            className={cn(
+              `text-2xl lg:text-[38px] leading-snug font-semibold font-nunito `
+            )}
           >
             {data.title}
           </h2>
@@ -80,13 +81,12 @@ const StickyScroll = ({ colorScheme, data }: StickyScrollProps) => {
                 className="relative z-10 shadow-2xl rounded-sm cursor-pointer "
                 key={item.title}
               >
-                <div className="absolute h-full w-full border z-[-1] top-2 left-2 rounded-lg border__before">
-                  <style jsx>{`
-                    .border__before {
-                      border-color: ${colorScheme};
-                    }
-                  `}</style>
-                </div>
+                <div
+                  className="absolute h-full w-full border z-[-1] top-2 left-2 rounded-lg border__before"
+                  style={{
+                    borderColor: colorScheme,
+                  }}
+                ></div>
                 <motion.div
                   initial={{
                     color: "#000",
@@ -100,7 +100,11 @@ const StickyScroll = ({ colorScheme, data }: StickyScrollProps) => {
                 >
                   <div className={cn(`flex items-center gap-4`)}>
                     <Icons.bulbIcon className={cn(`w-15 h-15 flex-shrink-0`)} />
-                    <h2 className={cn(`text-lg md:text-2xl font-semibold font-nunito`)}>
+                    <h2
+                      className={cn(
+                        `text-lg md:text-2xl font-semibold font-nunito`
+                      )}
+                    >
                       {item.title}
                     </h2>
                   </div>

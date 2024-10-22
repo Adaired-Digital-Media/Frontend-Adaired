@@ -5,20 +5,18 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import PageBanner from "@/components/PageBanner";
 
 // Sections
-import TwoColumnFeatureSection from "@/components/PageDynamicSections/TwoColumnFeatureSection";
-import FaqSection from "@/components/PageDynamicSections/FaqSection";
-import ImageWithDetailedFeatureDescription from "@/components/PageDynamicSections/ImageWithDetailedFeatureDescription";
-import ProcessSection from "@/components/PageDynamicSections/ProcessSection";
 import GetInTouchForm from "@/forms/GetInTouchForm";
-import KeyFeatureCrossLayout from "@/components/PageDynamicSections/KeyFeatureCrossLayout";
 import CTA from "@/components/PageDynamicSections/CTA";
+import FaqSection from "@/components/PageDynamicSections/FaqSection";
+import GridSection from "@/components/PageDynamicSections/GridSection";
+import ProcessSection from "@/components/PageDynamicSections/ProcessSection";
 import StickyScroll from "@/components/PageDynamicSections/StickyScrollSection";
 import ImageWithIconbox from "@/components/PageDynamicSections/ImageWithIconboxSection";
 import KeyFeatureListLayout from "@/components/PageDynamicSections/KeyFeatureListLayout";
-import GridSection from "@/components/PageDynamicSections/GridSection";
+import KeyFeatureCrossLayout from "@/components/PageDynamicSections/KeyFeatureCrossLayout";
+import TwoColumnFeatureSection from "@/components/PageDynamicSections/TwoColumnFeatureSection";
 import ServiceKeyFeaturesLayout from "@/components/PageDynamicSections/ServiceKeyFeaturesLayout";
-import { redirect } from "next/navigation";
-export const revalidate = 60;
+import ImageWithDetailedFeatureDescription from "@/components/PageDynamicSections/ImageWithDetailedFeatureDescription";
 
 const fetchservice = async (slug: string) => {
   const result = await fetch(
@@ -33,14 +31,15 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const data = await fetchservice(params.slug);
+  const c = await params;
+  const data = await fetchservice(c.slug);
 
   return {
     metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
     title: data?.metaTitle ? data.metaTitle : data?.serviceName,
     description: data?.metaDescription ? data.metaDescription : "",
     alternates: {
-      canonical: `/services/${params.slug}`,
+      canonical: `/services/${c.slug}`,
     },
     robots: {
       index: true,
@@ -66,142 +65,147 @@ interface ServiceProps {
 }
 
 const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
-  const fetchedService = await fetchservice(params.slug);
-  if (!fetchedService.serviceName) {
-    redirect("/not-found");
-  }
+  const c = await params;
+  const fetchedService = await fetchservice(c.slug);
   const { bodyData } = fetchedService;
 
   return (
     <>
       <PageBanner title={fetchedService.serviceName} />
       <div className="space-y-12 md:space-y-24 pb-20">
-        <MaxWidthWrapper>
-          <div className="flex justify-between gap-10 mt-12">
-            <div className="w-full xl:w-[70%]">
-              <TwoColumnFeatureSection
-                colorScheme={fetchedService.colorScheme}
-                data={
-                  bodyData &&
-                  bodyData.find(
-                    (data: any) =>
-                      data.componentName === "TwoColumnFeatureSection"
-                  )
-                }
-              />
-            </div>
-            <aside className="hidden xl:block w-[30%] ">
-              <div className="space-y-8 sticky top-28">
-                {fetchedService?.childServices?.length !== 0 && (
-                  <NavigationMenu
-                    colorScheme={fetchedService.colorScheme}
-                    serviceName={fetchedService.serviceName}
-                    childServices={fetchedService?.childServices}
-                  />
-                )}
-                <GetInTouchForm colorScheme={fetchedService.colorScheme} />
-              </div>
-            </aside>
-          </div>
-        </MaxWidthWrapper>
+        {bodyData ? (
+          bodyData.map((data: any) => {
+            switch (data.componentName) {
+              
+              case "TwoColumnFeatureSection":
+                return (
+                  <MaxWidthWrapper>
+                    <div className="flex justify-between gap-10 mt-12">
+                      <div className="w-full xl:w-[70%]">
+                        <TwoColumnFeatureSection
+                          colorScheme={fetchedService.colorScheme}
+                          data={data}
+                        />
+                      </div>
+                      <aside className="hidden xl:block w-[30%] ">
+                        <div className="space-y-8 sticky top-28">
+                          {fetchedService?.childServices?.length !== 0 && (
+                            <NavigationMenu
+                              colorScheme={fetchedService.colorScheme}
+                              serviceName={fetchedService.serviceName}
+                              childServices={fetchedService?.childServices}
+                            />
+                          )}
+                          <GetInTouchForm
+                            colorScheme={fetchedService.colorScheme}
+                          />
+                        </div>
+                      </aside>
+                    </div>
+                  </MaxWidthWrapper>
+                );
 
-        {bodyData.map((data: any) => {
-          switch (data.componentName) {
-            case "KeyFeatureCrossLayout":
-              return (
-                <MaxWidthWrapper key={data.componentName}>
-                  <KeyFeatureCrossLayout
-                    colorScheme={fetchedService.colorScheme}
-                    data={data}
-                  />
-                </MaxWidthWrapper>
-              );
-            case "ImagewithDetailedFeatureDescription":
-              return (
-                <MaxWidthWrapper key={data.componentName}>
-                  <ImageWithDetailedFeatureDescription
-                    colorScheme={fetchedService.colorScheme}
-                    data={data.body}
-                  />
-                </MaxWidthWrapper>
-              );
-            // case "OurProcessLayout":
-            //   return (
-            //     <MaxWidthWrapper key={data.componentName}>
-            //       <ProcessSection
-            //         colorScheme={fetchedService.colorScheme}
-            //         data={data.body}
-            //       />
-            //     </MaxWidthWrapper>
-            //   );
-            case "FAQ":
-              return (
-                <MaxWidthWrapper key={data.componentName}>
-                  <FaqSection faqs={data.body.faq ?? []} />
-                </MaxWidthWrapper>
-              );
-            case "CallToAction":
-              return (
-                <MaxWidthWrapper key={data.componentName}>
-                  <CTA
-                    title={data.body.title}
-                    colorScheme={fetchedService.colorScheme}
-                  />
-                </MaxWidthWrapper>
-              );
-            case "KeyFeatureListLayout":
-              return (
-                <MaxWidthWrapper key={data.componentName}>
-                  <KeyFeatureListLayout
-                    colorScheme={fetchedService.colorScheme}
-                    data={data.body}
-                  />
-                </MaxWidthWrapper>
-              );
-            case "ServiceKeyFeaturesLayout":
-              return (
-                <div key={data.componentName}>
-                  <ServiceKeyFeaturesLayout
-                    colorScheme={fetchedService.colorScheme}
-                    data={data.body}
-                  />
-                </div>
-              );
-            case "StickyScrollLayout":
-              return (
-                <div key={data.componentName}>
-                  <StickyScroll
-                    colorScheme={fetchedService.colorScheme}
-                    data={data.body}
-                  />
-                </div>
-              );
-            case "GridLayout":
-              return (
-                <div key={data.componentName}>
-                  <GridSection
-                    colorScheme={fetchedService.colorScheme}
-                    data={data.body}
-                  />
-                </div>
-              );
-            case "ImageWithIconBoxList":
-              return (
-                <div key={data.componentName}>
-                  <ImageWithIconbox
-                    colorScheme={fetchedService.colorScheme}
-                    data={data.body}
-                  />
-                </div>
-              );
-            default:
-              return null;
-          }
-        })}
+              case "KeyFeatureCrossLayout":
+                return (
+                  <MaxWidthWrapper key={data.componentName}>
+                    <KeyFeatureCrossLayout
+                      colorScheme={fetchedService.colorScheme}
+                      data={data}
+                    />
+                  </MaxWidthWrapper>
+                );
+
+              case "ImagewithDetailedFeatureDescription":
+                return (
+                  <MaxWidthWrapper key={data.componentName}>
+                    <ImageWithDetailedFeatureDescription
+                      colorScheme={fetchedService.colorScheme}
+                      data={data.body}
+                    />
+                  </MaxWidthWrapper>
+                );
+
+              case "FAQ":
+                return (
+                  <MaxWidthWrapper key={data.componentName}>
+                    <FaqSection faqs={data.body.faq ?? []} />
+                  </MaxWidthWrapper>
+                );
+
+              case "CallToAction":
+                return (
+                  <MaxWidthWrapper key={data.componentName}>
+                    <CTA
+                      title={data.body.title}
+                      colorScheme={fetchedService.colorScheme}
+                    />
+                  </MaxWidthWrapper>
+                );
+
+              case "KeyFeatureListLayout":
+                return (
+                  <MaxWidthWrapper key={data.componentName}>
+                    <KeyFeatureListLayout
+                      colorScheme={fetchedService.colorScheme}
+                      data={data.body}
+                    />
+                  </MaxWidthWrapper>
+                );
+
+              case "ServiceKeyFeaturesLayout":
+                return (
+                  <div key={data.componentName}>
+                    <ServiceKeyFeaturesLayout
+                      colorScheme={fetchedService.colorScheme}
+                      data={data.body}
+                    />
+                  </div>
+                );
+
+              case "StickyScrollLayout":
+                return (
+                  <div key={data.componentName}>
+                    <StickyScroll
+                      colorScheme={fetchedService.colorScheme}
+                      data={data.body}
+                    />
+                  </div>
+                );
+
+              case "ImageWithIconBoxList":
+                return (
+                  <div key={data.componentName}>
+                    <ImageWithIconbox
+                      colorScheme={fetchedService.colorScheme}
+                      data={data.body}
+                    />
+                  </div>
+                );
+
+              // case "OurProcessLayout":
+              //   return (
+              //     <MaxWidthWrapper key={data.componentName}>
+              //       <ProcessSection
+              //         colorScheme={fetchedService.colorScheme}
+              //         data={data.body}
+              //       />
+              //     </MaxWidthWrapper>
+              //   );
+
+              default:
+                return null;
+            }
+          })
+        ) : (
+          <div className="flex justify-center">
+            <div className="text-center text-2xl">
+              No content found for this service.
+            </div>
+          </div>
+        )}
       </div>
       <script
         type="application/ld+json"
-        data-nscript="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: fetchedService.bodyScript,
         }}
