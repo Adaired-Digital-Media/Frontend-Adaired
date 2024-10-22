@@ -76,10 +76,10 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
         {bodyData ? (
           bodyData.map((data: any) => {
             switch (data.componentName) {
-              
+
               case "TwoColumnFeatureSection":
                 return (
-                  <MaxWidthWrapper>
+                  <MaxWidthWrapper key={data.componentName}>
                     <div className="flex justify-between gap-10 mt-12">
                       <div className="w-full xl:w-[70%]">
                         <TwoColumnFeatureSection
