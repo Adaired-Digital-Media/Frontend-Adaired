@@ -68,6 +68,17 @@
   }
 }
 
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
 p,
 span,
 div,
@@ -120,3 +131,22 @@ h6 {
   transition: fill 0.3s;
 }
 
+.bhw_h2 {
+  font-family: var(--font-poppins);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+.form-select {
+  span {
+    font-size: 1rem;
+    font-family: var(--font-nunito);
+    font-weight: 400;
+  }
+
+  svg {
+    fill: #f39019;
+    color: #F39019;
+  }
+}

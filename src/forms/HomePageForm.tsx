@@ -25,7 +25,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/components/ui/use-toast";
 
-import PhoneInput from "react-phone-input-2";
+import PhoneInput, { CountryData } from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Link from "next/link";
 import { formSubmission } from "@/lib/send-email";
@@ -37,7 +37,7 @@ const HomePageForm = () => {
   const router = useRouter();
   const data = NAV_ITEMS.find((item) => item.value === "services");
   const services = data?.subItems && data?.subItems.map((item) => item.name);
-
+  
   // Import 'executeRecaptcha' using 'useReCaptcha' hook
   const { executeRecaptcha } = useReCaptcha();
 
@@ -175,8 +175,16 @@ const HomePageForm = () => {
                         marginBottom: "1rem",
                       }}
                       enableSearch
-                      onChange={(phone) => {
-                        field.onChange(phone);
+                      onChange={(value, country: CountryData | {}) => {
+                        if ("dialCode" in country) {
+                          const countryWithDialCode = country as CountryData;
+                          const formattedValue = `+${
+                            countryWithDialCode.dialCode
+                          } ${value.slice(countryWithDialCode.dialCode.length)}`;
+                          field.onChange(formattedValue);
+                        } else {
+                          field.onChange(value);
+                        }
                       }}
                     />
                   </FormControl>

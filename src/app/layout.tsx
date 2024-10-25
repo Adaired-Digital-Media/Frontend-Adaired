@@ -6,6 +6,8 @@ import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
+import Footer from "@/common/Footer";
+import Navbar from "@/common/Navbar";
 
 // Define metadata
 export const metadata: Metadata = {
@@ -37,7 +39,8 @@ const schemaData = {
     telephone: "8907400008",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "5th Floor, Bestech Business Tower, B-509, Parkview Residence Colony, Sector 66, Sahibzada Ajit Singh Nagar, Punjab",
+      streetAddress:
+        "5th Floor, Bestech Business Tower, B-509, Parkview Residence Colony, Sector 66, Sahibzada Ajit Singh Nagar, Punjab",
       addressLocality: "Mohali",
       postalCode: "160066",
       addressCountry: "IN",
@@ -92,17 +95,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="IbErkjWfX4xDEzZjtgtMruxBWkCYRs6n19e55PaEtLw" />
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZWYZ5BF47" />
+        <meta
+          name="google-site-verification"
+          content="IbErkjWfX4xDEzZjtgtMruxBWkCYRs6n19e55PaEtLw"
+        />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-5ZWYZ5BF47"
+        />
         <Script id="google-analytics" strategy="afterInteractive">
           {gtagConfig}
         </Script>
-        
+
         {/* JSON-LD for Schema.org */}
-        <Script type="application/ld+json" id="local-schema" strategy="lazyOnload">
+        <Script
+          type="application/ld+json"
+          id="local-schema"
+          strategy="lazyOnload"
+        >
           {JSON.stringify(schemaData.professionalService)}
         </Script>
-        <Script type="application/ld+json" id="organization-schema" strategy="lazyOnload">
+        <Script
+          type="application/ld+json"
+          id="organization-schema"
+          strategy="lazyOnload"
+        >
           {JSON.stringify(schemaData.organization)}
         </Script>
       </head>
@@ -117,7 +134,9 @@ export default function RootLayout({
       >
         <ReCaptchaProvider reCaptchaKey="6Ldc49cpAAAAAPihLfrXDvYhtRKnwZAiKihVICxf">
           <NextTopLoader color="#FB9100" showSpinner={false} />
+          <Navbar />
           <main id="main">{children}</main>
+          <Footer />
           <Toaster />
         </ReCaptchaProvider>
       </body>
