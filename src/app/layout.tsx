@@ -132,7 +132,7 @@ export default function RootLayout({
           poppins.variable
         )}
       >
-        <ReCaptchaProvider reCaptchaKey="6Ldc49cpAAAAAPihLfrXDvYhtRKnwZAiKihVICxf">
+        <ReCaptchaProvider reCaptchaKey="6LdkMHAqAAAAAOlEvKHUbYfKzfpKGr9jNOD0oorN">
           <NextTopLoader color="#FB9100" showSpinner={false} />
           <Navbar />
           <main id="main">{children}</main>
