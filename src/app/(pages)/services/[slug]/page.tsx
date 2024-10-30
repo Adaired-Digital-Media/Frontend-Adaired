@@ -76,7 +76,6 @@ const ServicePage: React.FC<ServiceProps> = async ({ params }) => {
         {bodyData ? (
           bodyData.map((data: any) => {
             switch (data.componentName) {
-
               case "TwoColumnFeatureSection":
                 return (
                   <MaxWidthWrapper key={data.componentName}>

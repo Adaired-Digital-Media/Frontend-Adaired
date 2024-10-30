@@ -53,7 +53,6 @@ export async function POST(request: NextRequest) {
     const recaptchaResponse = await fetch(
       `https://www.google.com/recaptcha/api/siteverify?secret=${config.recaptchaSecretKey}&response=${payload.gRecaptchaToken}`
     ).then((res) => res.json());
-    console.log(recaptchaResponse.score, recaptchaResponse.success);
 
     if (!recaptchaResponse.success || recaptchaResponse.score < 0.5) {
       return NextResponse.json(
@@ -117,7 +116,7 @@ export async function POST(request: NextRequest) {
       .replace(/Form$/, "")
       .replace(/([A-Z])/g, " $1")
       .trim()} Form Submission`,
-    html: template.html, // Include HTML content here
+    html: template.html, 
   };
 
   try {

@@ -101,7 +101,15 @@ const AboutSection = () => {
       <section className="py-6 md:py-12">
         <MaxWidthWrapper className="flex gap-10 flex-col lg:flex-row">
           <div className="flex-1 mx-auto ">
-            <div className="max-w-lg h-full lg:max-w-full ">
+            <div className="max-w-lg h-full lg:max-w-full relative  overflow-hidden">
+              {/* <video
+                autoPlay
+                loop
+                muted
+                className="absolute top-0 left-0 w-full"
+              >
+                <source src="assets/videos/bgVideo.mp4" type="video/mp4" />
+              </video> */}
               <CldImage
                 src="Static Website Images/about_main_anwqk5"
                 alt="About Image"

@@ -51,7 +51,7 @@ const StickyScroll = ({ colorScheme, data }: StickyScrollProps) => {
     <section
       ref={ref}
       className={cn(
-        `h-fit lg:h-[37rem] sticky overflow-y-auto bg-gray-100 hide-scrollbar lg:py-10`
+        `h-fit lg:h-[37rem] sticky overflow-y-auto bg-gray-100 no-visible-scrollbar lg:py-10`
       )}
     >
       <MaxWidthWrapper

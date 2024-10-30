@@ -10,6 +10,7 @@ const NewsLetter = dynamic(() => import("@/forms/NewsLetter"), {
 });
 
 const Footer = () => {
+
   return (
     <footer className="bg-[#1B5A96] text-white">
       <MaxWidthWrapper className="px-4">

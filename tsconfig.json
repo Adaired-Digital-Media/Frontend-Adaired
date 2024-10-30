@@ -22,7 +22,8 @@
       "@/*": ["./src/*"],
       "@public/*": ["public/*"],
       "@core/*": ["./src/@core/*"],
-      "@constant": ["src/constants/*"]
+      "@constant/*": ["src/constants/*"],
+      "@assets/*": ["./public/assets/*"]
     },
     "target": "ES2017"
   },
