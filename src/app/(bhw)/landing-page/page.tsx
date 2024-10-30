@@ -40,7 +40,7 @@ const Landing = () => {
 
 export default Landing;
 
-export const HeroSection = () => {
+ const HeroSection = () => {
   return (
     <section
       className={cn(
@@ -118,7 +118,7 @@ export const HeroSection = () => {
   );
 };
 
-export const StandOutSection = () => {
+ const StandOutSection = () => {
   return (
     <SmallContainer>
       <TwoColumnGrid>
@@ -154,7 +154,7 @@ export const StandOutSection = () => {
   );
 };
 
-export const ProductsSection = () => {
+ const ProductsSection = () => {
   const [isHovered, setIsHovered] = useState(false);
   const tabs = BHWServices.map((service) => ({
     title: service.name,
@@ -245,7 +245,7 @@ export const ProductsSection = () => {
   );
 };
 
-export const ApproachSection = () => {
+ const ApproachSection = () => {
   return (
     <SmallContainer>
       <>
@@ -277,7 +277,7 @@ export const ApproachSection = () => {
   );
 };
 
-export const SurferSEOSection = () => {
+ const SurferSEOSection = () => {
   return (
     <section className={cn("bg-[#FFFBF5] overflow-hidden")}>
       <SmallContainer>
@@ -347,7 +347,7 @@ export const SurferSEOSection = () => {
   );
 };
 
-export const ContactUsSection = () => {
+ const ContactUsSection = () => {
   return (
     <SmallContainer>
       <TwoColumnGrid className={cn(`gap-x-20`)}>
