@@ -73,9 +73,9 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
                 : "group-hover:scale-y-100 group-hover:pointer-events-auto"
             )}
           >
-            <div className="mx-auto p-2 4xl:p-3 5xl:p-4">
+            <div className="mx-auto p-3 4xl:p-4 5xl:p-6">
               <div className="flex rounded-bl-lg rounded-br-lg">
-                <div className="grid grid-cols-3 gap-3 5xl:gap-6 xl:w-9/12">
+                <div className="grid grid-cols-3 gap-2 5xl:gap-6 xl:w-9/12">
                   {navitems.subItems.map((subItem) => (
                     <div
                       className="relative text-base sm:text-sm"
@@ -117,50 +117,37 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
                 <div className="flex-none w-3/12 hidden xl:flex ">
                   {blogs && blogs.length > 0 ? (
                     blogs.map((blog: any) => (
-                      // <Link href={`/blog/${blog.slug}`} key={blog.title}>
-                      //   <div className="relative overflow-hidden h-full rounded-2xl transition duration-200 group bg-white hover:shadow-xl border border-zinc-100">
-                      //     <div className="w-full aspect-w-16 aspect-h-10 bg-gray-100 rounded-tr-lg rounded-tl-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
-                      //       <Image
-                      //         src={`${process.env.NEXT_PUBLIC_IMAGE_URL}blog/${blog.image}`}
-                      //         alt="thumbnail"
-                      //         width={800}
-                      //         height={400}
-                      //         className={`group-hover:scale-95 group-hover:rounded-2xl transform object-cover transition duration-200 `}
-                      //       />
-                      //     </div>
-                      //     <div className=" p-4">
-                      //       <h2 className="font-bold my-4 text-lg text-zinc-700">
-                      //         {blog.title}
-                      //       </h2>
-                      //       <h2 className="font-normal my-4 text-sm text-zinc-500 line-clamp-4">
-                      //         {ClientRemoveTags(blog.description)}
-                      //       </h2>
-                      //       <div className="flex flex-row justify-between items-center mt-10">
-                      //         <span className="text-sm text-gray-500">
-                      //           {formatDate(blog.createdAt)}
-                      //         </span>
-                      //         <div className="relative z-10 px-6 py-2 bg-black text-white font-bold rounded-xl block text-xs">
-                      //           <Link href={`/blog/${blog.slug}`}>
-                      //             Read Blog
-                      //           </Link>
-                      //         </div>
-                      //       </div>
-                      //     </div>
-                      //   </div>
-                      // </Link>
-                      <div
-                        className="flex flex-col space-y-3 relative"
-                        key={blog.title}
-                      >
-                        <Skeleton className="h-[200px] w-[330px] rounded-xl" />
-                        <div className="space-y-2">
-                          <Skeleton className="h-4 w-[330px]" />
-                          <Skeleton className="h-4 w-[330px]" />
-                          <Skeleton className="h-4 w-[330px]" />
-                          <Skeleton className="h-4 w-[330px]" />
-                          <Skeleton className="h-4 w-[330px]" />
+                      <Link href={`/blog/${blog.slug}`} key={blog.title}>
+                        <div className="relative overflow-hidden h-full rounded-2xl transition duration-200 group bg-white hover:shadow-xl border border-zinc-100">
+                          <div className="w-full aspect-w-16 aspect-h-10 bg-gray-100 rounded-tr-lg rounded-tl-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
+                            <Image
+                              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}blog/${blog.image}`}
+                              alt="thumbnail"
+                              width={800}
+                              height={400}
+                              className={`group-hover:scale-95 group-hover:rounded-2xl transform object-cover transition duration-200 `}
+                            />
+                          </div>
+                          <div className=" p-4">
+                            <h2 className="font-bold my-4 text-lg text-zinc-700">
+                              {blog.title}
+                            </h2>
+                            <h2 className="font-normal my-4 text-sm text-zinc-500 line-clamp-4">
+                              {ClientRemoveTags(blog.description)}
+                            </h2>
+                            <div className="flex flex-row justify-between items-center mt-10">
+                              <span className="text-sm text-gray-500">
+                                {formatDate(blog.createdAt)}
+                              </span>
+                              <div className="relative z-10 px-6 py-2 bg-black text-white font-bold rounded-xl block text-xs">
+                                <Link href={`/blog/${blog.slug}`}>
+                                  Read Blog
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      </Link>
                     ))
                   ) : (
                     <div className="flex flex-col space-y-3 relative">
@@ -182,13 +169,16 @@ const NavItem = ({ activeIndex, navitems }: NavItemProps) => {
           <div className="min-w-40 absolute top-full text-sm text-muted-foreground bg-white rounded-bl-lg rounded-br-lg shadow-lg transition-all duration-300 origin-top scale-y-0 pointer-events-none group-hover:scale-y-100 group-hover:pointer-events-auto ">
             <div className="mx-auto px-4 py-4">
               {navitems.childrens.map((children) => (
-                <div key={children.name} className="text-base sm:text-sm">
+                <div key={children.name} className="text-base sm:text-sm group/children">
                   <Link
                     href={children.href}
                     className="block font-medium text-gray-900 py-2"
                     onClick={handleSubmenuClick}
                   >
-                    <span>{children.name}</span>
+                    <span className={cn(`flex items-center group-hover/children:text-[#FB9100]`)}>
+                      {children.name}
+                      <Icons.ArrowRightBroken className="-translate-x-2 text-[#FB9100] opacity-0 transition-all duration-500 group-hover/subMenu:block group-hover/children:translate-x-2 group-hover/children:opacity-100" />
+                    </span>
                   </Link>
                 </div>
               ))}
