@@ -37,7 +37,7 @@ const HomePageForm = () => {
   const router = useRouter();
   const data = NAV_ITEMS.find((item) => item.value === "services");
   const services = data?.subItems && data?.subItems.map((item) => item.name);
-  
+
   // Import 'executeRecaptcha' using 'useReCaptcha' hook
   const { executeRecaptcha } = useReCaptcha();
 
@@ -180,7 +180,9 @@ const HomePageForm = () => {
                           const countryWithDialCode = country as CountryData;
                           const formattedValue = `+${
                             countryWithDialCode.dialCode
-                          } ${value.slice(countryWithDialCode.dialCode.length)}`;
+                          } ${value.slice(
+                            countryWithDialCode.dialCode.length
+                          )}`;
                           field.onChange(formattedValue);
                         } else {
                           field.onChange(value);

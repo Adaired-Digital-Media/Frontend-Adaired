@@ -4,18 +4,21 @@ import { MetadataRoute } from "next";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Services URLs
   const Services = await fetch(
-    `${process.env.NEXT_PUBLIC_OLD_API_URI}/api/v1/services?all=true`
+    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/service/getServices`
   );
-  const { data } = await Services.json();
 
-  const servicePaths: MetadataRoute.Sitemap = data.map(
-    ({ slug, updatedAt }: { slug: string; updatedAt: string }) => ({
+  const data = await Services.json();
+  console.log("Data", data);
+
+  // Filter services by status === 'published'
+  const servicePaths: MetadataRoute.Sitemap = data
+    .filter(({ status }: { status: string }) => status === "publish") 
+    .map(({ slug, updatedAt }: { slug: string; updatedAt: string }) => ({
       url: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/services/${slug}`,
       lastModified: DateComponent(updatedAt),
       changeFrequency: `monthly`,
       priority: 0.5,
-    })
-  );
+    }));
 
   // Case Studies
   const CaseStudies = await fetch(
