@@ -12,9 +12,9 @@ import { formatDate, ServerRemoveTags } from "@/lib/utils";
 import Link from "next/link";
 
 interface Data {
-  image: string;
-  title: string;
-  description: string;
+  featuredImage: string;
+  postTitle: string;
+  postDescription: string;
   slug: string;
   createdAt: string;
   readTime: string;
@@ -30,7 +30,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
         <div className="mb-4">
           <Link href={`/blog/${data.slug}`} className="">
             <Image
-              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}blog/${data.image}`}
+              src={`${data.featuredImage}`}
               alt="Blog Image"
               height={400}
               width={800}
@@ -41,12 +41,12 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
 
         <CardTitle className="line-clamp-2 font-nunito text-2xl ">
           <Link href={`/blog/${data.slug}`} className="">
-            {data.title}
+            {data.postTitle}
           </Link>
         </CardTitle>
       </CardHeader>
       <CardContent className="font-nunito text-lg text-left p-4 pt-0">
-        <div className="line-clamp-3">{ServerRemoveTags(data.description)}</div>
+        <div className="line-clamp-3">{ServerRemoveTags(data.postDescription)}</div>
       </CardContent>
       <div className="p-4">
         <Button

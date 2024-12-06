@@ -5,10 +5,10 @@ import Button from "@/components/Button";
 
 export async function getBlogsData() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_OLD_API_URI}/api/v1/blog/findBlog?limit=3&skip=0`
+    `${process.env.NEXT_PUBLIC_BACKEND_API_URI}/blog/readBlog?limit=3&skip=0`
   );
   const data = await res.json();
-  return data.result;
+  return data;
 }
 
 const BlogCards: React.FC = async () => {
