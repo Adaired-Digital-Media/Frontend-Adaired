@@ -42,6 +42,10 @@ export const NAV_ITEMS = [
             name: "Laravel Development",
             href: "/services/laravel-development",
           },
+          {
+            name: "Web Development Company USA",
+            href: "/services/web-development-company-usa",
+          },
         ],
       },
 
@@ -72,6 +76,10 @@ export const NAV_ITEMS = [
           {
             name: "Local SEO (GBP)",
             href: "/services/local-seo",
+          },
+          {
+            name: "SEO Company USA",
+            href: "/services/seo-company-usa",
           },
         ],
       },
@@ -125,7 +133,7 @@ export const NAV_ITEMS = [
           },
         ],
       },
-      
+
       {
         name: "Paid Media & Advertising (PPC)",
         href: "/services/paid-media-and-advertising",
