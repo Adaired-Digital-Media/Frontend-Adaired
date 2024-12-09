@@ -16,7 +16,7 @@ export const NAV_ITEMS = [
     subItems: [
       {
         name: "Web Design & Development",
-        href: "/services/web-designing-and-development",
+        href: "/services/web-design-and-development-services",
         subItems: [
           {
             name: "WordPress Development",
