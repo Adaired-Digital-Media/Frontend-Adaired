@@ -98,8 +98,8 @@ const BlogWPagination: FC<IProps> = ({ data }) => {
                   <div>
                     <Button
                       title="Read Blog"
-                      className="mt-4 bg-white text-black border-none"
                       svgClassName="bg-[#F89520] "
+                      className="mt-4 bg-white text-black border-none"
                       type="button"
                       navigateTo={`/blog/${blog.slug}`}
                     />
