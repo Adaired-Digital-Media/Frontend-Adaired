@@ -181,7 +181,7 @@ const Footer = () => {
             <ul className="mt-6 space-y-2">
               <li>
                 <Link
-                  href="/services/web-designing-and-development"
+                  href="/services/web-design-and-development-services"
                   className=""
                 >
                   Website Designing & Development

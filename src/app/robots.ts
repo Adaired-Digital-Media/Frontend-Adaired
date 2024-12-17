@@ -9,21 +9,21 @@ const robots = async () => {
         userAgent: "*",
         allow: "/",
         disallow: [
-          "/_next/",    // Disallow Next.js internal resources
-          "/dashboard",  // Disallow the dashboard path
+          "/_next/",
+          "/dashboard",
           "/tag/*",
           "/author/*",
           "/category/*",
           "/?*",
-          "/page/*",
-        ],
+          "/page/*"
+        ]
       },
       {
         userAgent: "ChatGPT-user",
-        disallow: "/",  // Disallow everything for the "ChatGPT-user" user-agent
+        disallow: "/"
       }
     ],
-    sitemap: `${siteUrl}/sitemap.xml`,
+    sitemap: `${siteUrl}/sitemap.xml`
   };
 
   return metaRobots;
