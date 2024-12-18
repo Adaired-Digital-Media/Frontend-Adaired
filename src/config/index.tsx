@@ -135,7 +135,7 @@ export const NAV_ITEMS = [
       },
 
       {
-        name: "Paid Media & Advertising (PPC)",
+        name: "Paid Media & Advertising",
         href: "/services/paid-media-and-advertising",
         subItems: [
           {
@@ -151,7 +151,7 @@ export const NAV_ITEMS = [
             href: "/services/paid-media-and-advertising",
           },
           {
-            name: "PPC Bid Management",
+            name: "CPC Bid Management",
             href: "/services/paid-media-and-advertising",
           },
           {

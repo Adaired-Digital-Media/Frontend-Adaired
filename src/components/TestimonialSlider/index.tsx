@@ -48,7 +48,7 @@ const TestimonialSlider = () => {
       img: "",
       name: "Glenn Russell",
       review:
-        "AdAired Digital Media's PPC service has helped me increase my website's traffic and reach the target audience better. Their team of experts helped me create a customized campaign, which has improved my business's ROI. I'd recommend their PPC services to anyone looking to boost their online presence.",
+        "AdAired Digital Media's CPC service has helped me increase my website's traffic and reach the target audience better. Their team of experts helped me create a customized campaign, which has improved my business's ROI. I'd recommend their CPC services to anyone looking to boost their online presence.",
     },
   ];
 
