@@ -130,7 +130,7 @@ export const serviceDetails: ServiceDetail[] = [
   {
     title: "Paid Media  & Advertising",
     description:
-      "Building strategic ad campaigns and carrying data-driven optimizations to drive targeted traffic with our Pay-Per-Click (PPC) solutions.",
+      "Building strategic ad campaigns and carrying data-driven optimizations to drive targeted traffic with our Cost-Per-Click solutions.",
     link: "/services/paid-media-and-advertising",
     list: [
       "Social Ads",
