@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
   title: "Digital Marketing Agency for Online Growth | Adaired Digital",
   description:
-    "Adaired Digital Media is your all-in-one digital marketing agency. Transform your business into a brand with - SEO, PPC, social media, web design services, etc.",
+    "Adaired Digital Media is your all-in-one digital marketing agency. Transform your business into a brand with - SEO, CPC, social media, web design services, etc.",
   alternates: {
     canonical: "/",
   },

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
   title: "Digital Marketing Agency for Online Growth | Adaired Digital",
   description:
-    "Adaired Digital Media is your all-in-one digital marketing agency. Transform your business into a brand with - SEO, PPC, social media, web design services, etc.",
+    "Adaired Digital Media is your all-in-one digital marketing agency. Transform your business into a brand with - SEO, CPC, social media, web design services, etc.",
   alternates: {
     canonical: "/",
   },
@@ -280,7 +280,7 @@ const Growth = () => {
             ))}
           </ul>
           <p className="py-2 text-base sm:text-lg">
-            Our digital marketing agency provides a wide range of services, from
+            Our <a className="text-blue-500" href="/services/digital-marketing-company-india">digital marketing company in India</a> provides a wide range of services, from
             initial brand development to a globally syndicated advertising
             campaign, all of which are customized to meet the unique needs of
             our clients.
