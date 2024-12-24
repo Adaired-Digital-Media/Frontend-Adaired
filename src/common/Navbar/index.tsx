@@ -7,6 +7,7 @@ import NavItems from "./NavItems";
 import MobileNav from "./MobileNav";
 import { useState, useEffect } from "react";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import CldImage from "@/components/CloudinaryImageComponent";
 
 const Navbar = () => {
   const [isWindowScrollingUp, setIsWindowScrollingUp] = useState(true);
@@ -63,8 +64,8 @@ const Navbar = () => {
                       className="flex items-center w-28 md:w-36 sm:w-10/0 lg:w-10/12 xl:w-full"
                     >
                       <div className="relative w-[170px] h-[60px] md:h-[72px] lg:h-[80px] xl:h-[89px]">
-                        <Image
-                          src="https://res.cloudinary.com/adaired/image/upload/v1718599616/Static%20Website%20Images/adaired_logo.png"
+                        <CldImage
+                          src="Static Website Images/adaired_logo-christmas"
                           alt="Brand Logo"
                           fill
                           sizes="(max-width: 768px) 100px, (max-width: 1024px) 150px, 170px"
