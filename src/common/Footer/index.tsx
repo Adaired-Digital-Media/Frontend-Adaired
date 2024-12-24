@@ -4,6 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Icons } from "@/components/Icons";
 import { Separator } from "@/components/ui/separator";
+import CldImage from "@/components/CloudinaryImageComponent";
 
 const NewsLetter = dynamic(() => import("@/forms/NewsLetter"), {
   loading: () => <p>Loading...</p>,
@@ -75,8 +76,8 @@ const Footer = () => {
         <div className="border-t pt-6 mx-auto grid grid-cols-1 gap-5 md:grid-cols-12">
           <div className="col-span-12 lg:col-span-4">
             <Link href="/">
-              <Image
-                src="https://res.cloudinary.com/adaired/image/upload/f_auto,q_auto/v1/Static%20Website%20Images/footer_logo"
+              <CldImage
+                src="Static Website Images/adaired_logo_footer-christmas"
                 width={200}
                 height={50}
                 alt="Footer Logo"
