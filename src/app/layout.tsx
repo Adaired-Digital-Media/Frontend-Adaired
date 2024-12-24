@@ -8,6 +8,8 @@ import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 import Footer from "@/common/Footer";
 import Navbar from "@/common/Navbar";
+import SnowfallComponent from '../components/Snowfall/index';
+
 
 // Define metadata
 export const metadata: Metadata = {
@@ -138,6 +140,7 @@ export default function RootLayout({
           <main id="main">{children}</main>
           <Footer />
           <Toaster />
+          <SnowfallComponent />
         </ReCaptchaProvider>
       </body>
     </html>
