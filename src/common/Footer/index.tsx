@@ -77,7 +77,7 @@ const Footer = () => {
           <div className="col-span-12 lg:col-span-4">
             <Link href="/">
               <CldImage
-                src="Static Website Images/adaired_logo_footer-christmas"
+                src="Static Website Images/christmasFooter-logo"
                 width={200}
                 height={50}
                 alt="Footer Logo"
