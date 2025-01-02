@@ -140,7 +140,7 @@ export default function RootLayout({
           <main id="main">{children}</main>
           <Footer />
           <Toaster />
-          <SnowfallComponent />
+          {/* <SnowfallComponent /> */}
         </ReCaptchaProvider>
       </body>
     </html>
