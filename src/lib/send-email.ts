@@ -22,10 +22,7 @@ export async function formSubmission(data: Data) {
     });
     const result = await response.json();
     return result;
-  } catch (err) {
-    throw new Error("An error occurred while submitting the form");
+  } catch (err: any) {
+    throw new Error("An error occurred while submitting the form -> ", err);
   }
 }
-
-
-

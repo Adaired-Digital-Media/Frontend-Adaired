@@ -35,7 +35,7 @@ export async function generateMetadata({
   const data = await fetchservice(c.slug);
 
   return {
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URI}`),
     title: data?.metaTitle ? data.metaTitle : data?.serviceName,
     description: data?.metaDescription ? data.metaDescription : "",
     alternates: {

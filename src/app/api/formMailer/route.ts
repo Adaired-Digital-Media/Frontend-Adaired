@@ -1,10 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-import Mail from "nodemailer/lib/mailer";
-import HomepageForm from "../emailTemplates/HomepageForm";
-import GetintouchForm from "../emailTemplates/GetintouchForm";
-import ContactpageForm from "../emailTemplates/ContactpageForm";
-import NewsletterForm from "../emailTemplates/NewsletterForm";
+// import nodemailer from "nodemailer";
+// import Mail from "nodemailer/lib/mailer";
+// import HomepageForm from "../emailTemplates/HomepageForm";
+// import GetintouchForm from "../emailTemplates/GetintouchForm";
+// import ContactpageForm from "../emailTemplates/ContactpageForm";
+// import NewsletterForm from "../emailTemplates/NewsletterForm";
 
 // Load and validate environment variables
 const config = {
@@ -13,38 +13,13 @@ const config = {
   senderPassword: process.env.SENDER_PASSWORD,
   senderName: process.env.SENDER_NAME || '"Adaired Digital" <info@adaired.com>',
   adminEmails: [process.env.SUPER_ADMIN_EMAIL || ""],
-  recaptchaSecretKey: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
+  recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY,
   zohoAccessToken: process.env.ZOHO_ACCESS_TOKEN || "",
   zohoApiUrl: process.env.ZOHO_API_URI || "",
   zohoClientId: process.env.ZOHO_CLIENT_ID || "",
   zohoClientSecret: process.env.ZOHO_CLIENT_SECRET || "",
   zohoRefreshToken: process.env.ZOHO_REFRESH_TOKEN || "",
 };
-
-const transporter = nodemailer.createTransport({
-  host: config.emailHost,
-  port: 465,
-  secure: true,
-  auth: {
-    user: config.senderEmail,
-    pass: config.senderPassword,
-  },
-});
-
-async function sendMail(mailOptions: Mail.Options): Promise<string> {
-  try {
-    await transporter.sendMail(mailOptions);
-    return "Email sent";
-  } catch (err: unknown) {
-    if (typeof err === "string") {
-      throw new Error(err);
-    } else if (err instanceof Error) {
-      throw err;
-    } else {
-      throw new Error("An unknown error occurred");
-    }
-  }
-}
 
 // Check and refresh Zoho access token
 async function checkAndRefreshZohoAccessToken(): Promise<string> {
@@ -61,8 +36,6 @@ async function checkAndRefreshZohoAccessToken(): Promise<string> {
       return config.zohoAccessToken;
     } else {
       // Token is expired, refresh it
-      console.log("Access token expired. Refreshing...");
-
       const refreshResponse = await fetch(
         "https://accounts.zoho.com/oauth/v2/token",
         {
@@ -84,14 +57,14 @@ async function checkAndRefreshZohoAccessToken(): Promise<string> {
       }
 
       const refreshData = await refreshResponse.json();
+      console.log("Refreshed Zoho access token -> ", refreshData);
       const newAccessToken = refreshData.access_token;
       config.zohoAccessToken = newAccessToken;
 
       return newAccessToken;
     }
-  } catch (error) {
-    console.error("Error refreshing Zoho access token:", error);
-    throw new Error("Failed to refresh Zoho access token");
+  } catch (error: any) {
+    throw new Error("Failed to refresh Zoho access token", error);
   }
 }
 
@@ -99,6 +72,7 @@ async function checkAndRefreshZohoAccessToken(): Promise<string> {
 async function sendToZohoCRM(data: any): Promise<void> {
   try {
     const validAccessToken = await checkAndRefreshZohoAccessToken();
+    console.log("Valid access token -> ", validAccessToken);
     const response = await fetch(config.zohoApiUrl, {
       method: "POST",
       headers: {
@@ -108,13 +82,13 @@ async function sendToZohoCRM(data: any): Promise<void> {
       body: JSON.stringify({ data: [data] }),
     });
 
+    // console.log("Zoho CRM response -> ", response);
+
     if (!response.ok) {
       throw new Error(`Zoho CRM Error: ${await response.text()}`);
     }
-    console.log("Data sent to Zoho CRM successfully");
-  } catch (error) {
-    console.error("Zoho CRM error:", error);
-    throw new Error("Failed to send data to Zoho CRM");
+  } catch (error: any) {
+    throw new Error("Failed to send data to Zoho CRM", error);
   }
 }
 
@@ -133,97 +107,119 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-  } catch (error) {
-    console.error("reCAPTCHA verification error:", error);
+  } catch (err) {
     return NextResponse.json(
-      { error: "reCAPTCHA verification error" },
+      { error: "reCAPTCHA verification error", err },
       { status: 500 }
     );
   }
 
-// Send data to Zoho CRM
-const zohoData = {
-  Company: "Adaired Digital",
-  First_Name: payload?.Name
-    ? payload?.Name?.split(" ")[0]
-    : payload?.Email?.split("@")[0], 
-  Last_Name:
-    payload?.Name
+  // Send data to Zoho CRM
+  const zohoData = {
+    Company: "Adaired Digital",
+    First_Name: payload?.Name
+      ? payload?.Name?.split(" ")[0]
+      : payload?.Email?.split("@")[0],
+    Last_Name: payload?.Name
       ? payload?.Name?.split(" ").slice(1).join(" ")
-      : "N/A", 
-  Email: payload.Email,
-  Phone: payload.Phone,
-  Description: payload.Message || "No message provided",
-  Lead_Source: "Website Contact Form",
-};
-
-await sendToZohoCRM(zohoData);
-
-
-  const formTemplates: { [key: string]: { html: string } } = {
-    "Homepage Form": {
-      html: HomepageForm({
-        Name: payload.Name,
-        Email: payload.Email,
-        Phone: payload.Phone,
-        Interest: payload.Interest,
-        Budget: payload.Budget,
-        Message: payload.Message,
-      }),
-    },
-    "Contact page Form": {
-      html: ContactpageForm({
-        Name: payload.Name,
-        Email: payload.Email,
-        Phone: payload.Phone,
-        Message: payload.Message,
-      }),
-    },
-    "Get in Touch Form": {
-      html: GetintouchForm({
-        Name: payload.Name,
-        Email: payload.Email,
-        Message: payload.Message,
-      }),
-    },
-    "Newsletter Form": {
-      html: NewsletterForm({
-        Email: payload.Email,
-      }),
-    },
+      : "N/A",
+    Email: payload?.Email,
+    Phone: payload?.Phone,
+    Description: payload?.Message || "No message provided",
+    Lead_Source: "Website Contact Form",
   };
 
-  const template = formTemplates[payload.formId];
-  if (!template) {
-    return NextResponse.json(
-      { error: "Invalid request type" },
-      { status: 400 }
-    );
-  }
+  await sendToZohoCRM(zohoData);
+
+  // const transporter = nodemailer.createTransport({
+  //   host: config.emailHost,
+  //   port: 465,
+  //   secure: true,
+  //   auth: {
+  //     user: config.senderEmail,
+  //     pass: config.senderPassword,
+  //   },
+  // });
+
+  // async function sendMail(mailOptions: Mail.Options): Promise<string> {
+  //   try {
+  //     await transporter.sendMail(mailOptions);
+  //     return "Email sent";
+  //   } catch (err: unknown) {
+  //     if (typeof err === "string") {
+  //       throw new Error(err);
+  //     } else if (err instanceof Error) {
+  //       throw err;
+  //     } else {
+  //       throw new Error("An unknown error occurred");
+  //     }
+  //   }
+  // }
+
+  // const formTemplates: { [key: string]: { html: string } } = {
+  //   "Homepage Form": {
+  //     html: HomepageForm({
+  //       Name: payload.Name,
+  //       Email: payload.Email,
+  //       Phone: payload.Phone,
+  //       Interest: payload.Interest,
+  //       Budget: payload.Budget,
+  //       Message: payload.Message,
+  //     }),
+  //   },
+  //   "Contact page Form": {
+  //     html: ContactpageForm({
+  //       Name: payload.Name,
+  //       Email: payload.Email,
+  //       Phone: payload.Phone,
+  //       Message: payload.Message,
+  //     }),
+  //   },
+  //   "Get in Touch Form": {
+  //     html: GetintouchForm({
+  //       Name: payload.Name,
+  //       Email: payload.Email,
+  //       Message: payload.Message,
+  //     }),
+  //   },
+  //   "Newsletter Form": {
+  //     html: NewsletterForm({
+  //       Email: payload.Email,
+  //     }),
+  //   },
+  // };
+
+  // const template = formTemplates[payload.formId];
+  // if (!template) {
+  //   return NextResponse.json(
+  //     { error: "Invalid request type" },
+  //     { status: 400 }
+  //   );
+  // }
 
   // Prepare mail options
-  const mailOptions: Mail.Options = {
-    from: config.senderName,
-    to: config.adminEmails,
-    subject: `${payload.formId
-      .replace(/Form$/, "")
-      .replace(/([A-Z])/g, " $1")
-      .trim()} Form Submission`,
-    html: template.html,
-  };
 
-  // Send email to admins
-  try {
-    await sendMail(mailOptions);
-    return NextResponse.json({
-      sendMailSuccess: true,
-      message: "Email sent successfully",
-    });
-  } catch (err) {
-    console.error(err);
-    return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 }
-    );
-  }
+  // const mailOptions: Mail.Options = {
+  //   from: config.senderName,
+  //   to: config.adminEmails,
+  //   subject: `${payload.formId
+  //     .replace(/Form$/, "")
+  //     .replace(/([A-Z])/g, " $1")
+  //     .trim()} Form Submission`,
+  //   html: template.html,
+  // };
+
+  // // Send email to admins
+  // try {
+  //   await sendMail(mailOptions);
+  //   return NextResponse.json({
+  //     sendMailSuccess: true,
+  //     message: "Email sent successfully",
+  //   });
+  // } catch (err) {
+  //   return NextResponse.json(
+  //     { sendMailSuccess: false, error: "Failed to send email", Error: err },
+  //     { status: 500 }
+  //   );
+  // }
 }

@@ -1,19 +1,22 @@
 import "./globals.css";
+import Navbar from "@/common/Navbar";
+import Footer from "@/common/Footer";
 import { cn } from "@/lib/utils";
 import { nunito, dm, baby, poppins } from "@/lib/fonts";
 import Script from "next/script";
-import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
-import Footer from "@/common/Footer";
-import Navbar from "@/common/Navbar";
-import SnowfallComponent from '../components/Snowfall/index';
 
+// reCaptcha Provider
+import { ReCaptchaProvider } from "next-recaptcha-v3";
+
+// snowfall component
+// import SnowfallComponent from "../components/Snowfall/index";
 
 // Define metadata
 export const metadata: Metadata = {
-  metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URI}`),
   title: "Digital Marketing Agency for Online Growth | Adaired Digital",
   description:
     "Adaired Digital Media is your all-in-one digital marketing agency. Transform your business into a brand with - SEO, CPC, social media, web design services, etc.",
@@ -134,13 +137,14 @@ export default function RootLayout({
           poppins.variable
         )}
       >
-        <ReCaptchaProvider reCaptchaKey="6LdkMHAqAAAAAOlEvKHUbYfKzfpKGr9jNOD0oorN">
+        <ReCaptchaProvider
+          reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+        >
           <NextTopLoader color="#FB9100" showSpinner={false} />
           <Navbar />
           <main id="main">{children}</main>
           <Footer />
           <Toaster />
-          {/* <SnowfallComponent /> */}
         </ReCaptchaProvider>
       </body>
     </html>

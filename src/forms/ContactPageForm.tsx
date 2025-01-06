@@ -52,6 +52,7 @@ const ContactPageForm = () => {
 
   const onSubmit = async (values: z.infer<typeof schema>) => {
     const token = await executeRecaptcha("contact_page_form");
+
     if (token) {
       values.gRecaptchaToken = token;
       form.reset();
@@ -59,6 +60,7 @@ const ContactPageForm = () => {
 
       try {
         const response = await formSubmission(values);
+        console.log(response);
         if (!response.sendMailSuccess) {
           router.back();
           toast({
