@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@google-recaptcha/react':
+        specifier: ^1.2.3
+        version: 1.2.3(@types/react@18.3.16)(react@18.3.1)
       '@hookform/resolvers':
         specifier: ^3.9.0
         version: 3.9.1(react-hook-form@7.54.1(react@18.3.1))
@@ -75,7 +78,7 @@ importers:
         specifier: ^6.11.0
         version: 6.16.0(next@14.2.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       next-recaptcha-v3:
-        specifier: ^1.4.1
+        specifier: ^1.5.2
         version: 1.5.2(next@14.2.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       nextjs-toploader:
         specifier: ^3.6.15
@@ -202,6 +205,20 @@ packages:
 
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
+
+  '@google-recaptcha/core@1.0.5':
+    resolution: {integrity: sha512-PDkw/Q4V4qBKS9cOKRxdK6Ern4l4slondjKYqrJRBMMsMNIPfh87EHRT1YqxtzaMgH9HVRxxI7EUS1NB5z6/Cg==}
+    engines: {node: '>=14'}
+
+  '@google-recaptcha/react@1.2.3':
+    resolution: {integrity: sha512-o+iuo2kX3HBcrcelycTz3IOXQ7zC9YkP6EWcQb6fimoFjKDeSx4WDrkP1+9SwnpspO6UJs2VWVKq9HlxNFwG9A==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@types/react': ^18.0.0
+      react: ^17.0.2 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   '@hookform/resolvers@3.9.1':
     resolution: {integrity: sha512-ud2HqmGBM0P0IABqoskKWI6PEf6ZDDBZkFqe2Vnl+mTHCEHzr3ISjjZyCwTjC/qpL25JC9aIDkloQejvMeq0ug==}
@@ -2431,6 +2448,15 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@floating-ui/utils@0.2.8': {}
+
+  '@google-recaptcha/core@1.0.5': {}
+
+  '@google-recaptcha/react@1.2.3(@types/react@18.3.16)(react@18.3.1)':
+    dependencies:
+      '@google-recaptcha/core': 1.0.5
+      react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.16
 
   '@hookform/resolvers@3.9.1(react-hook-form@7.54.1(react@18.3.1))':
     dependencies:

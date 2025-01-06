@@ -28,7 +28,7 @@ const TestimonialSlider = dynamic(
 );
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URI}`),
   title: "Digital Marketing Agency for Online Growth | Adaired Digital",
   description:
     "Adaired Digital Media is your all-in-one digital marketing agency. Transform your business into a brand with - SEO, CPC, social media, web design services, etc.",
@@ -249,7 +249,6 @@ const Growth = () => {
                 alt={img.alt}
                 height={img.height}
                 width={img.width}
-                className={img.className ? img.className : ""}
               />
             </div>
           ))}

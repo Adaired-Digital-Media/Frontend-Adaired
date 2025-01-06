@@ -22,7 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const data = await getBlogs({ params });
   return {
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URI}`),
     title: data.metaTitle
       ? data.metaTitle
       : `Read Our Blog for Helpful Tips and Ideas | Adaired`,

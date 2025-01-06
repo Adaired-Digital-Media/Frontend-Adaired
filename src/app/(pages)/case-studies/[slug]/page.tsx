@@ -35,7 +35,7 @@ export async function generateMetadata({
     slug: params.slug,
   });
   return {
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN_NAME}`),
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URI}`),
     title: data.metaTitle
       ? data.metaTitle
       : `Adaired Case Studies: See How We Help Businesses Thrive`,
