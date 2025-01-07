@@ -65,7 +65,7 @@ const Navbar = () => {
                     >
                       <div className="relative w-[170px] h-[60px] md:h-[72px] lg:h-[80px] xl:h-[89px]">
                         <CldImage
-                          src="Static Website Images/christmasHeader-logo"
+                          src="Static Website Images/adaired_logo"
                           alt="Brand Logo"
                           fill
                           sizes="(max-width: 768px) 100px, (max-width: 1024px) 150px, 170px"
